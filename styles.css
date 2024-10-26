@@ -2,41 +2,27 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1c1c1c;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #a883fd;
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
 header {
-    background: linear-gradient(to right, #00c6ff, #0072ff);
+    border-bottom: solid 1px rgb(218, 209, 209);
     padding: 20px;
-    text-align: center;
 }
 
 h1 {
+    text-align: center;
     font-size: 3rem;
     margin: 0;
 }
 
-nav {
-    margin-top: 15px;
-}
-
-nav a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: 700;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #00c6ff;
-}
-
 .hero {
+    background-color: #777777;
+    color: #ffffff;
     flex: 1;
     display: flex;
     justify-content: center;
@@ -57,7 +43,7 @@ nav a:hover {
 
 .cta-button {
     padding: 15px 25px;
-    background-color: #0072ff;
+    background-color: #550aff;
     border: none;
     color: #ffffff;
     font-size: 1rem;
@@ -68,7 +54,8 @@ nav a:hover {
 }
 
 .cta-button:hover {
-    background-color: #005bb5;
+    background-color: #caf500;
+    color: #333;
 }
 
 footer {
