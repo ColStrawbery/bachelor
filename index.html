@@ -7,16 +7,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="loco.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="node_modules/locomotive-scroll/dist/locomotive-scroll.min.js"></script>
 
 </head>
 
-    <div class="white-bg">
-        <div class="data-scroll-section">
-            <h1 class="data-scroll">NIPPLES ALL DAY LONG</h1>
-
-        </div>
-    </div>
+    <div class="white-bg"></div>
 
     <header>
         <nav class="nav">
@@ -27,17 +21,6 @@
             </ul>
         </nav>
     </header>
-
-    <div data-scroll-container>
-        <div data-scroll-section>
-            <h1 data-scroll>Hey</h1>
-            <p data-scroll>👋</p>
-        </div>
-        <div data-scroll-section>
-            <h2 data-scroll data-scroll-speed="1">What's up?</h2>
-            <p data-scroll data-scroll-speed="2">😬</p>
-        </div>
-    </div>
 
    <footer>
     <div class="footer-content">
@@ -61,13 +44,17 @@
         </div>
 </footer>
 
-<script>
-    // Initialize Locomotive Scroll
-    const scroll = new LocomotiveScroll({
-        el: document.querySelector('[data-scroll-container]'),
-        smooth: true
-    });
-</script>
+    <!-- JavaScript for parallax effect -->
+    <script>
+        // Adjusts the scroll effect for footer
+        window.addEventListener('scroll', function() {
+            const footer = document.querySelector('footer');
+            const scrollPosition = window.scrollY;
+
+            // Modify transform value for a slower scroll effect
+            footer.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust speed with multiplier
+        });
+    </script>
 
 
 
