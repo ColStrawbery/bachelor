@@ -5,28 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luphtikus - Your Cybersecurity Companion</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <!-- This is to install the locomtive js -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+    <!-- This code is to install the locomtive css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+
 </head>
 <body>
+<div class="scroll-container">
+    <div class="white-bg">
 
-    <header>
-        <h1>LUPHTIKUS</h1>
-
-    </header>
-
-    <div class="hero">
-        <div>
-            <h2>Your Personal Cybersecurity Guide</h2>
-            <p>Stay safe in the digital world. Understand the risks and protect yourself with our tailored solutions.</p>
-            <a href="#get-started" class="cta-button">Get Started</a>
-        </div>
     </div>
 
-   <div class="sidekick">
+    <header>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">Home</li>
+                <li class="nav-item">Work</li>
+                <li class="nav-item">Help</li>
+            </ul>
+        </nav>
+    </header>
 
-   </div> 
 
-    <footer>
+   <footer>
+    <div class="footer-content">
+        <div>
+            <h1 class="footer-jeff">Our <br>Story</h1>
+            <p class="footer-goeff">The story behind LUPHTIKUS is of<br>exploration, creativity and curiosity.</p>
+        </div>
         <div class="divider-line"></div>
         <div class="footer-container">
             <div class="footer-column">
@@ -41,8 +51,24 @@
                 <p>Contact</p>
             </div>
         </div>
-        <p>&copy; 2024 Luphtikus. All rights reserved.</p>
-    </footer>
+    </div>
+</footer>
+</div>
+
+    <!-- JavaScript for parallax effect -->
+    <script>
+        // Adjusts the scroll effect for footer
+        window.addEventListener('scroll', function() {
+            const footer = document.querySelector('footer');
+            const scrollPosition = window.scrollY;
+
+            // Modify transform value for a slower scroll effect
+            footer.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust speed with multiplier
+        });
+    </script>
+    
+
+
 
 </body>
 </html>
