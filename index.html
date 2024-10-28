@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUPHTIKUS</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="loco.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
 
-    <div class="white-bg"></div>
+<body>
+    <div class="white-bg">
+        <div class="scrolling-container">
+            <div class="scrolling-text">
+                <!-- このウェブサイトは素晴らしいものになるだろう。 -->
+                .. Bean .. Bean .. Legume
+            </div>
 
-    <header>
+            <div class="scrolling-text">
+                .. Bean .. Bean .. Legume
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
+
+        <div>
+            <img class="logo" src="files/lks-logo.png" alt="Logo">
+        </div>
+
         <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item">Home</li>
@@ -54,6 +70,19 @@
             // Modify transform value for a slower scroll effect
             footer.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust speed with multiplier
         });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition > 50) { // Change 10 to the desired scroll position
+            header.classList.add('hidden');
+        } else {
+            header.classList.remove('hidden');
+        }
+    });
     </script>
 
 

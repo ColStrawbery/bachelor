@@ -26,9 +26,19 @@ body {
 }
 
 header {
+    position: fixed;
+    /* background-color: yellow; */
     top: 0;
     z-index: 1000;
-    position: sticky;
+    /* position: sticky; */
+    transition: opacity 0.5s ease; /* Fade out transition */
+    opacity: 1; /* Fully visible */
+}
+
+header.hidden {
+    opacity: 0; /* Fully transparent */
+    transition: opacity 0.5s ease; /* Fade out transition */
+    user-select: none;
 }
 
 .white-bg {
@@ -37,9 +47,51 @@ header {
     z-index: 1;
     position: relative;
     background-attachment: fixed;
+    overflow: hidden;
 }
 
+.logo {
+    padding-left: 30px;
+    padding-top: 30px;
+    width: 70px;
+    height: auto;
+    /* background-color: pink; */
+    z-index: 3;
+}
+
+/* Container for scrolling text */
+.scrolling-container {
+    display: flex; /* Use flexbox for alignment */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for exact vertical center */
+}
+
+/* Styles for the scrolling text */
+.scrolling-text {
+    font-weight: bold;
+    white-space: nowrap; /* Prevent line breaks */
+    font-size: 10rem; /* Large font size */
+    color: #000; /* Text color */
+    animation: scrollText 15s linear infinite; /* Adjust duration as needed */
+    padding-right: 5rem;
+}
+
+     /* Keyframes for scrolling effect */
+     @keyframes scrollText {
+        0% {
+            transform: translateX(0); /* Start position */
+        }
+        100% {
+            transform: translateX(-100%); /* Move left off screen */
+        }
+    }
+
+
+
+
 .nav {
+    /* background-color: orange; */
     position: fixed;
     right: 2.0vw;
     top: 1.2vw;
