@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "locomotive-scroll": "^5.0.0-beta.21",
-    "parcel": "^2.12.0"
+    "locomotive-scroll": "^4.1.4"
   }
 }
