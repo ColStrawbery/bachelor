@@ -42,18 +42,19 @@ header.hidden {
 }
 
 .white-bg {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(243, 250, 255);
     height: 100vh;
     z-index: 1;
     position: relative;
     background-attachment: fixed;
     overflow: hidden;
+    filter: drop-shadow(rgba(0, 0, 0, 0.486) 2rem 2rem 50px);
 }
 
 .logo {
     padding-left: 30px;
     padding-top: 30px;
-    width: 70px;
+    width: 50px;
     height: auto;
     /* background-color: pink; */
     z-index: 3;
@@ -65,10 +66,12 @@ header.hidden {
     position: absolute;
     top: 50%; /* Center vertically */
     transform: translateY(-50%); /* Adjust for exact vertical center */
+    z-index: 1;
 }
 
 /* Styles for the scrolling text */
 .scrolling-text {
+    user-select: none;
     font-weight: bold;
     white-space: nowrap; /* Prevent line breaks */
     font-size: 10rem; /* Large font size */
@@ -87,7 +90,16 @@ header.hidden {
         }
     }
 
-
+    .carmen {
+        position: absolute;
+        width: auto;
+        height: auto;
+        z-index: 10;
+        padding: auto auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
 
 
 .nav {
@@ -111,6 +123,21 @@ header.hidden {
 .nav-item {
     margin: 0;
     transform-origin: top right;
+    cursor: pointer;
+    position: relative; /* Make it a reference point for ::after */
+    display: inline-block;
+    padding-bottom: 2px;
+    background-image: linear-gradient(#525252 0 0);
+    background-position: 0 100%;
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    transition: background-size 0.2s, background-position 0s 0.3s;
+}
+
+.nav-item:hover {
+    color: #525252;
+    background-position: 100% 100%;
+    background-size: 100% 2px;
 }
 
 
@@ -141,7 +168,7 @@ footer {
 .footer-jeff {
     font-weight: 500;
     /* background-color: red; */
-    color: #e0ccbb;
+    color: #bbcee0;
     font-size: 120pt;
     line-height: 120%;
     margin: 0;
@@ -149,7 +176,7 @@ footer {
 }
 
 .footer-goeff {
-    color: #b99e87;
+    color: #87a2b9;
     /* background-color: yellow; */
     font-size: 25pt;
     line-height: 150%;
@@ -157,17 +184,17 @@ footer {
 
 .divider-line {
     margin: 0 auto;
-    margin-top: 80px;
+    margin-top: 65px;
     width: 100%; /* Full width of the footer-content container */
-    border-bottom: solid 1px rgb(97, 91, 83);
+    border-bottom: solid 1px rgb(51, 49, 75);
 }
 
 .footer-container {
-    color: #685443;
+    color: #435068;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 20px;
-    padding-top: 10px;
+    padding-top: 25px;
     text-align: left;
 }
 
