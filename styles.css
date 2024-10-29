@@ -154,7 +154,7 @@ footer {
     height: 100vh;
     position: relative; /* Stays at the bottom but behind */
     z-index: 0; /* Places footer behind the .white-bg section */
-    margin-top: -50vh;
+    /* margin-top: -50vh; */
 }
 
 .footer-content {

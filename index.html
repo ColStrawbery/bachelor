@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUPHTIKUS - HOME</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="base.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script type="module" src="index.js"></script>
     <link rel="icon" type="image/x-icon" href="/files/icon.png.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
 
 </head>
 
-<body>
-    <div class="white-bg">
+<body data-scroll-container>
+    <div class="white-bg" data-scroll data-scroll-speed="1">
         <div class="scrolling-container">
             <div class="scrolling-text">
                 このウェブサイトは素晴らしいものになるだろう。
@@ -41,7 +41,7 @@
         </nav>
     </header>
 
-   <footer>
+   <footer data-scroll data-scroll-speed="-4">
     <div class="footer-content">
         <div>
             <h1 class="footer-jeff">少し待って <br>ください</h1>
@@ -67,7 +67,7 @@
     <script>
         // Adjusts the scroll effect for footer
         window.addEventListener('scroll', function() {
-            const footer = document.querySelector('footer');
+            const footer = document.querySelector('footere');
             const scrollPosition = window.scrollY;
 
             // Modify transform value for a slower scroll effect
@@ -87,7 +87,16 @@
         }
     });
     </script>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector("[data-scroll-container]"),
+                smooth: true
+            });
+        });
+    </script>
 
 
 </body>
