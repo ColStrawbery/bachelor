@@ -8,12 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/files/icon.png.png">
 
-    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
-
 </head>
 
-<body data-scroll-container>
-    <div class="white-bg" data-scroll data-scroll-speed="1">
+<body>
+
+    <div class="white-bg">
         <div class="scrolling-container">
             <div class="scrolling-text">
                 このウェブサイトは素晴らしいものになるだろう。
@@ -27,7 +26,6 @@
     </div>
 
     <header id="header">
-
         <div>
             <img class="logo" src="files/lks-logo.png" alt="Logo">
         </div>
@@ -41,7 +39,8 @@
         </nav>
     </header>
 
-   <footer data-scroll data-scroll-speed="-4">
+
+   <footer>
     <div class="footer-content">
         <div>
             <h1 class="footer-jeff">少し待って <br>ください</h1>
@@ -63,11 +62,11 @@
         </div>
 </footer>
 
-    <!-- JavaScript for parallax effect -->
+  <!-- JavaScript for parallax effect -->
     <script>
         // Adjusts the scroll effect for footer
         window.addEventListener('scroll', function() {
-            const footer = document.querySelector('footere');
+            const footer = document.querySelector('footer');
             const scrollPosition = window.scrollY;
 
             // Modify transform value for a slower scroll effect
@@ -86,16 +85,6 @@
             header.classList.remove('hidden');
         }
     });
-    </script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const scroll = new LocomotiveScroll({
-                el: document.querySelector("[data-scroll-container]"),
-                smooth: true
-            });
-        });
     </script>
 
 

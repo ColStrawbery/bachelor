@@ -27,19 +27,21 @@ body {
 
 header {
     position: fixed;
+    width: 100vw;
     /* background-color: yellow; */
-    top: 0;
+    /* top: 0; */
     z-index: 1000;
-    /* position: sticky; */
     transition: opacity 0.5s ease; /* Fade out transition */
     opacity: 1; /* Fully visible */
 }
 
 header.hidden {
+    /* background-color: red; */
     opacity: 0; /* Fully transparent */
     transition: opacity 0.5s ease; /* Fade out transition */
     user-select: none;
 }
+
 
 .white-bg {
     background-color: rgb(243, 250, 255);
@@ -49,6 +51,8 @@ header.hidden {
     background-attachment: fixed;
     overflow: hidden;
     filter: drop-shadow(rgba(0, 0, 0, 0.486) 2rem 2rem 50px);
+    padding: 0;
+    margin: 0;
 }
 
 .logo {
@@ -57,7 +61,6 @@ header.hidden {
     width: 50px;
     height: auto;
     /* background-color: pink; */
-    z-index: 3;
 }
 
 /* Container for scrolling text */
@@ -154,7 +157,7 @@ footer {
     height: 100vh;
     position: relative; /* Stays at the bottom but behind */
     z-index: 0; /* Places footer behind the .white-bg section */
-    /* margin-top: -50vh; */
+    margin-top: -50vh;
 }
 
 .footer-content {

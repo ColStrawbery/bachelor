@@ -3,57 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-        }
+    <title>LUPHTIKUS - HOME</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/files/icon.png.png">
 
-        .container {
-            max-width: 600px;
-            padding: 20px;
-        }
+    <link href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" rel="stylesheet">
 
-        h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-
-        p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        .back-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1rem;
-            color: white;
-            background-color: #333;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s;
-        }
-
-        .back-btn:hover {
-            background-color: #555;
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>404</h1>
-        <p>Oops! The page you’re looking for doesn’t exist.</p>
-        <a href="/" class="back-btn">Return Home</a>
+
+<body data-scroll-container>
+    <div class="white-bg" data-scroll data-scroll-speed="1">
+        <div class="scrolling-container">
+            <div class="scrolling-text">
+                ERROR ! ERROR ! ERROR !
+            </div>
+
+            <div class="scrolling-text">
+                ERROR ! ERROR ! ERROR !
+            </div>
+        </div>
+        <img class="carmen" src="files/test.jpg">
     </div>
+
+    <header id="header">
+
+        <div>
+            <img class="logo" src="files/lks-logo.png" alt="Logo">
+        </div>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">Home</li>
+                <li class="nav-item">Work</li>
+                <li class="nav-item">Help</li>
+            </ul>
+        </nav>
+    </header>
+
+   <footer data-scroll data-scroll-speed="-4">
+    <div class="footer-content">
+        <div>
+            <h1 class="footer-jeff">404 エラー<br>見つかりません</h1>
+            <p class="footer-goeff">This page has gone away or never was here.<br>Please return kindly to the home place!</p>        
+        </div>
+        <div class="divider-line"></div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <p>Bachelor BKD</p>
+                <p>Lukas Schwarz</p>
+                <p>Rheingutstr. 32</p>
+                <p>78462 Konstanz</p>
+            </div>
+            <div class="footer-column">
+                <p>Work</p>
+                <p>News</p>
+                <p>Contact</p>
+            </div>
+        </div>
+</footer>
+
+    <!-- JavaScript for parallax effect -->
+    <script>
+        // Adjusts the scroll effect for footer
+        window.addEventListener('scroll', function() {
+            const footer = document.querySelector('footere');
+            const scrollPosition = window.scrollY;
+
+            // Modify transform value for a slower scroll effect
+            footer.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust speed with multiplier
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        const scrollPosition = window.scrollY;
+
+        if (scrollPosition > 50) { // Change 10 to the desired scroll position
+            header.classList.add('hidden');
+        } else {
+            header.classList.remove('hidden');
+        }
+    });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const scroll = new LocomotiveScroll({
+                el: document.querySelector("[data-scroll-container]"),
+                smooth: true
+            });
+        });
+    </script>
+
+
 </body>
 </html>
