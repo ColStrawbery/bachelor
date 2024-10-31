@@ -1,6 +1,5 @@
 {
-    "HTML": "A widely used markup language for creating web pages.",
-    "CSS": "Used to style HTML documents, adding design and layout.",
-    "JavaScript": "A programming language that enables interactive web features."
-  }
-  
+  "HTML": "A widely used <b>markup language</b> for creating <i>web pages</i>.",
+  "CSS": "Used to <b>style</b> HTML documents, adding <i>design and layout</i>.",
+  "JavaScript": "A programming language that enables <b>interactive</b> web features."
+}
