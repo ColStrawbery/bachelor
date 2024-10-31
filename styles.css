@@ -209,6 +209,14 @@ footer {
 }
 
 
+.text-test.dimmed {
+    opacity: 0.5; /* Lower opacity for the surrounding text */
+    transition: opacity 0.3s ease; /* Smooth transition */
+  }
+
+  
+
+
 .hover-term {
     position: relative;
     cursor: pointer;

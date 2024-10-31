@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("Terms loaded:", terms);
 
       const tooltip = document.getElementById("tooltip");
+      const textContainer = document.querySelector(".text-test");
 
       document.querySelectorAll(".hover-term").forEach(term => {
         term.addEventListener("mouseenter", (event) => {
@@ -16,8 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
           const definition = terms[termName];
 
           if (definition) {
-            tooltip.innerHTML = definition;  // Use innerHTML to render tags as HTML
+            tooltip.innerHTML = definition;
 
+            // Position the tooltip
             const rect = event.target.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
 
@@ -29,12 +31,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             tooltip.style.left = `${window.scrollX + rect.left + (rect.width - tooltip.offsetWidth) / 2}px`;
 
+            // Show tooltip and dim surrounding text
             tooltip.classList.add("visible");
+            textContainer.classList.add("dimmed");
           }
         });
 
         term.addEventListener("mouseleave", () => {
+          // Hide tooltip and restore surrounding text opacity
           tooltip.classList.remove("visible");
+          textContainer.classList.remove("dimmed");
         });
       });
     })
