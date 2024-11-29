@@ -10,7 +10,12 @@ html::-webkit-scrollbar {
     scrollbar-width: none;  /* Firefox */
   }
 
-
+  
+  :root {
+    --red: #d0342c;
+    --white: #f1ebeb;
+    --cookiecolor: white; /* Default background color */
+  }
 
 
 body {
@@ -19,7 +24,7 @@ body {
     background-color: #000000;
     display: flex;
     flex-direction: column;
-    height: auto;
+    height: 100%;
     
 }
 
@@ -42,7 +47,7 @@ header.hidden {
 
 
 .white-bg {
-    background-color: rgb(243, 250, 255);
+    background-color: var(--white);
     height: 100vh;
     z-index: 1;
     position: relative;
@@ -104,7 +109,6 @@ header.hidden {
 
 
 .nav {
-    /* background-color: orange; */
     position: fixed;
     right: 2.0vw;
     top: 1.2vw;
@@ -125,7 +129,7 @@ header.hidden {
     margin: 0;
     transform-origin: top right;
     cursor: pointer;
-    position: relative; /* Make it a reference point for ::after */
+    position: relative;
     display: inline-block;
     padding-bottom: 2px;
     background-image: linear-gradient(#525252 0 0);
@@ -135,11 +139,57 @@ header.hidden {
     transition: background-size 0.2s, background-position 0s 0.3s;
 }
 
+.nav-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .nav-item:hover {
     color: #525252;
-    background-position: 100% 100%;
-    background-size: 100% 2px;
+    background-position: 0 100%;
+    background-size: 100% 2px; /* Hover underline size */
 }
+
+/* Active page underline, visible */
+.nav-item.active {
+    color: #525252;
+    background-position: 0 100%;
+    background-size: 100% 2px; /* Active underline size */
+}
+
+
+/* Ensure the active link is styled correctly */
+.nav-item.active a {
+    color: #525252;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+.button-container {
+display: flex;
+gap: 20px;
+padding: 20px;
+transition: background-color 0.3s ease;
+background-color: var(--cookiecolor);
+}
+
+.cookie-btn {
+color: white;
+padding: 15px 32px;
+border: none;
+border-radius: 8px;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+background-color: var(--cookiecolor);
+}
+
+
 
 
 
@@ -148,55 +198,55 @@ header.hidden {
 
 
 footer {
-    /* border-top: solid 1px #d8dfee; */
-    background-color: rgb(0, 0, 0);
-    color: #333230;
-    text-align: left;
-    height: 100vh;
-    position: relative; /* Stays at the bottom but behind */
-    z-index: 0; /* Places footer behind the .white-bg section */
-    margin-top: -50vh;
+  /* border-top: solid 1px #d8dfee; */
+  background-color: rgb(0, 0, 0);
+  color: #333230;
+  text-align: left;
+  height: 100vh;
+  position: relative; /* Stays at the bottom but behind */
+  z-index: 0; /* Places footer behind the .white-bg section */
+  margin-top: -50vh;
 }
 
 .footer-content {
-    /* background-color: pink; */
-    max-width: 90%; /* Set a max width for alignment */
-    width: 80%;
-    margin: 0 auto; /* Center the content */
-    margin-top: -40px;
+  /* background-color: pink; */
+  max-width: 90%; /* Set a max width for alignment */
+  width: 80%;
+  margin: 0 auto; /* Center the content */
+  margin-top: -40px;
 }
-    
+  
 .footer-jeff {
-    font-weight: 500;
-    /* background-color: red; */
-    color: #bbcee0;
-    font-size: 120pt;
-    line-height: 120%;
-    margin: 0;
-    margin-top: 130px;
+  font-weight: 500;
+  /* background-color: red; */
+  color: #bbcee0;
+  font-size: 120pt;
+  line-height: 120%;
+  margin: 0;
+  margin-top: 130px;
 }
 
 .footer-goeff {
-    color: #87a2b9;
-    /* background-color: yellow; */
-    font-size: 25pt;
-    line-height: 150%;
+  color: #87a2b9;
+  /* background-color: yellow; */
+  font-size: 25pt;
+  line-height: 150%;
 }
 
 .divider-line {
-    margin: 0 auto;
-    margin-top: 65px;
-    width: 100%; /* Full width of the footer-content container */
-    border-bottom: solid 1px rgb(51, 49, 75);
+  margin: 0 auto;
+  margin-top: 65px;
+  width: 100%; /* Full width of the footer-content container */
+  border-bottom: solid 1px rgb(51, 49, 75);
 }
 
 .footer-container {
-    color: #435068;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    padding-top: 25px;
-    text-align: left;
+  color: #435068;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  padding-top: 25px;
+  text-align: left;
 }
 
 
@@ -247,4 +297,58 @@ footer {
     display: block;
     opacity: 1;
     transform: translateY(0); /* Move to final position */
+  }
+
+
+
+
+  .cta-div {
+    padding: 50px 500px;
+    position: relative;
+  }
+
+  .cta-header {
+    font-size: 80pt;
+    line-height: 85%;
+    margin-bottom: 30px;
+    color: var(--cookiecolor);
+  }
+
+  .cta-text {
+    margin-top: 0;
+    font-size: 18pt;
+    padding: 0;
+  }
+
+  .cta-button {
+    font-weight: 600;
+    padding: 12px;
+    margin-left: 340px;
+    margin-top: 50px;
+    color: white;
+    background-color: var(--red);
+    border-width: 2px;
+    border-style: solid;
+    transition: background-color 0.4s ease, filter 0.2s ease, transform 0.2s ease;
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.15));
+    border-color: #9e0c04;
+    transform: scale(1);
+    display: inline-block;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+
+
+  .cta-button:hover {
+    cursor: pointer;
+    background-color: rgb(229, 56, 21);
+    filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.2));
+    transition: background-color 0.4s ease, filter 0.2s ease, transform 0.2s ease;
+    transform: scale(1.04);
+  }
+
+  .cta-button:active {
+    color: var(--red);
+    border-color: var(--white);
+    color: black;
   }
