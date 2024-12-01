@@ -1,5 +1,4 @@
-// script.js
-
+// tooltip
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded");
 
@@ -45,4 +44,37 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch(error => console.error("Error loading terms:", error));
+});
+
+// current page underliner
+document.addEventListener("DOMContentLoaded", function() {
+    const navItems = document.querySelectorAll('.nav-item');
+    const currentPage = window.location.pathname.split('/').pop().replace('.html', ''); // Normalize path
+
+    console.log("Current Page:", currentPage);  // Check for debugging
+
+    navItems.forEach(item => {
+        const link = item.querySelector('a');
+        const linkHref = link.getAttribute('href').replace('.html', '');  // Normalize link path
+
+        if (linkHref === currentPage) {
+            item.classList.add('active');
+            console.log("Active page added for:", link.getAttribute('href'));
+        }
+    });
+});
+
+// nav on scroll hider
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.getElementById('header');
+  
+  window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollY;
+
+      if (scrollPosition > 50) {
+          header.classList.add('hidden');
+      } else {
+          header.classList.remove('hidden');
+      }
+  });
 });

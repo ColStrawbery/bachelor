@@ -6,38 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUPHTIKUS - HOME</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/files/icon.png.png">
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const navItems = document.querySelectorAll('.nav-item');
-            const currentPage = window.location.pathname.split('/').pop().replace('.html', ''); // Normalize path
 
-            console.log("Current Page:", currentPage);  // Check for debugging
-
-            navItems.forEach(item => {
-                const link = item.querySelector('a');
-                const linkHref = link.getAttribute('href').replace('.html', '');  // Normalize link path
-
-                if (linkHref === currentPage) {
-                    item.classList.add('active');
-                    console.log("Active page added for:", link.getAttribute('href'));
-                }
-            });
-        });
-    </script>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q10XJDYMHM"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-Q10XJDYMHM');
-</script>
 
 
 <body>
@@ -81,30 +55,6 @@
 
 </footer>
 
-  <!-- JavaScript for parallax effect -->
-    <script>
-        // Adjusts the scroll effect for footer
-        window.addEventListener('scroll', function() {
-            const footer = document.querySelector('footer');
-            const scrollPosition = window.scrollY;
-
-            // Modify transform value for a slower scroll effect
-            footer.style.transform = `translateY(${scrollPosition * 0.5}px)`; // Adjust speed with multiplier
-        });
-    </script>
-
-    <script>
-        window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        const scrollPosition = window.scrollY;
-
-        if (scrollPosition > 50) { // Change 10 to the desired scroll position
-            header.classList.add('hidden');
-        } else {
-            header.classList.remove('hidden');
-        }
-    });
-    </script>
 
 <script src="script.js"></script>
 
