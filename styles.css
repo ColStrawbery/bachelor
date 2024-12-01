@@ -21,10 +21,10 @@ html::-webkit-scrollbar {
 body {
     margin: 0;
     padding: 0;
-    background-color: #000000;
+    background-color: rgb(221, 103, 122);
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     
 }
 
@@ -48,12 +48,11 @@ header.hidden {
 
 .white-bg {
     background-color: var(--white);
-    height: 100vh;
+    height: 200vh;
     z-index: 1;
     position: relative;
     background-attachment: fixed;
     overflow: hidden;
-    filter: drop-shadow(rgba(0, 0, 0, 0.486) 2rem 2rem 50px);
     padding: 0;
     margin: 0;
 }
@@ -190,64 +189,6 @@ background-color: var(--cookiecolor);
 }
 
 
-
-
-
-
-
-
-
-footer {
-  /* border-top: solid 1px #d8dfee; */
-  background-color: rgb(0, 0, 0);
-  color: #333230;
-  text-align: left;
-  height: 100vh;
-  position: relative; /* Stays at the bottom but behind */
-  z-index: 0; /* Places footer behind the .white-bg section */
-  margin-top: -50vh;
-}
-
-.footer-content {
-  /* background-color: pink; */
-  max-width: 90%; /* Set a max width for alignment */
-  width: 80%;
-  margin: 0 auto; /* Center the content */
-  margin-top: -40px;
-}
-  
-.footer-jeff {
-  font-weight: 500;
-  /* background-color: red; */
-  color: #bbcee0;
-  font-size: 120pt;
-  line-height: 120%;
-  margin: 0;
-  margin-top: 130px;
-}
-
-.footer-goeff {
-  color: #87a2b9;
-  /* background-color: yellow; */
-  font-size: 25pt;
-  line-height: 150%;
-}
-
-.divider-line {
-  margin: 0 auto;
-  margin-top: 65px;
-  width: 100%; /* Full width of the footer-content container */
-  border-bottom: solid 1px rgb(51, 49, 75);
-}
-
-.footer-container {
-  color: #435068;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 20px;
-  padding-top: 25px;
-  text-align: left;
-}
 
 
 .text-test {
