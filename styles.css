@@ -162,16 +162,13 @@ background-color: var(--cookiecolor);
 }
 
 
-
-
-
   
 
 
 .hover-term {
     position: relative;
     cursor: pointer;
-    color: rgb(0, 140, 255);
+    color: rgb(0, 140, 254);
     text-decoration: underline;
     z-index: 1000000;
 
