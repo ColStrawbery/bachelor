@@ -176,6 +176,11 @@ background-color: var(--cookiecolor);
 }
 
 
+.section-h1 {
+  font-weight: 900;
+  font-size: 25pt;
+  padding-top: 100px;
+}
 
 .landing-block {
   display: flex; /* Make the container a flexbox */
@@ -186,24 +191,38 @@ background-color: var(--cookiecolor);
   width: 100%;
   margin: 0 auto;
   padding: 20px; /* Add padding inside the container */
+  transition: background-color ease .6s;
+  transition: border-color ease .6s;
+}
+
+.landing-block:hover {
+  background-color: rgb(250, 247, 247);
+  transition: background-color ease .6s;
+  transition: border-color ease .6s;
+  cursor: pointer;
+  border-color: var(--red);
 }
 
 .vector-logo {
+  -webkit-user-drag: none;
   width: 100px;
-  padding: auto 0;  /* This will apply auto padding to the top and bottom */
+  padding-top: 60px;
+  padding-left: 40px;
+  padding-right: 15px;
 }
 
 .text-content {
   display: flex;
   flex-direction: column; /* Stack the text vertically */
   justify-content: flex-start;
-  padding-left: 20px; /* Optional, additional spacing */
+  padding: 30px;
 }
 
 .text-content h2 {
   margin: 0; /* Remove default margins to control spacing */
   padding: 0 0 10px; /* Add space below the heading */
   color: black;
+  font-weight: 800;
 }
 
 .text-content p {
