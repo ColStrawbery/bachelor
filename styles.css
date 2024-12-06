@@ -449,6 +449,12 @@ background-color: var(--cookiecolor);
 
 .footer-div p {
   margin-top: 30px;
-  color: rgb(20, 15, 15);
+  color: rgb(86, 80, 80);
   font-size: 10pt;
+}
+
+
+.space {
+  height: 200px;
+  width: 100%;
 }

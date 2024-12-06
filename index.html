@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LUPHTIKUS - HOME</title>
     <link rel="stylesheet" href="styles.css">
@@ -22,8 +23,6 @@
                 <h1 class="cta-header">WIE <span class="cta-highlight">SICHER</span><br>BIN ICH<br>ONLINE?</h1>
                 <p class="cta-text">Machen Sie den Selbsttest:</p>
                 <a class="cta-button" href="QUIZ.html">RISIKO CHECK</a>
-
-                <script src="cookie_script.js" type="text/javascript"></script>
             </div>
 
             <section class="explainer-section">
@@ -75,7 +74,6 @@
                 </li>
             </ul>
         </nav>
-        <script src="script.js"></script>
     </header>
 
     <footer class="footer">
@@ -96,6 +94,6 @@
 
 
 
-
+    <script src="script.js" type="text/javascript"></script>
 </body>
 </html>

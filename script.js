@@ -75,8 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (scrollPosition > 50) {
           header.classList.add('hidden');
+          console.log("HIDDEN");
       } else {
           header.classList.remove('hidden');
+          console.log("SHOWING");
       }
   });
 });
