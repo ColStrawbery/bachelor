@@ -437,6 +437,7 @@ background-color: var(--cookiecolor);
   color: var(--border);
   font-size: 10pt;
   cursor: pointer;
+  position: relative; /* Add this to position the pseudo-element */
 }
 
 .footer li:hover {
@@ -444,6 +445,25 @@ background-color: var(--cookiecolor);
   border-bottom: 1px solid var(--red);
   cursor: pointer;
   color: var(--red);
+}
+
+.footer li::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  margin: 0 auto;
+  width: 11px;
+  height: 11px;
+  background-image: url('files/arrow.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.footer li:hover::after {
+  opacity: 1;
 }
 
 
