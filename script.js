@@ -187,3 +187,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Wenden der Farbe basierend auf dem Score an
         setColorBasedOnScore(totalPoints);
     });
+
+    //-------------------------------
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Adds a smooth scrolling effect
+        });
+    }

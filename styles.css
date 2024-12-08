@@ -13,7 +13,7 @@ html::-webkit-scrollbar {
 
 ::selection {
   color: var(--red);
-  background: rgba(84, 26, 26, 0.126);
+  background: rgb(255, 10, 194);
 }
 
   @font-face {
@@ -29,6 +29,7 @@ html::-webkit-scrollbar {
     font-family: "Noto Sans", sans-serif;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    scroll-behavior: smooth;
   }
 
 
@@ -45,7 +46,6 @@ body {
 .white-bg {
   background-color: var(--white);
   height: 300vh;
-  z-index: 1;
   position: relative;
   background-attachment: fixed;
   overflow: hidden;
@@ -93,11 +93,50 @@ header.hidden {
 }
 
 .germany-logo {
-  width: 5px;
-  padding-left: 15px;
-  padding-top: 3px;
+  width: 55px;
+  padding-left: 30px;
+  padding-top: 10px;
 }
 
+
+
+.resetter {
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  width: 35px;
+  height: 35px;
+  position: fixed;
+  right: 70px;
+  bottom: 60px;
+
+  /* Flexbox for centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  filter: drop-shadow(1px 3px 3px rgba(0, 0, 0, 0.116));
+}
+
+.resetter a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* Remove underline from the link */
+}
+
+.resetter img { /* SVG arrow */
+  width: 50%;
+  height: 50%;
+  transform: rotate(270deg); /* Rotate the image */
+  transform-origin: center; /* Set rotation origin */
+}
+
+.resetter:hover{ /* SVG arrow */
+  background-color: white;
+  cursor: pointer;
+}
 
 
 
@@ -110,7 +149,8 @@ header.hidden {
 
 .nav-list {
     gap: 50px;
-    font-size: 14pt;
+    font-size: 1rem;
+    font-weight: 500;
     color: black;
     list-style: none;
     margin-top: 30px;
@@ -128,7 +168,7 @@ header.hidden {
     padding-bottom: 2px;
     background-image: linear-gradient(#525252 0 0);
     background-position: 0 100%;
-    background-size: 0% 2px;
+    background-size: 0% 1px;
     background-repeat: no-repeat;
     transition: background-size 0.2s, background-position 0s 0.3s;
 }
@@ -141,14 +181,14 @@ header.hidden {
 .nav-item:hover {
     color: #525252;
     background-position: 0 100%;
-    background-size: 100% 2px; /* Hover underline size */
+    background-size: 100% 1px; /* Hover underline size */
 }
 
 /* Active page underline, visible */
 .nav-item.active {
     color: #525252;
     background-position: 0 100%;
-    background-size: 100% 2px; /* Active underline size */
+    background-size: 100% 1px; /* Active underline size */
 }
 
 /* Ensure the active link is styled correctly */
@@ -368,6 +408,7 @@ background-color: var(--cookiecolor);
     opacity: 0; /* Start fully transparent */
     margin-top: 0;
     font-size: 18pt;
+    font-weight: 400;
     padding: 0;
     padding-left: 10px;
   }
@@ -414,24 +455,45 @@ background-color: var(--cookiecolor);
   width: 100%;
   height: 400px;
   background-color: rgb(36, 34, 34);
+  display: flex; /* Enables horizontal alignment */
+  gap: 10px; /* Adds space between boxes */
+  padding-top: 50px;
 }
 
-.footer-div {
-  margin-left: 150px;
-  
+
+
+.footer-div:first-of-type {
+  margin-left: 120px;
+
+}
+
+.footer-div:not(:first-of-type) {
+  margin-left: 50px;
+
+}
+
+.footer-div h1 {
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  color: rgb(244, 243, 243);
+  font-size: 1.2rem;
+  font-weight: 400;
+  user-select: none;
 }
 
 .footer ul {
   margin: 0;
   padding: 0;
-  margin-top: 120px;
+  margin-top: 30px;
+
 }
 
 .footer li {
   list-style: none;
   padding-bottom: 10px;
   border-bottom: 1px solid rgb(20, 15, 15);
-  transition: border-bottom 0.3s ease, color 0.3s ease;
+  transition: border-bottom 0.2s ease, color 0.2s ease;
   width: 280px;
   margin-bottom: 10px;
   color: var(--border);
@@ -459,7 +521,7 @@ background-color: var(--cookiecolor);
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.2s ease;
 }
 
 .footer li:hover::after {
@@ -468,10 +530,15 @@ background-color: var(--cookiecolor);
 
 
 .footer-div p {
+  margin: 0;
+  padding: 0;
   margin-top: 30px;
   color: rgb(86, 80, 80);
   font-size: 10pt;
+  font-weight: 300;
 }
+
+
 
 
 .space {
