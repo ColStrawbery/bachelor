@@ -68,20 +68,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Hide NAV on scroll below 50
 document.addEventListener('DOMContentLoaded', function() {
-  const header = document.getElementById('header');
-  
-  window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    
+    function handleScroll() {
       const scrollPosition = window.scrollY;
-
-      if (scrollPosition > 50) {
+  
+      // Disable hiding on mobile (screen width <= 768px)
+      if (window.innerWidth > 768) {
+        if (scrollPosition > 50) {
           header.classList.add('hidden');
           console.log("HIDDEN");
-      } else {
+        } else {
           header.classList.remove('hidden');
           console.log("SHOWING");
+        }
+      } else {
+        // Ensure the header is always visible on mobile
+        header.classList.remove('hidden');
       }
-  });
+    }
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    // Optional: Re-check on window resize to handle dynamic screen size changes
+    window.addEventListener('resize', handleScroll);
 });
+  
 
 // reveal resetter
 document.addEventListener('DOMContentLoaded', function() {
