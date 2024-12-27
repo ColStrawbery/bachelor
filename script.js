@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// nav on scroll hider
+// Hide NAV on scroll below 50
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.getElementById('header');
   
@@ -83,7 +83,30 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// reveal resetter
+document.addEventListener('DOMContentLoaded', function() {
+    const resetter = document.getElementById('resetter');
+    
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+  
+        if (scrollPosition > 780) {
+            resetter.classList.add('shown');
+        } else {
+            resetter.classList.remove('shown');
+        }
+    });
+  });
 
+
+//-------------------------------
+function scrollToTop() {
+window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // Adds a smooth scrolling effect
+    
+});
+}
 
 //-------------------------------------------------
 
@@ -188,10 +211,3 @@ document.addEventListener('DOMContentLoaded', function() {
         setColorBasedOnScore(totalPoints);
     });
 
-    //-------------------------------
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // Adds a smooth scrolling effect
-        });
-    }

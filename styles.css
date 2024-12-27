@@ -9,11 +9,11 @@ html::-webkit-scrollbar {
   --border: #d7c8c7;
   --white: #f6f6f6;
   --cookiecolor: grey; /* Default background color */
+  --svg_text: #600606;
 }
 
 ::selection {
-  color: var(--red);
-  background: rgb(255, 10, 194);
+  background: rgb(240, 131, 131);
 }
 
   @font-face {
@@ -32,6 +32,9 @@ html::-webkit-scrollbar {
     scroll-behavior: smooth;
   }
 
+html body {
+  overflow-x: hidden;
+}
 
 body {
     margin: 0;
@@ -46,25 +49,22 @@ body {
 .white-bg {
   background-color: var(--white);
   height: 300vh;
+  width: 100%;
   position: relative;
-  background-attachment: fixed;
   overflow: hidden;
   padding: 0;
   margin: 0;
 }
 
 
-
-
 header {
   display: flex;             /* Make the header a flex container */
   align-items: center;       /* Vertically center content */
   justify-content: space-between; /* Space title and nav evenly */
-
+  background-color: var(--white);
   height: 80px;
   position: fixed;
   width: 100vw;
-  /* top: 0; */
   z-index: 1000;
   transition: opacity 0.5s ease; /* Fade out transition */
   opacity: 1; /* Fully visible */
@@ -105,16 +105,32 @@ header.hidden {
   border: 1px solid var(--border);
   width: 35px;
   height: 35px;
-  position: fixed;
-  right: 70px;
-  bottom: 60px;
+  position: sticky;
+  bottom: 40px;
+  right: 40px;
+  margin-left: calc(100% - 75px); /* 40px right margin + width */
 
   /* Flexbox for centering */
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 100%;
-  filter: drop-shadow(1px 3px 3px rgba(0, 0, 0, 0.116));
+  filter: drop-shadow(1px 3px 3px rgba(0, 0, 0, 0.05));
+  opacity: 0; /* Fully transparent */
+  transition: opacity 0.5s ease; /* Fade out transition */
+  user-select: none;
+  pointer-events: none;
+}
+
+.resetter-spacing {
+  height: 40px;
+  width: 100%;
+}
+
+.resetter.shown:hover{ /* SVG arrow */
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  transform: translateY(-1px);
+  transition: transform 0.2s ease-in;
 }
 
 .resetter a {
@@ -126,17 +142,23 @@ header.hidden {
   text-decoration: none; /* Remove underline from the link */
 }
 
+.resetter.shown {
+  opacity: 1; /* Fully transparent */
+  transition: opacity 0.5s ease; /* Fade out transition */
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: transform 0.5s ease-out;
+}
+
 .resetter img { /* SVG arrow */
   width: 50%;
   height: 50%;
   transform: rotate(270deg); /* Rotate the image */
   transform-origin: center; /* Set rotation origin */
+  -webkit-user-drag: none;
 }
 
-.resetter:hover{ /* SVG arrow */
-  background-color: white;
-  cursor: pointer;
-}
+
 
 
 
@@ -151,9 +173,10 @@ header.hidden {
     gap: 50px;
     font-size: 1rem;
     font-weight: 500;
-    color: black;
+    color: rgb(51, 44, 44);
     list-style: none;
-    margin-top: 30px;
+    margin: auto 0;
+    transform: translateY(3px);
     padding-right: 25px;
     display: flex;
     overflow: hidden;
@@ -226,11 +249,107 @@ background-color: var(--cookiecolor);
 }
 
 
+
+
+
+
 .explainer-section {
-  border-top: 5px solid var(--red);
+  /* background-color: green; */
+  border-top: 2px solid var(--border);
   margin: 0 auto;
-  width: 50%;
+  width: 60%;
 }
+
+.explainer-flex {
+  display: flex;              /* Flexbox aktivieren */
+  flex-wrap: wrap;            /* Zeilenumbruch erlauben */
+  gap: 20px;                  /* Abstand zwischen den `div`-Elementen */
+  justify-content: space-between; /* Platz in der Reihe gleichmäßig aufteilen */
+  padding-bottom: 120px;
+}
+
+.explainer-title { /*Die größten Bedrohungen*/
+  margin-top: 40px;
+  margin-bottom: 25px;
+  font-weight: 900;
+  font-size: 2rem;
+  padding-top: 100px;
+}
+
+
+
+
+.explainer-flex a {
+  display: contents;
+  text-decoration: none;
+}
+
+.landing-block {
+  flex: 0 0 calc((100% - 40px) / 3); /* Jeweils 1/3 der Breite abzüglich Lücken */
+  max-width: 100%;            /* Begrenzung auf Containergröße */
+  box-sizing: border-box;     /* Padding/Borders in der Breite berücksichtigen */
+  padding: 0;              /* Optionaler Innenabstand */
+  background-color: var(--white); /* Beispiel-Hintergrund (optional) */
+  text-align: center;         /* Zentriert das SVG innerhalb des div */
+  height: 100%;
+  position: relative;
+  text-align: center;
+  
+  background-color: inherit;
+  border: 1px solid var(--border);
+
+  color: var(--text);
+  transition: background-color .4s ease, border-color .3s ease, color .2s ease; /*Back to no hover*/
+}
+
+/*hovered*/
+.explainer-flex:hover > a:hover .landing-block {
+  background-color: rgb(248, 248, 248);
+  transition: background-color 0.1s ease, border-color .3s ease, color .2s ease; 
+  border-color: var(--red);
+  color: var(--svg_text);
+}
+
+/*non-hovered*/
+.explainer-flex:hover > a .landing-block {
+  background-color: rgb(243, 243, 243);
+  transition: background-color 0.3s ease-in-out, border-color .3s ease, color .2s ease;
+  cursor: pointer;
+  border-color: none;
+  color: var(--text);
+}
+
+.explainer-flex a:visited {
+  color: inherit;
+}
+
+.icon-svg {
+  -webkit-user-drag: none;
+  width: 100%;
+}
+
+.icon-text {
+  position: absolute;
+  width: 100%;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.05rem;
+}
+  
+
+
+
+
+
+
+
+
+
+
+/*FAQ*/
 
 .quiz-start {
   width: 50%;
@@ -257,88 +376,10 @@ background-color: var(--cookiecolor);
 
 
 
-
-
-.explainer-section h1 {
-  margin-top: 40px;
-}
-
-.section-h1 {
-  font-weight: 900;
-  font-size: 25pt;
-  padding-top: 100px;
-}
-
-.landing-block {
-  display: flex; /* Make the container a flexbox */
-  align-items: flex-start; /* Align items at the top */
-  gap: 20px; /* Add space between the SVG and text */
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  width: 100%;
-  margin: 0 auto;
-  margin-top: 20px;
-  transition: background-color ease .6s;
-  transition: border-color ease .6s;
-}
-
-.landing-block:hover {
-  background-color: rgb(250, 247, 247);
-  transition: background-color ease .6s;
-  transition: border-color ease .6s;
-  cursor: pointer;
-  border-color: var(--red);
-}
-
-.vector-logo-phishing {
-  -webkit-user-drag: none;
-  width: 100px;
-  padding-top: 60px;
-  padding-left: 40px;
-  padding-right: 15px;
-  padding: auto;
-}
-
-.vector-logo-spam {
-  -webkit-user-drag: none;
-  width: 100px;
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 15px;
-  padding: auto;
-}
-
-.text-content {
-  display: flex;
-  flex-direction: column; /* Stack the text vertically */
-  justify-content: flex-start;
-  padding: 30px;
-}
-
-.text-content h2 {
-  margin: 0; /* Remove default margins to control spacing */
-  padding: 0 0 10px; /* Add space below the heading */
-  color: black;
-  font-weight: 800;
-}
-
-.text-content p {
-  margin: 0; /* Remove default margins */
-  padding: 0; /* Adjust padding as needed */
-  color: var(--text);
-  width: 50ch; /* Limit line length */
-  line-height: 1.6; /* Adjust line height for readability */
-  text-align: justify; /* Justify text */
-  text-justify: inter-word; /* Better word spacing */
-}
-
-  
-
-
 .hover-term {
     position: relative;
     cursor: pointer;
-    color: rgb(0, 140, 254);
+    color: rgb(0, 254, 34);
     text-decoration: underline;
     z-index: 1000000;
 
@@ -387,7 +428,7 @@ background-color: var(--cookiecolor);
     }
 }
 
-
+  /*WIE __ BIN ICH ONLINE*/
   .cta-header {
     user-select: none;
     animation: fadeInSlide 1s ease forwards;
@@ -399,6 +440,7 @@ background-color: var(--cookiecolor);
     margin-bottom: 20px;
   }
 
+    /*SICHER*/
   .cta-highlight {
     color: var(--red);
   }
@@ -458,6 +500,7 @@ background-color: var(--cookiecolor);
   display: flex; /* Enables horizontal alignment */
   gap: 10px; /* Adds space between boxes */
   padding-top: 50px;
+  opacity: 100%;
 }
 
 
@@ -479,7 +522,6 @@ background-color: var(--cookiecolor);
   color: rgb(244, 243, 243);
   font-size: 1.2rem;
   font-weight: 400;
-  user-select: none;
 }
 
 .footer ul {
@@ -540,8 +582,3 @@ background-color: var(--cookiecolor);
 
 
 
-
-.space {
-  height: 200px;
-  width: 100%;
-}
