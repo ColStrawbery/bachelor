@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self';">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUPHTIKUS - HOME</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/x-icon" href="/files/favicon.svg">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber-Guide  |  BUND</title>
+
+    <link rel="stylesheet" href="styles.css" media="screen and (min-width: 769px)">
+    <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 768px)">
+
+    <link rel="icon" type="image/x-icon" href="/files/germany-logo-wifi.svg">
+    
 
 </head>
 
@@ -15,59 +19,332 @@
 
 
 <body>
-    
     <div class="white-bg">
-        <div class="space"></div>
-            <section class="explainer-section">
-                <div class="questions">
-                    <h1>Oft gestellte Fragen</h1>
-                    <p>Sie haben Fragen? Hier finden Sie wertvolle Tipps und Antworten rund um den Schutz vor Cyberkriminalität. Erfahren Sie, wie Sie Ihre Daten sicher halten, Phishing-Angriffe vermeiden und Ihre Privatsphäre im Internet schützen können.</p>            
+        <a id="top"></a>
+
+        <div class="faq-container">
+            <!-- Header Section -->
+            <section class="faq-header">
+                <h1>Häufig gestellte Fragen</h1>
+                <p>Hier finden Sie Antworten auf die am häufigsten gestellten Fragen zu unseren Services und Cybersicherheit.</p>
+            </section>
+        
+            <!-- FAQ Items -->
+            <section class="faq-content">
+                <button class="faq-accordion">
+                    Was ist Cyberkriminalität?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Cyberkriminalität umfasst alle illegalen Aktivitäten, die mithilfe von Computern, Netzwerken oder dem Internet durchgeführt werden. Dazu gehören Betrug, Datendiebstahl, Identitätsdiebstahl und viele andere Verbrechen.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Wie kann ich mich vor Phishing-Mails schützen?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>
+                        - Überprüfen Sie die Absenderadresse genau.<br>
+                        - Klicken Sie niemals auf verdächtige Links.<br>
+                        - Geben Sie keine persönlichen Daten auf unsicheren Websites ein.<br>
+                        - Nutzen Sie Antivirenprogramme und halten Sie Ihre Software aktuell.
+                    </p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Warum sind starke Passwörter wichtig?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Ein starkes Passwort erschwert es Angreifern, Zugriff auf Ihre Konten zu erhalten. Verwenden Sie lange Passwörter mit einer Mischung aus Buchstaben, Zahlen und Sonderzeichen.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Was soll ich tun, wenn ich Opfer eines Datenlecks werde?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Ändern Sie sofort alle betroffenen Passwörter. Informieren Sie Ihre Bank, falls finanzielle Informationen betroffen sind, und überwachen Sie Ihre Konten auf verdächtige Aktivitäten.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Was ist Zwei-Faktor-Authentifizierung (2FA) und warum sollte ich sie nutzen?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>2FA bietet eine zusätzliche Sicherheitsebene, indem neben dem Passwort ein zweites Element (z. B. ein SMS-Code) zur Verifizierung erforderlich ist.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Wie erkenne ich eine sichere Website?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Sichere Websites verwenden das HTTPS-Protokoll und zeigen ein Schloss-Symbol in der Adressleiste. Achten Sie auf die URL und prüfen Sie, ob sie korrekt ist.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Was ist Social Engineering?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Social Engineering beschreibt Techniken, bei denen Angreifer Menschen manipulieren, um vertrauliche Informationen preiszugeben. Dies kann durch gefälschte Anrufe, E-Mails oder persönliche Gespräche geschehen.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Wie kann ich meine Kinder im Internet schützen?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>
+                        - Nutzen Sie Kinderschutzsoftware.<br>
+                        - Sprechen Sie mit Ihren Kindern über Online-Risiken.<br>
+                        - Überwachen Sie, welche Websites und Apps sie verwenden.
+                    </p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Was ist Ransomware und wie kann ich mich davor schützen?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Ransomware ist eine Malware, die Ihre Daten verschlüsselt und Lösegeld fordert. Schützen Sie sich durch regelmäßige Backups, Antivirensoftware und vorsichtiges Verhalten bei E-Mail-Anhängen.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Wie kann ich sicherstellen, dass meine Geräte geschützt sind?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>
+                        - Installieren Sie Sicherheitsupdates sofort.<br>
+                        - Nutzen Sie Antivirenprogramme.<br>
+                        - Vermeiden Sie öffentliche WLAN-Netzwerke ohne VPN.
+                    </p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Was ist ein sicheres Backup?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Ein sicheres Backup ist eine Kopie Ihrer Daten, die offline (z. B. auf einer externen Festplatte) oder in einer verschlüsselten Cloud gespeichert wird. Es schützt vor Datenverlust durch Cyberangriffe oder technische Probleme.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Was sind die häufigsten Tricks von Online-Betrügern?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>
+                        - Gefälschte Gewinnspiele<br>
+                        - Phishing-E-Mails<br>
+                        - Fake-Shops mit unrealistischen Preisen<br>
+                        - Technische Support-Betrugsanrufe
+                    </p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Soll ich öffentliche WLAN-Netzwerke verwenden?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Öffentliche WLAN-Netzwerke sind unsicher. Nutzen Sie sie nur mit einem VPN oder vermeiden Sie es, sensible Daten einzugeben.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Was ist ein Trojaner?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Ein Trojaner ist eine Art von Malware, die sich als nützliches Programm tarnt, aber im Hintergrund schädliche Aktionen durchführt, z. B. Daten stehlen oder Systeme beschädigen.</p>
+                </div>
+            
+                <button class="faq-accordion">
+                    Was tun, wenn ich einen verdächtigen Link geklickt habe?
+                    <span class="accordion-icon"></span>
+                </button>
+                <div class="faq-panel">
+                    <p>Trennen Sie sofort Ihre Internetverbindung. Führen Sie einen Antiviren-Scan durch. Ändern Sie Passwörter, die möglicherweise betroffen sein könnten, und wenden Sie sich an einen IT-Experten, falls notwendig.</p>
                 </div>
             </section>
+            
+        </div>
+            
     </div>
+
+    <div class="resetter" onclick="scrollToTop()" id="resetter">
+        <img src="files/arrow.svg" class="resetter-arrow">
+    </div>
+
+    <div class="resetter-spacing"></div>
+
+
 
     <header id="header">
         <div class="header-title-container">
-            <h2 class="header-title">CYBER-GUIDE</h2>
-            <img class="germany-logo" src="files/germany-logo.svg">
+            <img class="germany-logo" src="files/germany-logo2.svg">
         </div>
-
+    
+        <!-- Desktop Navigation -->
         <nav class="nav">
             <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="index.html">START</a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="QUIZ.html">QUIZ</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a href="FAQ.html">FAQ</a>
-                </li>
+                <li class="nav-item"><a href="index.html">Start</a></li>
+                <li class="nav-item"><a href="QUIZ.html">Themen</a></li>
+                <li class="nav-item"><a href="QUIZ.html">Quiz</a></li>
+                <li class="nav-item"><a href="FAQ.html">FAQ</a></li>
             </ul>
         </nav>
-    </header>
+    
+        <!-- Burger Menu -->
+        <div class="burger-menu">
+            <img src="files/nav_open.svg" alt="Open Menu" class="burger-icon">
+        </div>
+    
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav">
 
+            <div class="mobile-nav-div"></div>
+
+            <div class="mobile-nav-div"> 
+                <ul class="mobile-nav-list">
+                    <li class="mobile-nav-item"><a class="mobile-nav-item-link" href="index.html">Start</a></li>
+                    <li class="mobile-nav-item"><a class="mobile-nav-item-link" href="QUIZ.html">Themen</a></li>
+                    <li class="mobile-nav-item"><a class="mobile-nav-item-link" href="QUIZ.html">Quiz</a></li>
+                    <li class="mobile-nav-item"><a class="mobile-nav-item-link" href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
 
     <footer class="footer">
         <div class="footer-div">
-
+            <h1>Über uns</h1>
             <ul>
-                <li>Impressum</li>
-                <li>Datenschutz</li>
-                <li>FAQ</li>
-                <li>Kontakt</li>
-                <li>Mehr Infos</li>
-
+                <li>
+                    <a>Impressum</a>
+                </li>
+                <li>
+                    <a>Datenschutz</a>
+                </li>
+                <li>
+                    <a>Kontakt</a>
+                </li>
+                <li>
+                    <a>FAQ</a>
+                </li>
+                <li>
+                    <a>Cookies</a>
+                </li>
             </ul>
-
             <p>Copyright © 2024 Lukas Schwarz</p>
+        </div>
+
+        <div class="footer-div">
+            <h1>Rechtliches</h1>
+            <ul>
+                <li>
+                    <a>Nutzungsbedingungen</a>
+                </li>
+                <li>
+                    <a>Urheberrechtshinweis</a>
+                </li>
+                <li>
+                    <a>Einstellungen</a>
+                </li>
+                <li>
+                    <a>Privacy Settings</a>
+                </li>
+                <li>
+                    <a>AdChoices</a>
+                </li>
+                <li>
+                    <a>Chip Coordination</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer-div">
+            <h1>Themen</h1>
+            <ul>
+                <li>
+                    <a>Cybercrime</a>
+                </li>
+                <li>
+                    <a>Phishing</a>
+                </li>
+                <li>
+                    <a>Social-Engineering</a>
+                </li>
+                <li>
+                    <a>Viren</a>
+                </li>
+                <li>
+                    <a>Brute-Force</a>
+                </li>
+                <li>
+                    <a>Malware & Ransomware</a>
+                </li>
+            </ul>
         </div>
     </footer>
 
+    <footer class="footer-mobile">
+        <div class="accordion-wrapper">
+            <button class="accordion">
+                Über uns
+                <span class="accordion-icon"></span>
+            </button>
+            <div class="panel">
+                <ul>
+                    <li><a>Impressum</a></li>
+                    <li><a>Datenschutz</a></li>
+                    <li><a>Kontakt</a></li>
+                    <li><a>FAQ</a></li>
+                    <li><a>Cookies</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="accordion-wrapper">
+            <button class="accordion">
+                Rechtliches
+                <span class="accordion-icon"></span>
+            </button>
+            <div class="panel">
+                <ul>
+                    <li><a>Nutzungsbedingungen</a></li>
+                    <li><a>Urheberrechtshinweis</a></li>
+                    <li><a>Einstellungen</a></li>
+                    <li><a>Privacy Settings</a></li>
+                    <li><a>AdChoices</a></li>
+                    <li><a>Chip Coordination</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="accordion-wrapper">
+            <button class="accordion">
+                Themen
+                <span class="accordion-icon"></span>
+            </button>
+            <div class="panel">
+                <ul>
+                    <li><a>Cybercrime</a></li>
+                    <li><a>Phishing</a></li>
+                    <li><a>Social-Engineering</a></li>
+                    <li><a>Viren</a></li>
+                    <li><a>Brute-Force</a></li>
+                    <li><a>Malware & Ransomware</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="copyright">Copyright © 2024 Lukas Schwarz</p>
+    </footer>
 
-<script src="script.js"></script>
 
+    <script src="script.js" type="text/javascript"></script>
 </body>
 </html>

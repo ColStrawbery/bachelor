@@ -497,6 +497,81 @@ background-color: var(--cookiecolor);
 
 
 
+
+
+
+
+
+
+
+
+
+
+/*FAQ*/
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.faq-header {
+}
+
+.faq-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.faq-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.faq-accordion {
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  font-size: 1.1rem;
+  font-weight: 600;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.faq-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.faq-panel p, .faq-panel ul {
+  padding: 20px;
+  margin: 0;
+}
+
+.faq-panel ul {
+  padding-left: 40px;
+}
+
+.faq-panel li {
+  margin-bottom: 10px;
+}
+
+
+/*FAQ*/
+
+
+
+
+
 .footer {
   bottom: 100%;
   width: 100%;

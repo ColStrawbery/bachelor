@@ -145,6 +145,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+//FAQ accordion
+document.querySelectorAll('.faq-accordion').forEach(button => {
+  button.addEventListener('click', () => {
+      // Toggle active state
+      button.classList.toggle('active');
+      const panel = button.nextElementSibling;
+      
+      // If we're opening this panel
+      if (button.classList.contains('active')) {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+      } else {
+          panel.style.maxHeight = "0px";
+      }
+  });
+});
+
+
+
+//Footer mobile accordion
 document.querySelectorAll('.accordion').forEach(button => {
   button.addEventListener('click', () => {
       // First toggle the active state
@@ -159,6 +179,8 @@ document.querySelectorAll('.accordion').forEach(button => {
       }
   });
 });
+
+
 
 
 //-------------------------------------------------
