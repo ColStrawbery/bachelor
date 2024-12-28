@@ -120,6 +120,31 @@ window.scrollTo({
 });
 }
 
+//-------------------------------
+
+// Open Nav on mobile
+document.addEventListener('DOMContentLoaded', () => {
+  const burgerMenu = document.querySelector('.burger-menu');
+  const burgerIcon = burgerMenu.querySelector('.burger-icon');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  burgerMenu.addEventListener('click', () => {
+      // Toggle the mobile nav
+      mobileNav.classList.toggle('active');
+
+      // Swap the burger icon image
+      if (mobileNav.classList.contains('active')) {
+          burgerIcon.src = 'files/nav_close.svg'; // Change to open icon
+          burgerIcon.alt = 'Close Menu';
+      } else {
+          burgerIcon.src = 'files/nav_open.svg'; // Change back to closed icon
+          burgerIcon.alt = 'Open Menu';
+      }
+  });
+});
+
+
+
 //-------------------------------------------------
 
     // Define custom colors based on risk levels

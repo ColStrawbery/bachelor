@@ -159,6 +159,17 @@ header.hidden {
 
 
 
+/* Display desktop navigation */
+@media screen and (min-width: 769px) {
+  .nav {
+      display: flex; /* or your desired display style */
+  }
+
+  .mobile-nav,
+  .burger-menu {
+      display: none; /* Hide mobile-specific elements */
+  }
+}
 
 
 .nav {
@@ -228,11 +239,11 @@ header.hidden {
 }
 
 .button-container {
-display: flex;
-gap: 20px;
-padding: 20px;
-transition: background-color 0.3s ease;
-background-color: var(--cookiecolor);
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+  background-color: var(--cookiecolor);
 }
 
 .cookie-btn {
