@@ -145,6 +145,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+document.querySelectorAll('.accordion').forEach(button => {
+  button.addEventListener('click', () => {
+      // First toggle the active state
+      button.classList.toggle('active');
+      const panel = button.nextElementSibling;
+      
+      // If we're opening this panel
+      if (button.classList.contains('active')) {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+      } else {
+          panel.style.maxHeight = "0px";
+      }
+  });
+});
+
+
 //-------------------------------------------------
 
     // Define custom colors based on risk levels

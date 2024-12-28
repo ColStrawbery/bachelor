@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 82.13 58.85">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill: #231f20;
+      }
+
+      .cls-2, .cls-4 {
+        font-family: Inter-Black, Inter;
+        font-size: 21.21px;
+        font-variation-settings: 'opsz' 14, 'wght' 900;
+        font-weight: 800;
+      }
+
+      .cls-5 {
+        letter-spacing: -.1em;
+      }
+
+      .cls-6, .cls-7, .cls-8 {
+        fill: #f2cf04;
+      }
+
+      .cls-7 {
+        stroke-width: 8.12px;
+      }
+
+      .cls-7, .cls-8 {
+        stroke: #231f20;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-9 {
+        letter-spacing: 0em;
+      }
+
+      .cls-8 {
+        stroke-width: 7px;
+      }
+
+      .cls-4 {
+        letter-spacing: 0em;
+      }
+
+      .cls-10 {
+        fill: #ed1c24;
+      }
+    </style>
+  </defs>
+  <text class="cls-2" transform="translate(12.08 18.32) scale(.97 1)"><tspan class="cls-5" x="0" y="0">C</tspan><tspan class="cls-1" x="13.74" y="0">Y</tspan><tspan class="cls-9" x="29.66" y="0">BER</tspan></text>
+  <text class="cls-4" transform="translate(11.73 38.9) scale(1.05 1)"><tspan x="0" y="0">GUIDE</tspan></text>
+  <rect class="cls-7" x="4.06" y="47.79" width="74.01" height="7"/>
+  <g>
+    <rect class="cls-3" x="3.07" y="48.29" width="25" height="6"/>
+    <rect class="cls-10" x="28.07" y="48.29" width="25" height="6"/>
+    <rect class="cls-6" x="53.07" y="48.29" width="25" height="6"/>
+  </g>
+  <line class="cls-8" x1="3.57" y1="51.29" x2="3.57" y2=".29"/>
+</svg>

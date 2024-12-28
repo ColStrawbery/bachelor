@@ -10,6 +10,7 @@ html::-webkit-scrollbar {
   --white: #f6f6f6;
   --cookiecolor: grey; /* Default background color */
   --svg_text: #600606;
+  --footer: #242222;
 }
 
 ::selection {
@@ -17,8 +18,8 @@ html::-webkit-scrollbar {
 }
 
   @font-face {
-    font-family: 'Noto Sans';
-    src: url('/files/NotoSans.ttf') format('truetype');
+    font-family: 'Inter';
+    src: url('/files/Inter.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -26,7 +27,7 @@ html::-webkit-scrollbar {
   
   /* Hide scrollbar for IE, Edge and Firefox */
   html {
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Inter", sans-serif;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     scroll-behavior: smooth;
@@ -93,8 +94,9 @@ header.hidden {
 
 .germany-logo {
   width: 55px;
-  padding-left: 30px;
-  padding-top: 10px;
+  position: absolute;
+  margin-left: 30px;
+  /* background-color: blue; */
 }
 
 
@@ -505,7 +507,7 @@ background-color: var(--cookiecolor);
   bottom: 100%;
   width: 100%;
   height: 400px;
-  background-color: rgb(36, 34, 34);
+  background-color: #242222;
   display: flex; /* Enables horizontal alignment */
   gap: 10px; /* Adds space between boxes */
   padding-top: 50px;
@@ -543,7 +545,7 @@ background-color: var(--cookiecolor);
 .footer li {
   list-style: none;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgb(20, 15, 15);
+  border-bottom: 1px solid #140f0f;
   transition: border-bottom 0.2s ease, color 0.2s ease;
   width: 280px;
   margin-bottom: 10px;
@@ -584,10 +586,12 @@ background-color: var(--cookiecolor);
   margin: 0;
   padding: 0;
   margin-top: 30px;
-  color: rgb(86, 80, 80);
+  color: #565050;
   font-size: 10pt;
   font-weight: 300;
 }
 
-
+.footer-mobile {
+  display: none;
+}
 

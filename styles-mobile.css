@@ -11,6 +11,7 @@
     --white: #f6f6f6;
     --cookiecolor: grey; /* Default background color */
     --svg_text: #600606;
+    --footer: #242222;
     --header_height: 60px;
 }
 
@@ -72,9 +73,8 @@ header {
 }
 
 .germany-logo {
-    width: 60px;
-    padding-left: 20px;
-    padding-top: 15px;
+    width: 40px;
+    margin: 20px;
 }
 
 
@@ -355,12 +355,90 @@ header {
 
 
 .footer {
-    bottom: 100%;
+    display: none;
+}
+
+.footer-mobile {
+    display: block;
     width: 100%;
-    height: 400px;
-    background-color: rgb(36, 34, 34);
-    display: flex; /* Enables horizontal alignment */
-    gap: 10px; /* Adds space between boxes */
-    padding-top: 50px;
-    opacity: 100%;
+    height: auto;
+    background-color: var(--footer);
+}
+
+.footer-mobile {
+    padding: 0;
+    width: 100%;
+}
+
+.accordion {
+    width: 100%;
+    padding: 30px;
+    text-align: left;
+    background: none;
+    border: none;
+    /* border-bottom: 1px solid #140f0f; */
+    font-size: 1.6rem;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--border);
+}
+
+.accordion-wrapper {
+    border-bottom: 1px solid #140f0f;
+}
+
+.accordion:first-child {
+    padding-top: 40px;
+}
+
+.accordion-icon::after {
+    content: '+';
+    float: right;
+}
+
+.accordion.active .accordion-icon::after {
+    content: '-';
+}
+
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.panel ul {
+    list-style: none;
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 0;
+}
+
+.panel li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #140f0f;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    /* background-color: red; */
+}
+
+.panel li:last-child {
+    margin-bottom: 30px;
+}
+
+.panel a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 5px 0;
+}
+
+.copyright {
+    padding: 15px;
+    margin-top: 10px;
+    color: #565050;
 }
