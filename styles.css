@@ -86,12 +86,6 @@ header.hidden {
   margin: auto 0;
 }
 
-.header-title {
-  padding-left: 30px;
-  padding-top: 6px;
-  font-size: 14pt;
-}
-
 .germany-logo {
   width: 55px;
   position: absolute;
@@ -184,7 +178,7 @@ header.hidden {
     gap: 50px;
     font-size: 1rem;
     font-weight: 500;
-    color: rgb(51, 44, 44);
+    color: black;
     list-style: none;
     margin: auto 0;
     transform: translateY(3px);
@@ -220,14 +214,14 @@ header.hidden {
 
 /* Active page underline, visible */
 .nav-item.active {
-    color: #525252;
+    color: #000000;
     background-position: 0 100%;
     background-size: 100% 1px; /* Active underline size */
 }
 
 /* Ensure the active link is styled correctly */
 .nav-item.active a {
-    color: #525252;
+    color: #191919;
     text-decoration: none;
 }
 
@@ -559,7 +553,7 @@ background-color: var(--cookiecolor);
   transition: border-bottom 0.3s ease, color 0.3s ease;
   border-bottom: 1px solid var(--red);
   cursor: pointer;
-  color: var(--red);
+  color: rgb(255, 72, 72);
 }
 
 .footer li::after {
