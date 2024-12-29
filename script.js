@@ -145,21 +145,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-//FAQ accordion
+//FAQ panel
 document.querySelectorAll('.faq-accordion').forEach(button => {
-  button.addEventListener('click', () => {
-      // Toggle active state
-      button.classList.toggle('active');
-      const panel = button.nextElementSibling;
-      
-      // If we're opening this panel
-      if (button.classList.contains('active')) {
-          panel.style.maxHeight = panel.scrollHeight + "px";
-      } else {
-          panel.style.maxHeight = "0px";
-      }
-  });
+    button.addEventListener('click', () => {
+        // Toggle active state for button
+        button.classList.toggle('active');
+        const panel = button.nextElementSibling;
+        
+        // Toggle panel-open class
+        panel.classList.toggle('panel-open');
+        
+        // If we're opening this panel
+        if (button.classList.contains('active')) {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+            
+            // Optional: Close other panels
+            document.querySelectorAll('.faq-accordion').forEach(otherButton => {
+                if (otherButton !== button && otherButton.classList.contains('active')) {
+                    otherButton.classList.remove('active');
+                    const otherPanel = otherButton.nextElementSibling;
+                    otherPanel.classList.remove('panel-open');
+                    otherPanel.style.maxHeight = "0px";
+                }
+            });
+            
+        } else {
+            panel.style.maxHeight = "0px";
+        }
+    });
 });
 
 

@@ -11,6 +11,7 @@ html::-webkit-scrollbar {
   --cookiecolor: grey; /* Default background color */
   --svg_text: #600606;
   --footer: #242222;
+  --header-height: 80px;
 }
 
 ::selection {
@@ -62,7 +63,7 @@ header {
   align-items: center;       /* Vertically center content */
   justify-content: space-between; /* Space title and nav evenly */
   background-color: var(--white);
-  height: 80px;
+  height: var(--header-height);
   position: fixed;
   width: 100vw;
   z-index: 1000;
@@ -512,6 +513,7 @@ background-color: var(--cookiecolor);
 .faq-container {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: calc(var(--header-height) + 100px);
   padding: 0 40px;
 }
 
@@ -524,8 +526,8 @@ background-color: var(--cookiecolor);
 .faq-header p {
   font-size: 1.1rem;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 500px;
+  margin-bottom: 50px;
 }
 
 .faq-accordion {
@@ -541,12 +543,26 @@ background-color: var(--cookiecolor);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  gap: 20px;
+  transition: background-color 0.5s ease;
+}
+
+.faq-accordion:hover {
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.5s ease;
 }
 
 .faq-panel {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
+  background-color: rgb(238, 236, 236);
+}
+
+
+
+.panel-open {
+  border-bottom: solid 2px red;
 }
 
 .faq-panel p, .faq-panel ul {
