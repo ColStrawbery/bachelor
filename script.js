@@ -198,6 +198,443 @@ document.querySelectorAll('.accordion').forEach(button => {
 
 //-------------------------------------------------
 
+
+
+
+
+
+
+
+
+
+
+// #region QUIZ CODE
+// Fragenkatalog mit verschiedenen Fragetypen
+const questions = [
+    {
+        id: 1,
+        type: 'button',
+        question: "Jedes meiner Passwörter ist einzigartig.",
+        options: [
+            { text: "Ja", score: 1 },
+            { text: "Nein", score: 1 },
+        ],
+        category: "security_measures",
+    },
+    {
+        id: 2,
+        type: 'button',
+        question: "Ich benutze ein bestimmtes Passwort <br> bei mehreren Konten.",
+        options: [
+            { text: "Niemals", score: 1 },
+            { text: "Selten", score: 1 },
+            { text: "Oft", score: 1 },
+            { text: "Immer", score: 1 }
+        ],
+        category: "security_measures",
+    },
+    {
+        id: 3,
+        type: 'checkbox',
+        question: "Meine Passwörter beinhalten in der Regel:",
+        options: [
+            { text: "Kleinbuchstaben", score: 1 },
+            { text: "Großbuchstaben", score: 1 },
+            { text: "Ziffern", score: 1 },
+            { text: "Symbole", score: 1 }
+        ],
+        category: "security_measures",
+        calculateScore: (selected) => {
+            if (selected.length === 0) return 0;
+            const sum = selected.reduce((acc, curr) => acc + curr.score, 0);
+            return Math.min(3, sum);
+        }
+    },
+    {
+        id: 4,
+        type: 'range',
+        question: "Schätzen Sie Ihr Wissen über Cyber-Sicherheit ein",
+        min: 0,
+        max: 10,
+        step: 1,
+        labels: {
+            0: "Anfänger",
+            5: "Fortgeschritten",
+            10: "Experte"
+        },
+        calculateScore: (value) => Math.round((value / 10) * 3),
+        category: "knowledge"
+    }
+];
+
+// Globale Variablen
+let currentQuestion = 0;
+let answers = {};
+
+// Cookie Funktionen
+function setCookie(name, value, days) {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = name + '=' + JSON.stringify(value) + ';expires=' + expires.toUTCString() + ';path=/';
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) {
+            try {
+                return JSON.parse(c.substring(nameEQ.length, c.length));
+            } catch (e) {
+                return null;
+            }
+        }
+    }
+    return null;
+}
+
+function updateQuestion() {
+    const question = questions[currentQuestion];
+    const questionElement = document.querySelector('.quiz-question');
+    const container = document.querySelector('.quiz-answer-container');
+    
+    if (!questionElement || !container) {
+        console.error('Required elements not found');
+        return;
+    }
+
+    questionElement.innerHTML = question.question;
+    container.innerHTML = '';
+    
+    const nextBtn = document.getElementById('nextBtn');
+    nextBtn.disabled = true;
+
+    switch(question.type) {
+        case 'radio':
+            createRadioGroup(container, question);
+            break;
+        case 'checkbox':
+            createCheckboxGroup(container, question);
+            break;
+        case 'range':
+            createRangeSlider(container, question);
+            break;
+        case 'button':
+            createButtonGroup(container, question);
+            break;
+    }
+
+    // Progress Bar aktualisieren
+    const progressFill = document.querySelector('.quiz-progress-fill');
+    if (progressFill) {
+        progressFill.style.width = `${(currentQuestion / questions.length) * 100}%`;
+        console.log('filled bar');
+    }
+    
+    // Zurück-Button Status
+    const prevBtn = document.getElementById('prevBtn');
+    if (prevBtn) {
+        prevBtn.disabled = currentQuestion === 0;
+    }
+    
+    // Wenn Antwort bereits existiert, diese vorauswählen
+    if (answers[question.id]) {
+        loadSavedAnswer(question);
+    }
+}
+
+// Add new function to create button group
+function createButtonGroup(container, question) {
+    const group = document.createElement('div');
+    group.className = 'button-group';
+    
+    question.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'answer-button';
+        button.textContent = option.text;
+        
+        // Add selected class if this option was previously chosen
+        if (answers[question.id] && answers[question.id].text === option.text) {
+            button.classList.add('selected');
+        }
+        
+        button.onclick = () => {
+            // Remove selected class from all buttons in group
+            group.querySelectorAll('.answer-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked button
+            button.classList.add('selected');
+            
+            answers[question.id] = option;
+            document.getElementById('nextBtn').disabled = false;
+            saveProgress();
+        };
+        
+        group.appendChild(button);
+    });
+    
+    container.appendChild(group);
+}
+
+function createRadioGroup(container, question) {
+    const group = document.createElement('div');
+    group.className = 'radio-group';
+    
+    question.options.forEach((option, index) => {
+        const label = document.createElement('label');
+        label.className = 'radio-option';
+        
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'quiz-question';
+        input.value = index;
+        input.onchange = () => {
+            answers[question.id] = option;
+            document.getElementById('nextBtn').disabled = false;
+            saveProgress();
+        };
+        
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(option.text));
+        group.appendChild(label);
+    });
+    
+    container.appendChild(group);
+}
+
+function createCheckboxGroup(container, question) {
+    const group = document.createElement('div');
+    group.className = 'checkbox-group';
+    
+    question.options.forEach((option, index) => {
+        const label = document.createElement('label');
+        label.className = 'checkbox-option';
+        
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.value = index;
+        input.onchange = (e) => {
+            // Add or remove the checked class on the label
+            label.classList.toggle('checked', e.target.checked);
+            
+            // Your existing code
+            const selected = Array.from(group.querySelectorAll('input:checked'))
+                .map(input => question.options[input.value]);
+            answers[question.id] = selected;
+            document.getElementById('nextBtn').disabled = false;
+            saveProgress();
+        };
+        
+        label.appendChild(input);
+        label.appendChild(document.createTextNode(option.text));
+        group.appendChild(label);
+    });
+    
+    container.appendChild(group);
+}
+
+function createRangeSlider(container, question) {
+    const rangeContainer = document.createElement('div');
+    rangeContainer.className = 'range-container';
+    
+    const input = document.createElement('input');
+    input.type = 'range';
+    input.className = 'range-slider';
+    input.min = question.min;
+    input.max = question.max;
+    input.step = question.step;
+    input.value = question.min;
+    input.oninput = () => {
+        answers[question.id] = input.value;
+        document.getElementById('nextBtn').disabled = false;
+        saveProgress();
+    };
+    
+    const labels = document.createElement('div');
+    labels.className = 'range-labels';
+    Object.entries(question.labels).forEach(([value, label]) => {
+        const span = document.createElement('span');
+        span.textContent = label;
+        labels.appendChild(span);
+    });
+    
+    rangeContainer.appendChild(input);
+    rangeContainer.appendChild(labels);
+    container.appendChild(rangeContainer);
+}
+
+function loadSavedAnswer(question) {
+    const savedAnswer = answers[question.id];
+    if (!savedAnswer) return;
+
+    switch(question.type) {
+        case 'radio':
+            const radioIndex = question.options.findIndex(opt => opt.text === savedAnswer.text);
+            if (radioIndex >= 0) {
+                const radios = document.querySelectorAll('input[type="radio"]');
+                radios[radioIndex].checked = true;
+            }
+            break;
+        case 'checkbox':
+            savedAnswer.forEach(saved => {
+                const checkboxIndex = question.options.findIndex(opt => opt.text === saved.text);
+                if (checkboxIndex >= 0) {
+                    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                    checkboxes[checkboxIndex].checked = true;
+                    // Add this line to apply the class when loading saved answers
+                    checkboxes[checkboxIndex].closest('.checkbox-option').classList.add('checked');
+                }
+            });
+            break;
+        case 'range':
+            const slider = document.querySelector('input[type="range"]');
+            if (slider) {
+                slider.value = savedAnswer;
+            }
+            break;
+        case 'button':
+            const buttons = document.querySelectorAll('.answer-button');
+            const selectedIndex = question.options.findIndex(opt => opt.text === savedAnswer.text);
+            if (selectedIndex >= 0) {
+                buttons[selectedIndex].classList.add('selected');
+            }
+            break;
+    }
+    document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion() {
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        updateQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function previousQuestion() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        updateQuestion();
+    }
+}
+
+
+
+function calculateQuestionScore(question) {
+    const answer = answers[question.id];
+    if (!answer) return 0;
+
+    switch(question.type) {
+        case 'radio':
+            return answer.score;
+        case 'checkbox':
+            return question.calculateScore(answer);
+        case 'range':
+            return question.calculateScore(answer);
+        default:
+            return 0;
+    }
+}
+
+function calculateTotalScore() {
+    const totalScore = questions.reduce((sum, question) => {
+        return sum + calculateQuestionScore(question);
+    }, 0);
+    return Math.round((totalScore / (questions.length * 3)) * 100);
+}
+
+function showResults() {
+    document.getElementById('quiz').style.display = 'none';
+    document.getElementById('results').style.display = 'block';
+
+    const progressFill = document.querySelector('.quiz-progress-fill');
+    if (progressFill) {
+        progressFill.style.width = '100%'; // Manually set to 100%
+    }
+    
+    const score = calculateTotalScore();
+    document.querySelector('.score').textContent = `${score}%`;
+    
+    const recommendationsDiv = document.getElementById('recommendations');
+    recommendationsDiv.innerHTML = `
+        <h3>Ihre Ergebnisse im Detail:</h3>
+        <p>Sie haben ${score}% der möglichen Punkte erreicht.</p>
+    `;
+}
+
+function restartQuiz() {
+    currentQuestion = 0;
+    answers = {};
+    document.cookie = 'quizAnswers=; Max-Age=-99999999;';
+    document.cookie = 'currentQuestion=; Max-Age=-99999999;';
+    document.getElementById('results').style.display = 'none';
+    document.getElementById('quiz').style.display = 'block';
+    updateQuestion();
+}
+
+function saveProgress() {
+    setCookie('quizAnswers', answers, 7);
+    setCookie('currentQuestion', currentQuestion, 7);
+}
+
+function loadProgress() {
+    const savedAnswers = getCookie('quizAnswers');
+    const savedQuestion = getCookie('currentQuestion');
+    if (savedAnswers) answers = savedAnswers;
+    if (savedQuestion !== null) currentQuestion = savedQuestion;
+    updateQuestion();
+}
+
+// Wichtig: Quiz initialisieren, wenn das DOM geladen ist
+document.addEventListener('DOMContentLoaded', function() {
+    updateQuestion(); // Initial die erste Frage anzeigen
+});
+
+//arrow key control
+document.addEventListener('keydown', (e) => {
+    // Only handle arrow keys if we're in the quiz (not results)
+    if (document.getElementById('quiz').style.display !== 'none') {
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        
+        switch(e.key) {
+            case 'ArrowRight':
+                // Only trigger if button is enabled
+                if (!nextBtn.disabled) {
+                    nextQuestion();
+                }
+                break;
+            case 'ArrowLeft':
+                // Only trigger if button is enabled
+                if (!prevBtn.disabled) {
+                    previousQuestion();
+                }
+                break;
+        }
+    }
+});
+
+
+// #endregion
+
+
+//-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
     // Define custom colors based on risk levels
     const riskLevels = {
         noRisk: '#7acf30',       // Niedriges Risiko

@@ -62,7 +62,7 @@ header {
   display: flex;             /* Make the header a flex container */
   align-items: center;       /* Vertically center content */
   justify-content: space-between; /* Space title and nav evenly */
-  background-color: var(--white);
+  background-color: rgb(255, 255, 255);
   height: var(--header-height);
   position: fixed;
   width: 100vw;
@@ -497,9 +497,177 @@ background-color: var(--cookiecolor);
 
 
 
+/*QUIZ*/
+
+.quiz-container {
+  border: solid 1px var(--border);
+  width: 55%;
+  height: 500px;
+  position: absolute;
+  top: calc(var(--header-height) + 90px); /* Position below the header + margin-top */    
+  left: 40%; /* Center horizontally */
+  transform: translateX(-50%); /* Offset to center the div */
+  background-color: white;
+  position: relative; /* Makes the child absolute positioning work */
+}
+
+.quiz-title {
+  position: absolute;
+  right: 4%;
+  font-size: 4rem;
+  top: 450px;
+  line-height: 100%;
+  opacity: 10%;
+  text-align: right;
+}
+
+.quiz-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgb(243, 243, 243);
+  overflow: hidden;
+  bottom: 0;
+  position: absolute;
+}
+
+.quiz-question {
+  padding-top: 50px;
+  padding-left: 45px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.quiz-answer-container {
+  padding-left: 45px;
+}
+
+.quiz-progress-fill {
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+  background-color: var(--red);
+}
+
+.quiz-nav {
+  position: absolute; /* Position relative to the parent container */
+  bottom: 30px;       /* Distance from the bottom of the parent */
+  right: 26px;        /* Distance from the right of the parent */
+  cursor: default;
+}
+
+.btn {
+  padding: 8px 16px;
+  margin: 2px;
+  background-color: #fcf8f8;
+  color: var(--footer);
+  border: solid 1px rgb(198, 184, 184);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #fffbfb;
+  border: solid 1px rgb(212, 127, 127);
+}
+
+.btn:disabled {
+  background: rgb(243, 243, 243);
+  border: solid 1px var(--border);
+  color: #b8b8b8;
+  cursor: default;
+
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+/*Button type*/
+.button-group {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: left;
+  margin: 2rem 0;
+}
+
+.answer-button {
+  padding: 1rem 2rem;
+  border: 1px solid var(--border);
+  background-color: white;
+  color: rgb(118, 91, 91);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05rem;
+}
+
+.answer-button:hover {
+  background-color: #fff8f8;
+}
+
+.answer-button.selected {
+  background-color: var(--red);
+  color: white;
+  border: solid 1px rgb(174, 140, 140);
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 0.7rem;
+  justify-content: left;
+  margin: 2rem 0;
+}
+
+.checkbox-option input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkbox-option.checked {
+  background-color: var(--red);
+  color: white;
+  border: solid 1px rgb(174, 140, 140);
+}
 
 
+.checkbox-option {
+  
+  padding: 1rem 2rem;
+  border: 1px solid var(--border);
+  background-color: white;
+  color: rgb(118, 91, 91);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05rem;
+}
 
+/* Hover effect only when not checked */
+.checkbox-option:not(.checked):hover {
+  background-color: #fff8f8;
+}
+
+.results {
+  display: none;
+}
+
+.repeat-quiz-btn {
+  position: absolute; /* Position relative to the parent container */
+  bottom: 30px;       /* Distance from the bottom of the parent */
+  right: 26px;        /* Distance from the right of the parent */
+  cursor: default;
+}
+
+.score {
+  font-size: 2em;
+  text-align: center;
+  color: var(--primary);
+  margin: 20px 0;
+}
+
+
+/*QUIZ*/
 
 
 
@@ -510,10 +678,17 @@ background-color: var(--cookiecolor);
 
 /*FAQ*/
 
-.faq-container {
+.faq-container:first-of-type {
   max-width: 800px;
   margin: 0 auto;
   margin-top: calc(var(--header-height) + 100px);
+  padding: 0 40px;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: calc(var(--header-height));
   padding: 0 40px;
 }
 
@@ -583,6 +758,15 @@ background-color: var(--cookiecolor);
 
 
 
+.topic-box {
+  /* background-color: red; */
+  width: 200px;
+  height: 300px;
+  position: fixed;
+  left: 30px;
+  top: calc(var(--header-height) + 105px);
+  border: solid 1px var(--border);
+}
 
 
 .footer {
