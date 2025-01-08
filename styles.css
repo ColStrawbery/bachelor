@@ -15,7 +15,7 @@ html::-webkit-scrollbar {
 }
 
 ::selection {
-  background: rgb(240, 131, 131);
+  background: rgba(255, 0, 0, 0.151);
 }
 
   @font-face {
@@ -49,7 +49,8 @@ body {
 
 .white-bg {
   background-color: var(--white);
-  height: 300vh;
+  height: auto;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -67,14 +68,14 @@ header {
   position: fixed;
   width: 100vw;
   z-index: 1000;
-  transition: opacity 0.5s ease; /* Fade out transition */
-  opacity: 1; /* Fully visible */
+  transition: transform 0.5s ease;
   border-bottom: 1px solid var(--border);
+  transform: translateY(0);
 }
 
 header.hidden {
-    opacity: 0; /* Fully transparent */
-    transition: opacity 0.5s ease; /* Fade out transition */
+    transform: translateY(-110%);
+    transition: transform 0.5s ease; /* Fade out transition */
     user-select: none;
 }
 
@@ -200,29 +201,28 @@ header.hidden {
     background-size: 0% 1px;
     background-repeat: no-repeat;
     transition: background-size 0.2s, background-position 0s 0.3s;
+
 }
 
 .nav-item a {
     text-decoration: none;
     color: inherit;
+    padding-bottom: 5px;
 }
 
+/*Link hover underline*/
 .nav-item:hover {
-    color: #525252;
-    background-position: 0 100%;
-    background-size: 100% 1px; /* Hover underline size */
+    color: #726e6e;
 }
 
 /* Active page underline, visible */
 .nav-item.active {
-    color: #000000;
-    background-position: 0 100%;
-    background-size: 100% 1px; /* Active underline size */
+    border-bottom: 2px solid var(--red);
 }
 
 /* Ensure the active link is styled correctly */
 .nav-item.active a {
-    color: #191919;
+    color: #373737;;
     text-decoration: none;
 }
 
@@ -259,14 +259,15 @@ background-color: var(--cookiecolor);
 
 
 
-.explainer-section {
+.threats-section {
   /* background-color: green; */
   border-top: 2px solid var(--border);
   margin: 0 auto;
   width: 60%;
+  /* background-color: green; */
 }
 
-.explainer-flex {
+.threats-flex {
   display: flex;              /* Flexbox aktivieren */
   flex-wrap: wrap;            /* Zeilenumbruch erlauben */
   gap: 20px;                  /* Abstand zwischen den `div`-Elementen */
@@ -274,18 +275,51 @@ background-color: var(--cookiecolor);
   padding-bottom: 120px;
 }
 
-.explainer-title { /*Die größten Bedrohungen*/
-  margin-top: 40px;
+.threats-title { /*Die größten Bedrohungen*/
   font-weight: 900;
   font-size: 2rem;
-  padding-top: 100px;
-  margin-bottom: 50px;
+  padding-bottom: 30px;
+  padding-top: 50px;
+}
+
+
+
+.explainer-title { /*Die größten Bedrohungen*/
+  font-weight: 900;
+  font-size: 2rem;
+  padding-bottom: 30px;
+  padding-top: 50px;
+}
+
+
+.explainer-section {
+
+  border-top: 2px solid var(--border);
+  margin: 0 auto;
+  width: 60%;
+  /* background-color: green; */
+}
+
+
+.explainer-context {
+  margin: 0;
+  max-width: 700px;
+  /* background-color: red; */
+  font-size: 1.1rem;
+  line-height: 1.6; /* Verbesserte Lesbarkeit */
+  color: #333;
+  text-align: left; /* Links-Ausrichtung statt justified */
+}
+
+.explainer-context p {
+  margin-bottom: 1.5rem; /* Abstand zwischen Absätzen */
 }
 
 
 
 
-.explainer-flex a {
+
+.threats-flex a {
   display: contents;
   text-decoration: none;
 }
@@ -309,7 +343,7 @@ background-color: var(--cookiecolor);
 }
 
 /*hovered*/
-.explainer-flex:hover > a:hover .landing-block {
+.threats-flex:hover > a:hover .landing-block {
   background-color: rgb(248, 248, 248);
   transition: background-color 0.1s ease, border-color .3s ease, color .2s ease; 
   border-color: var(--red);
@@ -317,7 +351,7 @@ background-color: var(--cookiecolor);
 }
 
 /*non-hovered*/
-.explainer-flex:hover > a .landing-block {
+.threats-flex:hover > a .landing-block {
   background-color: rgb(243, 243, 243);
   transition: background-color 0.3s ease-in-out, border-color .3s ease, color .2s ease;
   cursor: pointer;
@@ -325,7 +359,7 @@ background-color: var(--cookiecolor);
   color: var(--text);
 }
 
-.explainer-flex a:visited {
+.threats-flex a:visited {
   color: inherit;
 }
 
@@ -348,14 +382,7 @@ background-color: var(--cookiecolor);
 
 
 
-
-
-
-
-
-
-
-/*FAQ*/
+/*QUIZ*/
 
 .quiz-start {
   width: 50%;
@@ -502,9 +529,9 @@ background-color: var(--cookiecolor);
 .quiz-container {
   border: solid 1px var(--border);
   width: 55%;
-  height: 500px;
+  height: 530px;
   position: absolute;
-  top: calc(var(--header-height) + 90px); /* Position below the header + margin-top */    
+  top: calc(var(--header-height) + 70px); /* Position below the header + margin-top */    
   left: 40%; /* Center horizontally */
   transform: translateX(-50%); /* Offset to center the div */
   background-color: white;
@@ -514,7 +541,7 @@ background-color: var(--cookiecolor);
 .quiz-title {
   position: absolute;
   right: 4%;
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem); /* Responsive font size */
   top: 450px;
   line-height: 100%;
   opacity: 10%;
@@ -531,14 +558,18 @@ background-color: var(--cookiecolor);
 }
 
 .quiz-question {
-  padding-top: 50px;
-  padding-left: 45px;
-  font-size: 2rem;
+  width: 75%;
+  margin-left: 100px;
+  margin-right: auto;
+  margin-top: 90px;
+  font-size: clamp(1.25rem, 3vw, 2rem); /* Responsive font size */
   font-weight: 600;
 }
 
 .quiz-answer-container {
-  padding-left: 45px;
+  width: 70%;
+  margin-left: 100px;
+  margin-right: auto;
 }
 
 .quiz-progress-fill {
@@ -549,14 +580,13 @@ background-color: var(--cookiecolor);
 
 .quiz-nav {
   position: absolute; /* Position relative to the parent container */
-  bottom: 30px;       /* Distance from the bottom of the parent */
-  right: 26px;        /* Distance from the right of the parent */
+  bottom: -40px;       /* Distance from the bottom of the parent */
+  right: 0;        /* Distance from the right of the parent */
   cursor: default;
 }
 
 .btn {
   padding: 8px 16px;
-  margin: 2px;
   background-color: #fcf8f8;
   color: var(--footer);
   border: solid 1px rgb(198, 184, 184);
@@ -584,20 +614,23 @@ background-color: var(--cookiecolor);
 /*Button type*/
 .button-group {
   display: flex;
-  gap: 0.7rem;
-  justify-content: left;
-  margin: 2rem 0;
+  flex-direction: column; /* Stack elements vertically */
+  gap: 0.7rem; /* Spacing between buttons */
+  justify-content: flex-start; /* Align to the start of the container */
+  margin-top: 2rem;
 }
 
 .answer-button {
-  padding: 1rem 2rem;
+  padding: 0.85rem 1rem;
   border: 1px solid var(--border);
   background-color: white;
-  color: rgb(118, 91, 91);
+  color: rgb(39, 33, 33);
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.3s ease;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.03rem;
+  text-align: left;
+  border-radius: 5px;
 }
 
 .answer-button:hover {
@@ -605,16 +638,18 @@ background-color: var(--cookiecolor);
 }
 
 .answer-button.selected {
-  background-color: var(--red);
-  color: white;
-  border: solid 1px rgb(174, 140, 140);
+  background-color: rgb(255, 240, 240);
+  border: solid 1px var(--red);
 }
 
+/*Checkbox type*/ 
 .checkbox-group {
   display: flex;
-  gap: 0.7rem;
-  justify-content: left;
-  margin: 2rem 0;
+  flex-direction: column; /* Stack elements vertically */
+  gap: 0.7rem; /* Spacing between buttons */
+  justify-content: flex-start; /* Align to the start of the container */
+  margin: 2rem;
+  margin-left: 0;
 }
 
 .checkbox-option input[type="checkbox"] {
@@ -625,28 +660,31 @@ background-color: var(--cookiecolor);
 }
 
 .checkbox-option.checked {
-  background-color: var(--red);
-  color: white;
-  border: solid 1px rgb(174, 140, 140);
+  background-color: rgb(255, 240, 240);
+  border: solid 1px var(--red);
 }
 
 
 .checkbox-option {
-  
-  padding: 1rem 2rem;
+  padding: 0.85rem 1rem;
   border: 1px solid var(--border);
   background-color: white;
-  color: rgb(118, 91, 91);
+  color: rgb(39, 33, 33);
   cursor: pointer;
   font-size: 1rem;
   transition: all 0.3s ease;
-  letter-spacing: 0.05rem;
+  letter-spacing: 0.03rem;
+  text-align: left;
+  border-radius: 5px;
 }
 
 /* Hover effect only when not checked */
 .checkbox-option:not(.checked):hover {
   background-color: #fff8f8;
 }
+
+
+
 
 .results {
   display: none;
@@ -660,10 +698,24 @@ background-color: var(--cookiecolor);
 }
 
 .score {
-  font-size: 2em;
+  height: 200px;
+  width: 50%;
+  font-size: 5rem;
+  font-weight: 900;
   text-align: center;
   color: var(--primary);
-  margin: 20px 0;
+  margin: auto;
+  background-color: rgb(242, 214, 214);
+}
+
+.results {
+  width: 75%;
+  margin-left: 100px;
+  margin-right: auto;
+  margin-top: 90px;
+  font-size: clamp(1.25rem, 3vw, 2rem); /* Responsive font size */
+  font-weight: 600;
+  background-color: red;
 }
 
 
@@ -672,38 +724,180 @@ background-color: var(--cookiecolor);
 
 
 
+/*HILFE*/
+
+.help-section {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: calc(var(--header-height) + 150px);
+  padding: 0 40px;
+  margin-bottom: 300px;
+}
+
+.help-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.help-section h2:first-of-type {
+  margin-top: 200px;
+}
+
+.help-section h2 {
+  margin-bottom: 30px;
+}
+
+.help-section p, .help-section ul {
+  margin-bottom: 100px;
+}
+
+.help-section ul {
+  line-height: 25px;
+}
+
+/*HILFE*/
 
 
+/*TOPICS*/
+
+/* Container für die Themen */
+.topics {
+  
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Abstand zwischen den einzelnen Themen */
+  align-items: center; /* Zentrierung der Themen in der Seite */
+  margin-bottom: 300px;
+}
+
+
+
+
+.topic-section {
+  max-width: 800px;
+  /* margin: 0 auto; */
+  margin-top: calc(var(--header-height) + 100px);
+  margin-left: 300px;
+  /* background-color: green; */
+}
+
+.topic-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  padding-bottom: 30px;
+  padding-top: 50px;
+}
+
+.topic-context {
+  margin: 0;
+  max-width: 700px;
+  /* background-color: red; */
+  font-size: 1.1rem;
+
+  color: #333;
+  text-align: left; /* Links-Ausrichtung statt justified */
+  margin-bottom: 200px;
+}
+
+.header-p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 100%;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+  line-height: 1.3; /* Verbesserte Lesbarkeit */
+}
+
+/* Einzelnes Thema mit Rahmen */
+.topic-item {
+  display: flex;
+  align-items: center; /* Zentriert Icon und Text vertikal */
+  padding: 10px 15px;
+  border-radius: 5px; /* Optional: Abgerundete Ecken */
+  max-width: 1200px; /* Begrenzung der Breite */
+  width: 100%; /* Passt sich flexibel an kleinere Bildschirme an */
+  background-color: var(--background); /* Optional: Hintergrundfarbe */
+  margin-left: 265px;
+  margin-top: -20px;
+}
+
+/* Icon links */
+.topic-icon {
+
+  width: 300px; /* Größe des Icons */
+  height: auto;
+  margin-top: 0;
+  margin-right: 0; /* Abstand zwischen Icon und Text */
+  flex-shrink: 0; /* Verhindert, dass das Icon skaliert wird */
+}
+
+.topic-content {
+  width: 600px;
+  border: solid 1px var(--border);
+  min-height: 200px;
+  height: 300px;
+  padding: 20px;
+  padding-left: 40px;
+  /* background-color: red; */
+}
+
+/* Textinhalt des Themas */
+.topic-content h2 {
+  margin: 15px 0 5px 0; /* Abstand nach unten */
+  font-size: 1.6rem; /* Schriftgröße der Überschrift */
+  /* background-color: yellow; */
+}
+
+
+
+/*TOPICS*/
 
 
 /*FAQ*/
 
+
 .faq-container:first-of-type {
   max-width: 800px;
   margin: 0 auto;
-  margin-top: calc(var(--header-height) + 100px);
+  margin-top: calc(var(--header-height) + 150px);
   padding: 0 40px;
 }
+
+.faq-container:last-of-type {
+  margin-bottom: 300px;
+}
+
 
 .faq-container {
   max-width: 800px;
   margin: 0 auto;
   margin-top: calc(var(--header-height));
   padding: 0 40px;
+  margin-bottom: 100px;
+}
+
+.faq-header {
+  margin-bottom: 200px;
 }
 
 .faq-header h1 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-weight: 700;
 }
 
-.faq-header p {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  max-width: 500px;
-  margin-bottom: 50px;
+.accordion-header {
+  padding-left: 10px;
+  font-size: 1.55rem;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  font-weight: 650;
+  border-bottom: solid 3px var(--red);
+  border-left: solid 3px var(--red);
 }
+
 
 .faq-accordion {
   width: 100%;
@@ -720,24 +914,30 @@ background-color: var(--cookiecolor);
   justify-content: space-between;
   gap: 20px;
   transition: background-color 0.5s ease;
+  color: rgb(26, 26, 26);
 }
 
 .faq-accordion:hover {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(239, 239, 239);
   transition: background-color 0.5s ease;
+}
+
+.faq-accordion.active {
+  background-color: rgb(249, 249, 249);
 }
 
 .faq-panel {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-  background-color: rgb(238, 236, 236);
+  background-color: rgb(237, 236, 235);
 }
 
 
 
 .panel-open {
-  border-bottom: solid 2px red;
+  border-bottom: solid 3px var(--border);
+  background-color: rgb(243, 243, 243);
 }
 
 .faq-panel p, .faq-panel ul {
@@ -758,15 +958,6 @@ background-color: var(--cookiecolor);
 
 
 
-.topic-box {
-  /* background-color: red; */
-  width: 200px;
-  height: 300px;
-  position: fixed;
-  left: 30px;
-  top: calc(var(--header-height) + 105px);
-  border: solid 1px var(--border);
-}
 
 
 .footer {
@@ -776,7 +967,7 @@ background-color: var(--cookiecolor);
   background-color: #242222;
   display: flex; /* Enables horizontal alignment */
   gap: 10px; /* Adds space between boxes */
-  padding-top: 50px;
+  padding-top: 80px;
   opacity: 100%;
 }
 

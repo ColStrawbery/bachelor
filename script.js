@@ -46,53 +46,61 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => console.error("Error loading terms:", error));
 });
 
-//link underliner
+// underliner logic
 document.addEventListener("DOMContentLoaded", function () {
-  const navItems = document.querySelectorAll('.nav-item');
-  const currentPage = window.location.pathname.split('/').pop().replace('.html', ''); // Normalize path
-
-  console.log("Current Page:", currentPage); // Check for debugging
-
-  navItems.forEach(item => {
-      const link = item.querySelector('a');
-      const linkHref = link.getAttribute('href').replace('.html', ''); // Normalize link path
-
-      // Check if the current page matches the link, or if the current page is "index" for START
-      if (linkHref === currentPage || (linkHref === 'START' && currentPage === 'index')) {
-          item.classList.add('active');
-          console.log("Active page added for:", link.getAttribute('href'));
-      }
-  });
-});
-
-
-// Hide NAV on scroll below 50
-document.addEventListener('DOMContentLoaded', function() {
-    const header = document.getElementById('header');
-    
-    function handleScroll() {
-      const scrollPosition = window.scrollY;
+    const navItems = document.querySelectorAll('.nav-item');
+    const currentPage = window.location.pathname.split('/').pop().replace('.html', '').toLowerCase(); // Normalize path to lowercase
   
-      // Disable hiding on mobile (screen width <= 768px)
-      if (window.innerWidth > 768) {
-        if (scrollPosition > 50) {
-          header.classList.add('hidden');
-          console.log("HIDDEN");
-        } else {
-          header.classList.remove('hidden');
-          console.log("SHOWING");
+    console.log("Current Page:", currentPage); // Check for debugging
+  
+    navItems.forEach(item => {
+        const link = item.querySelector('a');
+        const linkHref = link.getAttribute('href').replace('.html', '').toLowerCase(); // Normalize link path to lowercase
+  
+        // Match the current page with the link
+        if (linkHref === currentPage || (linkHref === 'start' && currentPage === 'index')) {
+            item.classList.add('active');
+            console.log("Active page added for:", link.getAttribute('href'));
         }
-      } else {
-        // Ensure the header is always visible on mobile
-        header.classList.remove('hidden');
-      }
+    });
+  });
+  
+
+
+// Hide NAV on scroll
+document.addEventListener('DOMContentLoaded', function () {
+    const header = document.getElementById('header');
+    let lastScrollPosition = 0;
+
+    function handleScroll() {
+        const currentScrollPosition = window.scrollY;
+
+        // Disable hiding on mobile (screen width <= 768px)
+        if (window.innerWidth > 768) {
+            if (currentScrollPosition > lastScrollPosition) {
+                // Scrolling down
+                header.classList.add('hidden');
+                console.log("HIDDEN (Scrolling Down)");
+            } else {
+                // Scrolling up
+                header.classList.remove('hidden');
+                console.log("SHOWING (Scrolling Up)");
+            }
+        } 
+
+        // Update last scroll position
+        lastScrollPosition = currentScrollPosition;
     }
-  
+
     window.addEventListener('scroll', handleScroll);
-  
+
     // Optional: Re-check on window resize to handle dynamic screen size changes
-    window.addEventListener('resize', handleScroll);
+    window.addEventListener('resize', () => {
+        header.classList.remove('hidden'); // Ensure header is visible after resizing
+        lastScrollPosition = window.scrollY; // Reset scroll position
+    });
 });
+
   
 
 // reveal resetter
@@ -102,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const scrollPosition = window.scrollY;
   
-        if (scrollPosition > 780) {
+        if (scrollPosition > 300) {
             resetter.classList.add('shown');
         } else {
             resetter.classList.remove('shown');
@@ -214,22 +222,24 @@ const questions = [
     {
         id: 1,
         type: 'button',
-        question: "Jedes meiner Passwörter ist einzigartig.",
+        question: "Wie verwalten Sie Ihre Zugangsdaten?",
         options: [
-            { text: "Ja", score: 1 },
-            { text: "Nein", score: 1 },
+            { text: "Passwort-Manager mit generierten Passwörtern.", score: 1 },
+            { text: "Unterschiedliche komplexe Passwörter, selbst verwaltet.", score: 1 },
+            { text: "Wenige Basis-Passwörter mit Variationen.", score: 1 },
+            { text: "Überall gleiche oder ähnliche Passwörter.", score: 1 },
         ],
         category: "security_measures",
     },
     {
         id: 2,
         type: 'button',
-        question: "Ich benutze ein bestimmtes Passwort <br> bei mehreren Konten.",
+        question: "Wie gehen Sie mit Software-Updates um?",
         options: [
-            { text: "Niemals", score: 1 },
-            { text: "Selten", score: 1 },
-            { text: "Oft", score: 1 },
-            { text: "Immer", score: 1 }
+            { text: "Automatische Updates für alles.", score: 1 },
+            { text: "Automatische Updates für Betriebssystem und Browser.", score: 1 },
+            { text: "Manuelle Updates bei Erinnerung.", score: 1 },
+            { text: "Updates werden ignoriert.", score: 1 }
         ],
         category: "security_measures",
     },
@@ -250,21 +260,61 @@ const questions = [
             return Math.min(3, sum);
         }
     },
+    // {
+    //     id: 4,
+    //     type: 'range',
+    //     question: "Schätzen Sie Ihr Wissen über Cyber-Sicherheit ein",
+    //     min: 0,
+    //     max: 10,
+    //     step: 1,
+    //     labels: {
+    //         0: "Anfänger",
+    //         5: "Fortgeschritten",
+    //         10: "Experte"
+    //     },
+    //     calculateScore: (value) => Math.round((value / 10) * 3),
+    //     category: "knowledge"
+    // }
     {
         id: 4,
-        type: 'range',
-        question: "Schätzen Sie Ihr Wissen über Cyber-Sicherheit ein",
-        min: 0,
-        max: 10,
-        step: 1,
-        labels: {
-            0: "Anfänger",
-            5: "Fortgeschritten",
-            10: "Experte"
-        },
-        calculateScore: (value) => Math.round((value / 10) * 3),
-        category: "knowledge"
-    }
+        type: 'button',
+        question: "Meine Passwörter bestehen aus:",
+        options: [
+            { text: "Worten", score: 1 },
+            { text: "Zahlen", score: 1 },
+            { text: "Worten und Zahlen", score: 1 },
+            { text: "Zufälligen Charakteren", score: 1 }
+        ],
+        category: "security_measures",
+        calculateScore: (selected) => {
+            if (selected.length === 0) return 0;
+            const sum = selected.reduce((acc, curr) => acc + curr.score, 0);
+            return Math.min(3, sum);
+        }
+    },
+    {
+        id: 5,
+        type: 'button',
+        question: "Ich nutze einen Administrator Account <br>am Computer.",
+        options: [
+            { text: "Ja", score: 1 },
+            { text: "Nein", score: 1 },
+        ],
+        category: "security_measures",
+    },
+    {
+        id: 6,
+        type: 'button',
+        question: "Wie gehen Sie mit Ihren persönlichen Daten in sozialen Medien um?",
+        options: [
+            { text: "Strenge Privatsphäre-Einstellungen, minimale Informationen", score: 1 },
+            { text: "Standard-Privatsphäre-Einstellungen", score: 1 },
+            { text: "Meist öffentlich, aber keine sensiblen Daten", score: 1 },
+            { text: "Alles ist öffentlich sichtbar", score: 1 }
+        ],
+        category: "security_measures",
+    },
+    
 ];
 
 // Globale Variablen
