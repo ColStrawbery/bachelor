@@ -705,7 +705,7 @@ background-color: var(--cookiecolor);
   text-align: center;
   color: var(--primary);
   margin: auto;
-  background-color: rgb(242, 214, 214);
+  /* background-color: rgb(242, 214, 214); */
 }
 
 .results {
@@ -715,7 +715,12 @@ background-color: var(--cookiecolor);
   margin-top: 90px;
   font-size: clamp(1.25rem, 3vw, 2rem); /* Responsive font size */
   font-weight: 600;
-  background-color: red;
+  /* background-color: red; */
+}
+
+.recommendations {
+  /* margin-left: 50px;
+  background-color: green; */
 }
 
 
