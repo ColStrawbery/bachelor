@@ -845,7 +845,8 @@ background-color: var(--cookiecolor);
   height: 300px;
   padding: 20px;
   padding-left: 40px;
-  /* background-color: red; */
+  background-color: white;
+  border-bottom: solid 3px var(--red);
 }
 
 /* Textinhalt des Themas */
