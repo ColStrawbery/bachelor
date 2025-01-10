@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 768px)">
 
     <link rel="icon" type="image/x-icon" href="/files/germany-logo-wifi.svg">
-    
+    <link rel="preload" href="files/germany-logo2.svg" as="image">
 
 </head>
 
@@ -22,16 +22,18 @@
     <div class="white-bg">
         <a id="top"></a>
 
-        <section class="topic-section">
-            <h1 class="topic-title">Die größten Bedrohungen</h1>
-            <div class="topic-context">
-                <p class="header-p">
-                    In einer digitalen Welt lauern viele Gefahren, die unsere persönlichen Daten bedrohen. Von unsicheren Netzwerken bis zu veralteter Software – <br>die Risiken sind vielfältig. 
-                </p>
-                <p class="header-p">
-                    Im Folgenden stellen wir Ihnen die 6 größten Bedrohungen für die Cyber-Sicherheit von Bürger*innen vor und zeigen, wie Sie sich effektiv davor schützen können.
-                </p>
-            </div>
+        <section class="main-section">
+            <section class="topic-section">
+                <h1 class="topic-title">Die größten Bedrohungen</h1>
+                <div class="topic-context">
+                    <p class="header-p">
+                        In einer digitalen Welt lauern viele Gefahren, die unsere persönlichen Daten bedrohen. Von unsicheren Netzwerken bis zu veralteter Software – <br>die Risiken sind vielfältig. 
+                    </p>
+                    <p class="header-p">
+                        Im Folgenden stellen wir Ihnen die 6 größten Bedrohungen für die Cyber-Sicherheit von Bürger*innen vor und zeigen, wie Sie sich effektiv davor schützen können.
+                    </p>
+                </div>
+            </section>
         </section>
 
 
@@ -102,7 +104,7 @@
 
     <header id="header">
         <div class="header-title-container">
-            <img class="germany-logo" src="files/germany-logo2.svg">
+            <a class="germany-logo" href="index.html"><img  src="files/germany-logo2.svg"></a>
         </div>
     
         <!-- Desktop Navigation -->
@@ -113,6 +115,7 @@
                 <li class="nav-item"><a href="QUIZ.html">Quiz</a></li>
                 <li class="nav-item"><a href="FAQ.html">FAQ</a></li>
                 <li class="nav-item"><a href="hilfe.html">Hilfe</a></li>
+                <!-- <img src="files/accessibility.svg" class="accessibility"> -->
             </ul>
         </nav>
     

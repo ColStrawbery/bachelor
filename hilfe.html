@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 768px)">
 
     <link rel="icon" type="image/x-icon" href="/files/germany-logo-wifi.svg">
-    
+    <link rel="preload" href="files/germany-logo2.svg" as="image">
 
 </head>
 
@@ -22,31 +22,34 @@
     <div class="white-bg">
         <a id="top"></a>
 
-        <section class="help-section">
-            <h1 class="help-title">Hilfe bei Cyberangriffen</h1>
-            <p class="header-p">
-                Wenn Sie Opfer eines Cyberangriffs geworden sind oder den Verdacht haben, dass Ihre Daten kompromittiert wurden, ist schnelles Handeln entscheidend. Im Folgenden finden Sie wichtige<br>Schritte und Anlaufstellen.
-            </p>
-        
-            <h2 class="accordion-header">Wichtige Maßnahmen</h2>
-            <ul class="help-list">
-                <li>Ändern Sie sofort die Passwörter der betroffenen Konten.</li>
-                <li>Trennen Sie infizierte Geräte vom Internet, um weitere Schäden zu verhindern.</li>
-                <li>Überprüfen Sie Ihre Bankkonten und melden Sie verdächtige Aktivitäten Ihrer Bank.</li>
-                <li>Informieren Sie Ihre Kontakte, falls Ihre E-Mail oder soziale Netzwerke gehackt wurden.</li>
-            </ul>
-        
-            <h2 class="accordion-header">Hilfreiche Anlaufstellen</h2>
-            <ul class="help-links">
-                <li><a href="https://www.polizei.de" target="_blank">Meldung von Cyberkriminalität bei der Polizei</a></li>
-                <li><a href="https://www.verbraucherzentrale.de" target="_blank">Verbraucherzentrale – Hilfe bei Identitätsdiebstahl</a></li>
-                <li><a href="https://www.kreditkartenhilfe.de" target="_blank">Notrufnummer für Kreditkartenmissbrauch</a></li>
-            </ul>
-        
-            <h2 class="accordion-header">Empfohlene Maßnahmen zur Vorbeugung</h2>
-            <p>
-                Prävention ist der beste Schutz vor Cyberangriffen. Verwenden Sie starke, einzigartige Passwörter, aktivieren Sie die Zwei-Faktor-Authentifizierung und aktualisieren Sie regelmäßig Ihre Software.
-            </p>
+        <section class="main-section">
+            <section class="help-section">
+                <h1 class="help-title">Hilfe bei Cyberangriffen</h1>
+                <p class="header-p">
+                    Wenn Sie Opfer eines Cyberangriffs geworden sind oder den Verdacht haben, dass Ihre Daten kompromittiert wurden, ist schnelles Handeln entscheidend. Im Folgenden finden Sie wichtige<br>Schritte und Anlaufstellen.
+                </p>
+
+                
+                <h2 class="accordion-header">Wichtige Maßnahmen</h2>
+                <ul class="help-list">
+                    <li>Ändern Sie sofort die Passwörter der betroffenen Konten.</li>
+                    <li>Trennen Sie infizierte Geräte vom Internet, um weitere Schäden zu verhindern.</li>
+                    <li>Überprüfen Sie Ihre Bankkonten und melden Sie verdächtige Aktivitäten Ihrer Bank.</li>
+                    <li>Informieren Sie Ihre Kontakte, falls Ihre E-Mail oder soziale Netzwerke gehackt wurden.</li>
+                </ul>
+            
+                <h2 class="accordion-header">Hilfreiche Anlaufstellen</h2>
+                <ul class="help-links">
+                    <li><a href="https://www.polizei.de" target="_blank">Meldung von Cyberkriminalität bei der Polizei</a></li>
+                    <li><a href="https://www.verbraucherzentrale.de" target="_blank">Verbraucherzentrale – Hilfe bei Identitätsdiebstahl</a></li>
+                    <li><a href="https://www.kreditkartenhilfe.de" target="_blank">Notrufnummer für Kreditkartenmissbrauch</a></li>
+                </ul>
+            
+                <h2 class="accordion-header">Empfohlene Maßnahmen zur Vorbeugung</h2>
+                <p>
+                    Prävention ist der beste Schutz vor Cyberangriffen. Verwenden Sie starke, einzigartige Passwörter, aktivieren Sie die Zwei-Faktor-Authentifizierung und aktualisieren Sie regelmäßig Ihre Software.
+                </p>
+            </section>
         </section>
         
     </div>
@@ -63,7 +66,7 @@
 
     <header id="header">
         <div class="header-title-container">
-            <img class="germany-logo" src="files/germany-logo2.svg">
+            <a class="germany-logo" href="index.html"><img  src="files/germany-logo2.svg"></a>
         </div>
     
         <!-- Desktop Navigation -->
