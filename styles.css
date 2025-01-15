@@ -5,10 +5,9 @@ html::-webkit-scrollbar {
 
 :root {
   --red: #d0342c;
-  --black: #191919;
-  --text: #a38c8a;
+  --text: #453f3f;
   --border: #d7c8c7;
-  --white: #f6f6f6;
+  --offWhite: #f6f6f6;
   --cookiecolor: grey; /* Default background color */
   --svg_text: #600606;
   --footer: #242222;
@@ -42,14 +41,14 @@ html body {
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--white);
+    background-color: var(--offWhite);
     display: flex;
     flex-direction: column;
     height: auto;
 }
 
 .white-bg {
-  background-color: var(--white);
+  background-color: var(--offWhite);
   height: auto;
   min-height: 100vh;
   width: 100%;
@@ -107,7 +106,7 @@ header.hidden {
 
 
 .resetter {
-  background-color: var(--white);
+  background-color: var(--offWhite);
   border: 1px solid var(--border);
   width: 35px;
   height: 35px;
@@ -194,7 +193,7 @@ header.hidden {
     gap: 35px;
     font-size: 1rem;
     font-weight: 500;
-    color: var(--black);
+    color: var(--footer);
     list-style: none;
     margin: auto 0;
     transform: translateY(3px);
@@ -344,7 +343,7 @@ background-color: var(--cookiecolor);
   max-width: 100%;            /* Begrenzung auf Containergröße */
   box-sizing: border-box;     /* Padding/Borders in der Breite berücksichtigen */
   padding: 0;              /* Optionaler Innenabstand */
-  background-color: var(--white); /* Beispiel-Hintergrund (optional) */
+  background-color: var(--offWhite); /* Beispiel-Hintergrund (optional) */
   text-align: center;         /* Zentriert das SVG innerhalb des div */
   height: 100%;
   position: relative;
@@ -409,6 +408,7 @@ background-color: var(--cookiecolor);
 .quiz-section {
   margin-top: 100px;
   border-top: 5px solid var(--red);
+  background-color: red;
   margin: 0 auto;
   width: 50%;
   height: 300px;
@@ -486,14 +486,12 @@ background-color: var(--cookiecolor);
 
 .info-header {
   user-select: none;
-  animation: fadeInSlide 1s ease forwards;
-  opacity: 0; /* Start fully transparent */
-  font-size: 6.0rem;
+  font-size: 5.75vw;
   line-height: 85%;
   margin: 0;
   color: #191919;
-  padding: 40px 0;
-  margin-top: 30px;
+  padding: 2.25vw 0;
+  margin-top: 1.5vw; /* Adjusted to use vw */
 }
 
   /*SICHER*/
@@ -516,11 +514,9 @@ background-color: var(--cookiecolor);
   padding: 12px 24px; /* Added horizontal padding for better text wrapping */
   color: white;
   background-color: var(--red);
-  border: 2px solid #9e0c04;
+  border: 2px solid #b71911;
   border-radius: 5px;
-  transition: background-color 0.4s ease, filter 0.2s ease, transform 0.2s ease;
-  filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.15));
-  transform: scale(1);
+  transition: background-color 0.4s ease;
   display: inline-block;
   letter-spacing: 1px;
   text-decoration: none;
@@ -530,16 +526,15 @@ background-color: var(--cookiecolor);
 
 .cta-button:hover {
   cursor: pointer;
-  background-color: rgb(229, 56, 21);
-  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.2));
-  transition: background-color 0.4s ease, filter 0.2s ease, transform 0.2s ease;
-  transform: scale(1.04);
+  background-color: rgb(162, 24, 9);
+  border-color: rgb(181, 118, 118);
+  transition: background-color 0.4s ease;
 }
 
 .cta-button:active {
   color: var(--red);
-  border-color: var(--white);
-  color: var(--black);
+  border-color: var(--offWhite);
+  color: var(--footer);
 }
 
   @keyframes fadeInSlide {
@@ -559,25 +554,19 @@ background-color: var(--cookiecolor);
 .info-section {
   border: 2px solid rgb(255, 227, 144);
   margin: 0 auto;
-  width: 60%;
+  width: 53vw;
   height: auto;
-  background-color: rgb(255, 240, 42);
+  background-color: #fff02a;
   margin-top: 120px;
   margin-bottom: 70px;
   position: relative; /* Add this */
   border-radius: 5px;
 }
 
-.info-section2 {
-  border: 2px solid rgb(236, 231, 231);
-  margin: 0 auto;
-  width: 60%;
-  height: auto;
-  background-color: rgb(255, 255, 255);
-  margin-top: 120px;
-  margin-bottom: 70px;
-  position: relative; /* Add this */
-  border-radius: 5px;
+.info-section p {
+  max-width: 100%;
+  font-size: 1vw;
+  /* background-color: red; */
 }
 
 .info-section2 h1 {
@@ -594,30 +583,64 @@ background-color: var(--cookiecolor);
 
 
 .info-icon {
-  width: 30px;
+  width: 2.5vw;
   height: auto;
   position: absolute;
-  top: 45px;
-  right: 50px;
+  top: 4vw;
+  right: 4vw;
   opacity: 25%;
 }
 
 
 .info-context {
   margin: 0;
-  max-width: 70ch;
-  padding-bottom: 50px;
-  font-size: 1.1rem;
+  max-width: 50vw;
+  padding-bottom: 3vw;
   color: #333;
   text-align: left; /* Links-Ausrichtung statt justified */
+  padding-left: 1vw; /* Adjusted to use vw */
+  /* background-color: red; */
 }
 
 .info-title, .info-context {
-  padding-left: 70px;
+    padding-left: 4vw; /* Adjusted to use vw */
 }
 
+.info-section {
+    border-radius: 5px;
 
+}
 
+.info-section--themen {
+    background-color: white;
+    border-color: var(--border);
+}
+
+.info-section--green {
+    background-color: green;
+}
+
+.info-section--red {
+    background-color: red;
+}
+
+.info-section--yellow {
+    background-color: #fff02a;
+}
+
+.info-section--white {
+    background-color: white;
+    border-color: rgb(242, 236, 236);
+}
+
+.header-p {
+    font-size: 1.1vw; /* Adjusted to use vw */
+    color: var(--text);
+    max-width: 75ch;
+    font-weight: 400;
+    margin-bottom: 1.5vw; /* Adjusted to use vw */
+    line-height: 1.3; /* Improved readability */
+}
 
 
 
@@ -634,6 +657,7 @@ background-color: var(--cookiecolor);
   transform: translateX(-50%); /* Offset to center the div */
   background-color: white;
   position: relative; /* Makes the child absolute positioning work */
+  border-radius: 5px;
 }
 
 .quiz-title {
@@ -649,6 +673,7 @@ background-color: var(--cookiecolor);
 .quiz-progress-bar {
   width: 100%;
   height: 8px;
+  border-radius: 0 0 4px 4px;
   background: rgb(243, 243, 243);
   overflow: hidden;
   bottom: 0;
@@ -688,6 +713,7 @@ background-color: var(--cookiecolor);
   background-color: #fcf8f8;
   color: var(--footer);
   border: solid 1px rgb(198, 184, 184);
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -793,6 +819,7 @@ background-color: var(--cookiecolor);
   bottom: 30px;       /* Distance from the bottom of the parent */
   right: 26px;        /* Distance from the right of the parent */
   cursor: default;
+  border-radius: 5px;
 }
 
 .score {
@@ -873,7 +900,7 @@ background-color: var(--cookiecolor);
 }
 
 .topic-title {
-  font-size: 2.5rem;
+  font-size: 3vw;
   margin-bottom: 20px;
   font-weight: 700;
   padding-bottom: 30px;
@@ -892,7 +919,7 @@ background-color: var(--cookiecolor);
 
 .header-p {
   font-size: 1.1rem;
-  color: var(--text-secondary);
+  color: var(--text);
   max-width: 100%;
   font-weight: 400;
   margin-bottom: 1.5rem;
