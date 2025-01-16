@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
 
-
-// Hide NAV on scroll
-document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const header = document.getElementById('header');
     let lastScrollPosition = 0;
 
+
+    // Handle header and accessibility options on scroll
     function handleScroll() {
         const currentScrollPosition = window.scrollY;
 
@@ -80,26 +80,20 @@ document.addEventListener('DOMContentLoaded', function () {
             if (currentScrollPosition > lastScrollPosition) {
                 // Scrolling down
                 header.classList.add('hidden');
-                console.log("HIDDEN (Scrolling Down)");
             } else {
                 // Scrolling up
                 header.classList.remove('hidden');
-                console.log("SHOWING (Scrolling Up)");
             }
-        } 
+        }
 
         // Update last scroll position
         lastScrollPosition = currentScrollPosition;
     }
 
     window.addEventListener('scroll', handleScroll);
-
-    // Optional: Re-check on window resize to handle dynamic screen size changes
-    window.addEventListener('resize', () => {
-        header.classList.remove('hidden'); // Ensure header is visible after resizing
-        lastScrollPosition = window.scrollY; // Reset scroll position
-    });
+    window.addEventListener('resize', updateHeaderHeight);
 });
+
 
   
 
@@ -785,4 +779,5 @@ document.addEventListener('keydown', (e) => {
         // Wenden der Farbe basierend auf dem Score an
         setColorBasedOnScore(totalPoints);
     });
+
 
