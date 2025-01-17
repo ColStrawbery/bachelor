@@ -84,6 +84,7 @@ header.hidden {
   width: 100%;
   height: calc(0.35 * var(--header-height)); /* Set height relative to header */
   background-color: rgb(205, 205, 205);
+  background-color: var(--footer);
   transition: transform 0.3s ease, visibility 0.3s ease;; /* Smooth slide */
   display: flex;
   align-items: center;
@@ -94,6 +95,7 @@ header.hidden {
 .accessibility {
   font-size: 0.85vw;
   color: var(--footer);
+  color: var(--offWhite);
   text-decoration: none;
   padding: 0 1vw;
 }
@@ -128,7 +130,7 @@ header.hidden {
 }
 
 .germany-logo {
-  width: clamp(40px, 5vw, 55px); /* Scale the logo with a minimum and maximum size */
+  width: clamp(10px, 3vw, 50px); /* Scale the logo with a minimum and maximum size */
   height: auto;
   display: flex; 
   align-items: center;
@@ -146,12 +148,11 @@ header.hidden {
   align-items: center; /* Align items to the bottom */
   gap: 2vw; 
   font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Scale the font size with a minimum and maximum size */
-  font-weight: 400;
   color: var(--footer);
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 6px;
+  margin-bottom: 0.2vw;
 }
 
 .nav-item {
@@ -159,11 +160,13 @@ header.hidden {
   padding: 0;
   transform-origin: top right;
   cursor: pointer;
-  position: relative;
+  position: relative; /* Ensure the circle is positioned relative to the nav item */
   display: inline-block;
   align-items: flex-end;
   display: flex;
+  transition: color 0.3s ease;
 }
+
 
 .nav-item a {  
   text-decoration: none;
@@ -175,6 +178,7 @@ header.hidden {
 /*Link hover underline*/
 .nav-item:hover {
   color: #726e6e;
+  transition: color 0.3s ease;
 }
 
 .nav-item a:hover {
@@ -368,14 +372,14 @@ header.hidden {
 }
 
 .cookie-btn {
-color: white;
-padding: 15px 32px;
-border: none;
-border-radius: 8px;
-font-size: 16px;
-cursor: pointer;
-transition: background-color 0.3s ease;
-background-color: var(--cookiecolor);
+  color: white;
+  padding: 15px 32px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: var(--cookiecolor);
 }
 
 
@@ -388,12 +392,13 @@ background-color: var(--cookiecolor);
   /* border-top: 2px solid var(--border); */
   margin: 0 auto;
   width: 60%;
-  padding-bottom: 120px;
-  padding-top: 30px;
+  padding-bottom: 12vw;
+  padding-top: 3vw;
+  background-color: red;
 }
 
 .threats-flex {
-  margin-top: 60px;
+  margin-top: 6vw;
   display: flex;              /* Flexbox aktivieren */
   flex-wrap: wrap;            /* Zeilenumbruch erlauben */
   gap: 20px;                  /* Abstand zwischen den `div`-Elementen */
@@ -408,6 +413,19 @@ background-color: var(--cookiecolor);
   padding-top: 50px;
 }
 
+/* .threat-link {
+  color: var(--red);
+  font-size: 1vw;
+  margin-top: 5vw;
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.info-section--quiz:hover .threat-link {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+} */
 
 
 .explainer-title { /*Die größten Bedrohungen*/
@@ -581,7 +599,6 @@ background-color: var(--cookiecolor);
 
 .main-section:first-of-type {
   margin-top: calc(var(--header-height) + 50px);
-  padding-top: 30px;
 }
 
 .main-text {
@@ -594,7 +611,7 @@ background-color: var(--cookiecolor);
 }
 
 .main-text--right {
-  padding-top: 15vw;
+    padding-top: 5vw;
     text-align: right; /* Align text to the right */
     width: 100%; /* Ensure it spans the full width of the .center div */
     margin: 0; /* Reset any default margins */
@@ -612,7 +629,7 @@ background-color: var(--cookiecolor);
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 12vw;
+  margin-top: 7vw;
   /* background-color: #0084ff; */
 }
 
@@ -629,7 +646,7 @@ background-color: var(--cookiecolor);
   border-radius: 5px;
   border: 2px solid rgb(242, 236, 236);
   width: calc(100% - 2.5px); /* Adjust width to account for the gap */
-  height: 15vw;
+  height: 12vw;
   display: flex; /* Enables Flexbox layout */
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Horizontally center the content */
@@ -646,15 +663,16 @@ background-color: var(--cookiecolor);
 }
 
 .threat-item h2 {
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   font-weight: 300;
   margin-top: auto; /* Push the heading to the bottom */
-  margin-bottom: 10px;
+  margin-bottom: 0.5vw;
   position: absolute;
-  bottom: 5px; /* Position the header at the bottom */
-  left: 20px; /* Position it on the left */
+  bottom: 1.75vw;
+  left: 2vw; /* Position it on the left */
   transform: translateY(0);
   transition: transform 0.3s ease;
+  text-align: left;
 }
 
 .threat-item:hover .threat-item-headline {
@@ -666,9 +684,9 @@ background-color: var(--cookiecolor);
 .topic-icon {
   transition: opacity 0.3s ease;
   position: absolute;
-  top: 10px; /* Position icon at the top */
-  right: -30px;
-  width: 250px;
+  top: 1vw; /* Position icon at the top */
+  right: -2vw;
+  width: 15vw;
   height: auto;
 }
 
@@ -683,10 +701,10 @@ background-color: var(--cookiecolor);
   color: var(--red);
   font-weight: 300;
   margin-top: auto; /* Push the heading to the bottom */
-  margin-bottom: 10px;
+  margin-bottom: 0.1vw;
   position: absolute;
-  bottom: 5px; /* Position the header at the bottom */
-  left: 20px; /* Position it on the left */
+  bottom: 1.75vw; /* Position the header at the bottom */
+  left: 2vw; /* Position it on the left */
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -800,6 +818,7 @@ background-color: var(--cookiecolor);
   color: var(--footer); /* Matches the design */
   font-size: 15vw;
   user-select: none;
+  font-weight: 100;
 }
 
 
@@ -816,7 +835,8 @@ background-color: var(--cookiecolor);
   border-radius: 5px;
   padding: 0;
   margin-left: 20vw;
-  margin-top: calc(var(--header-height) + 5vw);
+  margin-top: calc(var(--header-height) + 8vh);
+  cursor: default;
 }
 
 
@@ -828,10 +848,26 @@ background-color: var(--cookiecolor);
  color: #191919;
 }
 
-.info-highlight {
-  color: var(--red);
+
+.info-hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
+.info-section:hover .info-hidden {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.info-present {
+  transform: translateY(4.5vw);
+  transition: transform 0.3s ease;
+}
+
+.info-section:hover .info-present {
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
 
 .info-icon {
   width: 2.5vw;
@@ -898,15 +934,16 @@ background-color: var(--cookiecolor);
   transition: font-weight 0.3s ease;
 }
 
-.info-link {
+.quiz-link {
   color: var(--red);
+  font-size: 1vw;
   margin-top: 5vw;
   font-weight: 400;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.info-section--quiz:hover .info-link {
+.info-section--quiz:hover .quiz-link {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
@@ -1440,3 +1477,64 @@ background-color: var(--cookiecolor);
 
 
 
+/* Banner Container */
+.student-project-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Dunkler Hintergrund */
+  color: #ffffff; /* Weißer Text */
+  font-size: 1rem;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000; /* Immer im Vordergrund */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Leichte Schattenkante */
+  font-family: Arial, sans-serif;
+}
+
+/* Text Section */
+.student-project-banner p {
+  margin: 0;
+  flex: 1; /* Nimmt so viel Platz wie möglich ein */
+}
+
+/* Button Actions Container */
+.banner-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Abstand zwischen Buttons */
+}
+
+/* Buttons */
+.banner-button {
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #007bff; /* Blaue Buttons */
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.banner-button:hover {
+  background-color: #0056b3; /* Dunkleres Blau beim Hover */
+}
+
+/* Close Button */
+.banner-close {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+  margin-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.banner-close:hover {
+  color: #ff4d4d; /* Rotes X beim Hover */
+}
