@@ -94,7 +94,15 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('resize', updateHeaderHeight);
 });
 
-
+document.addEventListener('scroll', () => {
+    const infoContainer = document.querySelector('.info-container');
+    const fadePoint = 800; // The point where fading starts (in pixels)
+    const scrollTop = window.scrollY;
+  
+    // Calculate opacity based on scroll position
+    const opacity = Math.max(1 - scrollTop / fadePoint, 0);
+    infoContainer.style.opacity = opacity;
+  });
   
 
 // reveal resetter

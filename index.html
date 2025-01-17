@@ -23,6 +23,7 @@
     <div class="white-bg">
         <a id="top"></a>
 
+        <div class="info-container">
             <section class="info-section info-section--yellow">
                 <img src="/files/info.svg" alt="Information Icon" class="info-icon" />
                 <div class="info-context">
@@ -35,59 +36,83 @@
                     </p>
                 </div>
             </section>
+            <h1 class="arrow">🡓</h1>
+        </div>
+            
 
+        <section class="main-section">
+            <div class="center">
+                <h1 class="main-text">Cyberangriffe nutzen oft <br>menschliche Schwächen – <br><br>kleine Fehler, große Folgen.</h1>
+                <!-- <h1 class="main-text main-text--right">Im Risiko-Check<br>erfahren Sie wo Ihre <br>größten Gefahren sind.</h1> -->
+           
+            </div>
+            <div class="info-container">
+                <section class="info-section info-section--quiz" onclick="window.location.href='QUIZ.html'">
+                    <div class="info-context">
+                        <h1 class="info-header">PRÜFEN SIE<br>IHRE <span class="cta-highlight">EIGENE</span><br>SICHERHEIT</h1>
 
-            <section class="main-section">
-                <section class="threats-section">
-                    <h1 class="accordion-header">Die größten Bedrohungen</h1>
-                    
-                    <div class="threats-flex">
-                        <a href="themen.html#phishing">
-                            <div class="landing-block">
-                                <img class="icon-svg" src="files/new_phishing.svg" alt="Phishing Icon">
-                                <h2 class="icon-text">Phishing</h2>
-                            </div>
-                        </a>
-                        
-                        <a href="themen.html#malware">
-                            <div class="landing-block">
-                                <img class="icon-svg" src="files/new_malware.svg" alt="Malware Icon">
-                                <h2 class="icon-text">Malware</h2>
-                            </div>
-                        </a>
-                
-                        <a href="themen.html#datenlecks">
-                            <div class="landing-block">
-                                <img class="icon-svg" src="files/new_data_leaks.svg" alt="Datenleck Icon">
-                                <h2 class="icon-text">Datenlecks</h2>
-                            </div>
-                        </a>
-                        
-                        <a href="themen.html#internetbetrug">
-                            <div class="landing-block">
-                                <img class="icon-svg" src="files/new_fraud.svg" alt="Internetbetrug Icon">
-                                <h2 class="icon-text">Internetbetrug</h2>
-                            </div>
-                        </a>
-                        
-                        <a href="themen.html#social-engineering">
-                            <div class="landing-block">
-                                <img class="icon-svg" src="files/new_social_engineering.svg" alt="Social Engineering Icon">
-                                <h2 class="icon-text">Social Engineering</h2>
-                            </div>
-                        </a>
-                        
-                        <a href="themen.html#schwache-passwoerter">
-                            <div class="landing-block">
-                                <img class="icon-svg" src="files/new_password2.svg" alt="Passwort Icon">
-                                <h2 class="icon-text">Schwache Passwörter</h2>
-                            </div>
-                        </a> 
+                        <p class="header-p header-p--quiz">
+                            Mit unserem <strong>Risiko-Check</strong> werden ganz <strong>anonym</strong> ihre größten Sicherheitslücken <br>analysiert und anschließend in <strong>praxisnahe Tips</strong> umgewandelt. Dadurch können Sie <br>Ihre Sicherheit im digitalen Raum innerhalb kürzester Zeit auf den besten Stand bringen.
+                        </p>
+                        <p class="info-link">Zum Risiko-Check 🡢</p>
                     </div>
                 </section>
-            </section>
+            </div>
+        </section>
+
+
+        <section class="main-section">
+            <div class="center">
+                <h1 class="main-text main-text--right">Hier erfahren Sie mehr über <br>die wichtigsten Bedrohungen<br> der Cyberkriminalität.<br></h1>
+                <div class="threat-container">
+                    <div class="threat-grid">
+                        <!-- Threat 1: Malware -->
+                        <section class="threat-item">
+                            <h2 class="threat-item-headline">Malware</h2>
+                            <p class="threat-link">Zum Thema 🡢</p>
+                            <img src="files/new_malware.svg" alt="Malware Icon" class="topic-icon">
+                        </section>
             
-            <section class="explainer-section">
+                        <!-- Threat 2: Datenlecks -->
+                        <section class="threat-item">
+                            <h2 class="threat-item-headline">Datenlecks</h2>
+                            <p class="threat-link">Zum Thema 🡢</p>
+                            <img src="files/new_data_leaks.svg" alt="Datenlecks Icon" class="topic-icon">
+                        </section>
+            
+                        <!-- Threat 3: Internetbetrug -->
+                        <section class="threat-item">
+                            <h2 class="threat-item-headline">Internetbetrug</h2>
+                            <p class="threat-link">Zum Thema 🡢</p>
+                            <img src="files/new_fraud.svg" alt="Internetbetrug Icon" class="topic-icon">
+                        </section>
+            
+                        <!-- Threat 4: Social Engineering -->
+                        <section class="threat-item">
+                            <h2 class="threat-item-headline">Social Engineering</h2>
+                            <p class="threat-link">Zum Thema 🡢</p>
+                            <img src="files/new_social_engineering.svg" alt="Social Engineering Icon" class="topic-icon">
+                        </section>
+            
+                        <!-- Threat 5: Schwache Passwörter -->
+                        <section class="threat-item">
+                            <h2 class="threat-item-headline">Schwache Passwörter</h2>
+                            <p class="threat-link">Zum Thema 🡢</p>
+                            <img src="files/new_password2.svg" alt="Schwache Passwörter Icon" class="topic-icon">
+                        </section>
+            
+                        <!-- Threat 6: Phishing -->
+                        <section class="threat-item">
+                            <h2 class="threat-item-headline">Phishing</h2>
+                            <p class="threat-link">Zum Thema 🡢</p>
+                            <img src="files/new_phishing.svg" alt="Phishing Icon" class="topic-icon">
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+            <!-- <section class="explainer-section">
                 <h1 class="accordion-header">Der Schutz Ihrer Daten im digitalen Zeitalter</h1>
                 <div class="explainer-context">
                     <p>
@@ -106,7 +131,7 @@
                         Nicht zuletzt sollte auch der <strong>bewusste Umgang mit persönlichen Informationen</strong> überdacht werden. Oftmals wird leichtfertig mehr geteilt, als notwendig ist. Überlegen Sie bei jedem Online-Formular, bei jeder Anfrage, ob es wirklich erforderlich ist, bestimmte Daten preiszugeben. In der digitalen Welt kann niemand vollständig vor Gefahren geschützt werden, aber durch <strong>bewusstes Verhalten</strong> können Sie Ihre Daten deutlich sicherer machen.
                     </p>
                 </div>
-            </section>
+            </section> -->
     </div>
 
     <div class="resetter" onclick="scrollToTop()" id="resetter">

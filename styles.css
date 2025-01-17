@@ -151,7 +151,7 @@ header.hidden {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .nav-item {
@@ -421,9 +421,9 @@ background-color: var(--cookiecolor);
 .explainer-section {
 
   /* border-top: 2px solid var(--border); */
-  margin: 0 auto;
+  margin-left: 20vw;
   padding-top: 80px;
-  width: 60%;
+  width: 53vw;
   /* background-color: green; */
 }
 
@@ -568,12 +568,132 @@ background-color: var(--cookiecolor);
 }
 
 
+.center {
+  width: 53vw;
+  margin-left: 20vw;
+}
+
 .main-section {
-  background-color: white;
+  /* background-color: white; */
   width: 100%;
+  min-height: 30vw;
+}
+
+.main-section:first-of-type {
   margin-top: calc(var(--header-height) + 50px);
-  padding-top: 60px;
-  padding-bottom: 40px;
+  padding-top: 30px;
+}
+
+.main-text {
+
+  font-size: 2vw;
+  line-height: 120%;
+  font-weight: 400;
+  margin: 0;
+  color: #191919;
+}
+
+.main-text--right {
+  padding-top: 15vw;
+    text-align: right; /* Align text to the right */
+    width: 100%; /* Ensure it spans the full width of the .center div */
+    margin: 0; /* Reset any default margins */
+    padding-bottom: 3vw;
+}
+
+
+
+
+
+
+
+
+.threat-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 12vw;
+  /* background-color: #0084ff; */
+}
+
+.threat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns */
+  grid-template-rows: repeat(3, auto); /* Three rows */
+  width: 100%; /* Adjust based on your layout needs */
+  gap: 5px;
+}
+
+.threat-item {
+  background-color: white; /* Example background color */
+  border-radius: 5px;
+  border: 2px solid rgb(242, 236, 236);
+  width: calc(100% - 2.5px); /* Adjust width to account for the gap */
+  height: 15vw;
+  display: flex; /* Enables Flexbox layout */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Horizontally center the content */
+  justify-content: center; /* Vertically center the content */
+  text-align: center; /* Center text inside the item */
+  position: relative; 
+}
+
+.threat-item:hover {
+  background-color: rgb(255, 253, 253);
+  border-color: var(--red);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.threat-item h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-top: auto; /* Push the heading to the bottom */
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 5px; /* Position the header at the bottom */
+  left: 20px; /* Position it on the left */
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.threat-item:hover .threat-item-headline {
+ transform: translateY(-1.5vw);
+ transition: transform 0.3s ease;
+}
+
+/* Icon links */
+.topic-icon {
+  transition: opacity 0.3s ease;
+  position: absolute;
+  top: 10px; /* Position icon at the top */
+  right: -30px;
+  width: 250px;
+  height: auto;
+}
+
+.threat-item:hover .topic-icon {
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+
+.threat-link {
+  font-size: 1vw;
+  color: var(--red);
+  font-weight: 300;
+  margin-top: auto; /* Push the heading to the bottom */
+  margin-bottom: 10px;
+  position: absolute;
+  bottom: 5px; /* Position the header at the bottom */
+  left: 20px; /* Position it on the left */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.threat-item:hover .threat-link {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 .cta-div {
@@ -605,9 +725,15 @@ background-color: var(--cookiecolor);
   margin-top: 1.5vw; /* Adjusted to use vw */
 }
 
+
+
+
+
   /*SICHER*/
 .cta-highlight {
   color: var(--red);
+  font-weight: 600;
+  transition: font-weight 0.3s ease;
 }
 
 .cta-text {
@@ -659,7 +785,22 @@ background-color: var(--cookiecolor);
     }
 }
 
+.info-container {
+  position: relative;
+}
 
+.arrow {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  margin-right: 17vw;
+  line-height: 0.71;
+  bottom: 0; /* Aligns with the bottom of the info-section */
+  right: 0; /* Adjust as needed to move the arrow outside the info-section */
+  color: var(--footer); /* Matches the design */
+  font-size: 15vw;
+  user-select: none;
+}
 
 
 .info-section {
@@ -667,6 +808,7 @@ background-color: var(--cookiecolor);
   margin: 0 auto;
   width: 53vw;
   height: auto;
+  min-height: 35vw;
   background-color: #fff02a;
   margin-top: 120px;
   margin-bottom: 70px;
@@ -677,11 +819,6 @@ background-color: var(--cookiecolor);
   margin-top: calc(var(--header-height) + 5vw);
 }
 
-.info-section p {
-  max-width: 100%;
-  font-size: 1vw;
-  /* background-color: red; */
-}
 
 .info-section2 h1 {
   color: rgb(27, 27, 27);
@@ -700,8 +837,8 @@ background-color: var(--cookiecolor);
   width: 2.5vw;
   height: auto;
   position: absolute;
-  top: 4vw;
-  right: 4vw;
+  top: 3.5vw;
+  right: 3.5vw;
   opacity: 25%;
 }
 
@@ -725,18 +862,56 @@ background-color: var(--cookiecolor);
 
 }
 
-.info-section--themen {
-    background-color: white;
-    border-color: var(--border);
-}
+
 
 .info-section--green {
     background-color: green;
 }
 
-.info-section--red {
-    background-color: red;
+.info-section--quiz {
+    background-color: white;
+    border-color: rgb(242, 236, 236);
+    margin-top: 10vw;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
 }
+
+.info-section--quiz:hover {
+  border-color: var(--red);
+  transition: border-color 0.3s ease;
+  background-color: rgb(255, 253, 253);
+}
+
+
+.header-p--quiz { /*the quiz*/
+  transform: translateY(6vw);
+  transition: transform 0.3s ease;
+}
+
+.info-section--quiz:hover .header-p--quiz {
+  transform: translateY(3vw);
+  transition: transform 0.3s ease;
+}
+
+.info-section--quiz:hover .cta-highlight {
+  font-weight: 200;
+  transition: font-weight 0.3s ease;
+}
+
+.info-link {
+  color: var(--red);
+  margin-top: 5vw;
+  font-weight: 400;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.info-section--quiz:hover .info-link {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+
 
 .info-section--themen {
   background-color: white;
@@ -752,13 +927,15 @@ background-color: var(--cookiecolor);
 }
 
 .header-p {
-    font-size: 1.1vw; /* Adjusted to use vw */
+    font-size: 1vw; 
     color: var(--text);
     max-width: 75ch;
     font-weight: 400;
     margin-bottom: 1.5vw; /* Adjusted to use vw */
     line-height: 1.3; /* Improved readability */
 }
+
+
 
 
 
@@ -1036,15 +1213,6 @@ background-color: var(--cookiecolor);
   margin-bottom: 80px;
 }
 
-.header-p {
-  font-size: 1.1rem;
-  color: var(--text);
-  max-width: 100%;
-  font-weight: 400;
-  margin-bottom: 1.5rem;
-  line-height: 1.3; /* Verbesserte Lesbarkeit */
-}
-
 /* Update topic item positioning */
 .topic-item {
   display: flex;
@@ -1057,26 +1225,7 @@ background-color: var(--cookiecolor);
   margin-top: -20px;
 }
 
-/* Optional: Add a wrapper div for topic items if needed */
-.topics {
-  width: 70%; /* Slightly wider to accommodate the design */
-  margin-left: 20vw;
-  display: flex;
-  flex-direction: column;
-  gap: 80px;
-  align-items: center;
-  margin-top: 100px;
-}
 
-/* Icon links */
-.topic-icon {
-
-  width: 300px; /* Größe des Icons */
-  height: auto;
-  margin-top: 0;
-  margin-right: 0; /* Abstand zwischen Icon und Text */
-  flex-shrink: 0; /* Verhindert, dass das Icon skaliert wird */
-}
 
 .topic-content {
   width: 600px;
