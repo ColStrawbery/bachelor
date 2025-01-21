@@ -60,6 +60,9 @@ body {
   padding-bottom: 200px;
 }
 
+.--red-bg {
+  background-color: rgb(235, 65, 65);
+}
 
 header {
 
@@ -164,7 +167,7 @@ header.hidden {
   display: inline-block;
   align-items: flex-end;
   display: flex;
-  transition: color 0.3s ease;
+  transition: color 0.15s ease;
 }
 
 
@@ -177,8 +180,8 @@ header.hidden {
 
 /*Link hover underline*/
 .nav-item:hover {
-  color: #726e6e;
-  transition: color 0.3s ease;
+  color: #807c7c;
+  transition: color 0.15s ease;
 }
 
 .nav-item a:hover {
@@ -413,19 +416,12 @@ header.hidden {
   padding-top: 50px;
 }
 
-/* .threat-link {
-  color: var(--red);
-  font-size: 1vw;
-  margin-top: 5vw;
-  font-weight: 400;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.threat-topic-icon {
+  position: absolute;
+  width: 50vw;
+  right: -39vw;
 }
 
-.info-section--quiz:hover .threat-link {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-} */
 
 
 .explainer-title { /*Die größten Bedrohungen*/
@@ -492,15 +488,6 @@ header.hidden {
   border-color: var(--red);
   color: var(--svg_text);
 }
-
-/*non-hovered*/
-/* .threats-flex:hover > a .landing-block {
-  background-color: rgb(243, 243, 243);
-  transition: background-color 0.3s ease-in-out, border-color .3s ease, color .2s ease;
-  cursor: pointer;
-  border-color: none;
-  color: var(--text);
-} */
 
 .threats-flex a:visited {
   color: inherit;
@@ -602,10 +589,10 @@ header.hidden {
 }
 
 .main-text {
-
-  font-size: 2vw;
+  user-select: none;
+  font-size: 1.75vw;
   line-height: 120%;
-  font-weight: 400;
+  font-weight: 300;
   margin: 0;
   color: #191919;
 }
@@ -691,13 +678,13 @@ header.hidden {
 }
 
 .threat-item:hover .topic-icon {
-  opacity: 0.2;
+  opacity: 0.35;
   transition: opacity 0.3s ease;
 }
 
 
 .threat-link {
-  font-size: 1vw;
+  font-size: 1.1vw;
   color: var(--red);
   font-weight: 300;
   margin-top: auto; /* Push the heading to the bottom */
@@ -740,10 +727,12 @@ header.hidden {
   margin: 0;
   color: #191919;
   padding: 2.25vw 0;
-  margin-top: 1.5vw; /* Adjusted to use vw */
+  margin-top: 1.7vw; /* Adjusted to use vw */
 }
 
-
+.info-header--threat {
+  color: var(--red);
+}
 
 
 
@@ -808,19 +797,22 @@ header.hidden {
 }
 
 .arrow {
-  position: absolute;
   margin: 0;
   padding: 0;
-  margin-right: 17vw;
-  line-height: 0.71;
-  bottom: 0; /* Aligns with the bottom of the info-section */
-  right: 0; /* Adjust as needed to move the arrow outside the info-section */
+  line-height: 2; 
   color: var(--footer); /* Matches the design */
-  font-size: 15vw;
+  font-size: 1.1vw;
+  font-weight: 600;
   user-select: none;
-  font-weight: 100;
+  transform: translateY(0);
+  transition: all .3s ease;
+  opacity: 0;
 }
 
+.info-section--info:hover .arrow {
+  opacity: 1;
+  transition: all 0.3s ease;
+}
 
 .info-section {
   border: 2px solid rgb(255, 227, 144);
@@ -849,22 +841,22 @@ header.hidden {
 }
 
 
-.info-hidden {
+.arrow {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.info-section:hover .info-hidden {
+.info-section--info:hover .info-hidden {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
 .info-present {
-  transform: translateY(4.5vw);
+  transform: translateY(3vw);
   transition: transform 0.3s ease;
 }
 
-.info-section:hover .info-present {
+.info-section--info:hover .info-present {
   transform: translateY(0);
   transition: transform 0.3s ease;
 }
@@ -875,8 +867,17 @@ header.hidden {
   position: absolute;
   top: 3.5vw;
   right: 3.5vw;
-  opacity: 25%;
 }
+
+.info-eagle {
+  position: absolute;
+  top: 2vw;
+  right: -15vw;
+  width: 48vw;
+  height: auto;
+  opacity: 3%;
+}
+
 
 
 .info-context {
@@ -936,9 +937,9 @@ header.hidden {
 
 .quiz-link {
   color: var(--red);
-  font-size: 1vw;
+  font-size: 1.1vw;
   margin-top: 5vw;
-  font-weight: 400;
+  font-weight: 600;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -948,14 +949,19 @@ header.hidden {
   transition: opacity 0.3s ease;
 }
 
-
+.info-section--info {
+  clip-path: inset(0);
+}
 
 .info-section--themen {
   background-color: white;
   border-color: rgb(242, 236, 236);
-  padding: 0;
-  margin-left: 20vw;
-  margin-top: calc(var(--header-height) + 5vw);
+}
+
+.info-section--threat {
+  background-color: white;
+  border-color: rgb(242, 236, 236);
+  height: 100vw;
 }
 
 .info-section--white {
@@ -964,12 +970,12 @@ header.hidden {
 }
 
 .header-p {
-    font-size: 1vw; 
+    font-size: 1.1vw; 
     color: var(--text);
     max-width: 75ch;
     font-weight: 400;
     margin-bottom: 1.5vw; /* Adjusted to use vw */
-    line-height: 1.3; /* Improved readability */
+    line-height: 1.5; /* Improved readability */
 }
 
 
@@ -977,7 +983,8 @@ header.hidden {
 
 
 
-/*QUIZ*/
+/*#region QUIZ*/
+
 
 .quiz-container {
   border: solid 1px var(--border);

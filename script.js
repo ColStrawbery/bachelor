@@ -91,7 +91,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', updateHeaderHeight);
 });
 
 document.addEventListener('scroll', () => {
@@ -129,6 +128,68 @@ window.scrollTo({
     
 });
 }
+
+  // Define custom colors based on risk levels
+  const riskLevels = {
+    noRisk: '#7acf30',       // Niedriges Risiko
+    mediumRisk: '#ffa500',   // Mittleres Risiko
+    highRisk: '#ff4500',     // Hohes Risiko
+    extremeRisk: '#d0342c',  // Extrem hohes Risiko
+};
+
+// Helper function to get a specific cookie by name
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let cookie of cookies) {
+        const [key, value] = cookie.trim().split('=');
+        if (key === name) {
+            return value;
+        }
+    }
+    return null;
+}
+
+// Immediately set the variable to avoid transitions
+(function () {
+    const root = document.documentElement;
+
+    // Check for a cookie and apply the color before the page renders
+    const score = getCookie('cyberRiskScore');
+    if (score) {
+        setColorBasedOnScore(score);
+    }
+})();
+
+// On page load, set the CSS variable again for safety
+window.onload = function () {
+    const score = getCookie('cyberRiskScore');
+    if (score) {
+        setColorBasedOnScore(score);
+    }
+};
+
+// Function to apply the color based on the score
+function setColorBasedOnScore(score) {
+    const root = document.documentElement;
+
+    // Define the color based on the score
+    let color;
+    if (score <= 5) {
+        color = riskLevels.noRisk;
+    } else if (score <= 15) {
+        color = riskLevels.mediumRisk;
+    } else if (score <= 25) {
+        color = riskLevels.highRisk;
+    } else {
+        color = riskLevels.extremeRisk;
+    }
+
+    // Set the color variable in the CSS
+    root.style.setProperty('--cookiecolor', color);
+}
+
+
+
 
 //-------------------------------
 
@@ -209,27 +270,24 @@ document.querySelectorAll('.accordion').forEach(button => {
 //-------------------------------------------------
 
 
+//#region Quiz
 
 
+// First, declare global variables
+let currentQuestion = 0;
+let answers = {};
 
-
-
-
-
-
-
-// #region QUIZ CODE
-// Fragenkatalog mit verschiedenen Fragetypen
+// Then define the questions array
 const questions = [
     {
         id: 1,
         type: 'button',
         question: "Wie verwalten Sie Ihre Zugangsdaten?",
         options: [
-            { text: "Passwort-Manager mit generierten Passwörtern.", score: 1 },
+            { text: "Passwort-Manager mit generierten Passwörtern.", score: 0 },
             { text: "Unterschiedliche komplexe Passwörter, selbst verwaltet.", score: 1 },
-            { text: "Wenige Basis-Passwörter mit Variationen.", score: 1 },
-            { text: "Überall gleiche oder ähnliche Passwörter.", score: 1 },
+            { text: "Wenige Basis-Passwörter mit Variationen.", score: 2 },
+            { text: "Überall gleiche oder ähnliche Passwörter.", score: 3 },
         ],
         category: "security_measures",
     },
@@ -238,10 +296,10 @@ const questions = [
         type: 'button',
         question: "Wie gehen Sie mit Software-Updates um?",
         options: [
-            { text: "Automatische Updates für alles.", score: 1 },
+            { text: "Automatische Updates für alles.", score: 0 },
             { text: "Automatische Updates für Betriebssystem und Browser.", score: 1 },
-            { text: "Manuelle Updates bei Erinnerung.", score: 1 },
-            { text: "Updates werden ignoriert.", score: 1 }
+            { text: "Manuelle Updates bei Erinnerung.", score: 2 },
+            { text: "Updates werden ignoriert.", score: 3 }
         ],
         category: "security_measures",
     },
@@ -257,73 +315,136 @@ const questions = [
         ],
         category: "security_measures",
         calculateScore: (selected) => {
-            if (selected.length === 0) return 0;
-            const sum = selected.reduce((acc, curr) => acc + curr.score, 0);
-            return Math.min(3, sum);
+            let score;
+            
+            if (selected.length === 1) {
+                score = 3; // Score 3 if only one option is selected
+            } else if (selected.length === 2 && selected.every(option => option !== "Symbole")) {
+                score = 2; // Score 2 if two options are selected, and "Symbole" is not one of them
+            } else if (selected.length === 3) {
+                score = 1; // Score 1 if all 3 options (Kleinbuchstaben, Großbuchstaben, Ziffern) are selected
+            } else if (selected.length === 4) {
+                score = 0; // Score 0 if all 4 options are selected
+            } else {
+                score = 0; // Default to score 0 if no selection
+            }
+    
+            console.log(`Checkbox score: ${score} (${selected.length} items selected)`);
+            return score;
         }
     },
-    // {
-    //     id: 4,
-    //     type: 'range',
-    //     question: "Schätzen Sie Ihr Wissen über Cyber-Sicherheit ein",
-    //     min: 0,
-    //     max: 10,
-    //     step: 1,
-    //     labels: {
-    //         0: "Anfänger",
-    //         5: "Fortgeschritten",
-    //         10: "Experte"
-    //     },
-    //     calculateScore: (value) => Math.round((value / 10) * 3),
-    //     category: "knowledge"
-    // }
     {
         id: 4,
         type: 'button',
         question: "Meine Passwörter bestehen aus:",
         options: [
-            { text: "Worten", score: 1 },
-            { text: "Zahlen", score: 1 },
+            { text: "Worten", score: 3 },
+            { text: "Zahlen", score: 3 },
             { text: "Worten und Zahlen", score: 1 },
-            { text: "Zufälligen Charakteren", score: 1 }
+            { text: "Zufälligen Charakteren", score: 0 }
         ],
-        category: "security_measures",
-        calculateScore: (selected) => {
-            if (selected.length === 0) return 0;
-            const sum = selected.reduce((acc, curr) => acc + curr.score, 0);
-            return Math.min(3, sum);
-        }
+        category: "security_measures"
     },
     {
         id: 5,
         type: 'button',
-        question: "Ich nutze einen Administrator Account <br>am Computer.",
+        question: "Verwenden Sie Zwei-Faktor-Authentifizierung <br>(2FA) für Ihre Konten?",
         options: [
-            { text: "Ja", score: 1 },
-            { text: "Nein", score: 1 },
+            { text: "Ja, für alle wichtigen Konten", score: 0 },
+            { text: "Ja, aber nur für einige", score: 2 },
+            { text: "Nein", score: 3 },
+            { text: "Ich weiß nicht, was 2FA ist", score: 3 }
         ],
-        category: "security_measures",
+        category: "security_measures"
     },
     {
         id: 6,
         type: 'button',
-        question: "Wie gehen Sie mit Ihren persönlichen Daten in sozialen Medien um?",
+        question: "Ich nutze einen Administrator Account <br>am Computer.",
         options: [
-            { text: "Strenge Privatsphäre-Einstellungen, minimale Informationen", score: 1 },
-            { text: "Standard-Privatsphäre-Einstellungen", score: 1 },
-            { text: "Meist öffentlich, aber keine sensiblen Daten", score: 1 },
-            { text: "Alles ist öffentlich sichtbar", score: 1 }
+            { text: "Ja", score: 3 },
+            { text: "Nein", score: 0 },
         ],
         category: "security_measures",
     },
-    
+    {
+        id: 7,
+        type: 'button',
+        question: "Wie gehen Sie mit Ihren persönlichen Daten in sozialen Medien um?",
+        options: [
+            { text: "Strenge Privatsphäre-Einstellungen, minimale Informationen", score: 0 },
+            { text: "Standard-Privatsphäre-Einstellungen", score: 1 },
+            { text: "Meist öffentlich, aber keine sensiblen Daten", score: 2 },
+            { text: "Alles ist öffentlich sichtbar", score: 3 }
+        ],
+        category: "security_measures",
+    },
+    {
+        id: 8,
+        type: 'button',
+        question: "Wie verhalten Sie sich in öffentlichen WLAN-Netzwerken?",
+        options: [
+            { text: "Ich vermeide sie", score: 0 },
+            { text: "Ich nutze sie nur für alltägliche Dinge (Musik, Webrecherche)", score: 2 },
+            { text: "Ich nutze sie auch für Banking und Shopping", score: 3 },
+            { text: "Ich benutze immer ein VPN", score: 0 }
+        ],
+        category: "security_measures",
+    },
 ];
 
-// Globale Variablen
-let currentQuestion = 0;
-let answers = {};
+// Define scoring functions first
+function calculateQuestionScore(question) {
+    const answer = answers[question.id];
 
-// Cookie Funktionen
+    let score;
+    switch(question.type) {
+        case 'button':
+            score = answer.score;
+            console.log(`Question ${question.id} (button): Score = ${score}`);
+            break;
+        case 'checkbox':
+            score = question.calculateScore(answer);
+            console.log(`Question ${question.id} (checkbox): Score = ${score}`);
+            break;
+        case 'range':
+            score = question.calculateScore(answer);
+            console.log(`Question ${question.id} (range): Score = ${score}`);
+            break;
+        default:
+            score = 3;
+            console.log(`Question ${question.id} (unknown type): Default score = ${score}`);
+    }
+    return score;
+}
+
+function calculateTotalScore() {
+    console.log("\n--- Calculating Total Score ---");
+    
+    const maxScorePerQuestion = 3;
+    const totalPossibleScore = questions.length * maxScorePerQuestion;
+    console.log(`Maximum possible score: ${totalPossibleScore} (${questions.length} questions * ${maxScorePerQuestion} max score)`);
+    
+    let totalScore = 0;
+    questions.forEach(question => {
+        const questionScore = calculateQuestionScore(question);
+        totalScore += questionScore;
+        console.log(`Question ${question.id}: Added ${questionScore} to total. New total: ${totalScore}`);
+    });
+    
+    console.log(`Final raw score: ${totalScore} out of ${totalPossibleScore}`);
+    
+    // Convert to risk percentage (0 score = 5% risk, max score = 100% risk)
+    const riskPercentage = 5 + ((totalScore / totalPossibleScore) * 95);
+    console.log(`Risk calculation: 5 + ((${totalScore} / ${totalPossibleScore}) * 95) = ${riskPercentage}%`);
+    
+    const roundedRisk = Math.round(riskPercentage);
+    console.log(`Final rounded risk: ${roundedRisk}%`);
+    
+    return roundedRisk;
+}
+
+// Cookie functions
 function setCookie(name, value, days) {
     const expires = new Date();
     expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
@@ -347,57 +468,7 @@ function getCookie(name) {
     return null;
 }
 
-function updateQuestion() {
-    const question = questions[currentQuestion];
-    const questionElement = document.querySelector('.quiz-question');
-    const container = document.querySelector('.quiz-answer-container');
-    
-    if (!questionElement || !container) {
-        console.error('Required elements not found');
-        return;
-    }
-
-    questionElement.innerHTML = question.question;
-    container.innerHTML = '';
-    
-    const nextBtn = document.getElementById('nextBtn');
-    nextBtn.disabled = true;
-
-    switch(question.type) {
-        case 'radio':
-            createRadioGroup(container, question);
-            break;
-        case 'checkbox':
-            createCheckboxGroup(container, question);
-            break;
-        case 'range':
-            createRangeSlider(container, question);
-            break;
-        case 'button':
-            createButtonGroup(container, question);
-            break;
-    }
-
-    // Progress Bar aktualisieren
-    const progressFill = document.querySelector('.quiz-progress-fill');
-    if (progressFill) {
-        progressFill.style.width = `${(currentQuestion / questions.length) * 100}%`;
-        console.log('filled bar');
-    }
-    
-    // Zurück-Button Status
-    const prevBtn = document.getElementById('prevBtn');
-    if (prevBtn) {
-        prevBtn.disabled = currentQuestion === 0;
-    }
-    
-    // Wenn Antwort bereits existiert, diese vorauswählen
-    if (answers[question.id]) {
-        loadSavedAnswer(question);
-    }
-}
-
-// Add new function to create button group
+// UI creation functions
 function createButtonGroup(container, question) {
     const group = document.createElement('div');
     group.className = 'button-group';
@@ -408,18 +479,15 @@ function createButtonGroup(container, question) {
         button.className = 'answer-button';
         button.textContent = option.text;
         
-        // Add selected class if this option was previously chosen
         if (answers[question.id] && answers[question.id].text === option.text) {
             button.classList.add('selected');
         }
         
         button.onclick = () => {
-            // Remove selected class from all buttons in group
             group.querySelectorAll('.answer-button').forEach(btn => {
                 btn.classList.remove('selected');
             });
             
-            // Add selected class to clicked button
             button.classList.add('selected');
             
             answers[question.id] = option;
@@ -471,10 +539,8 @@ function createCheckboxGroup(container, question) {
         input.type = 'checkbox';
         input.value = index;
         input.onchange = (e) => {
-            // Add or remove the checked class on the label
             label.classList.toggle('checked', e.target.checked);
             
-            // Your existing code
             const selected = Array.from(group.querySelectorAll('input:checked'))
                 .map(input => question.options[input.value]);
             answers[question.id] = selected;
@@ -520,6 +586,53 @@ function createRangeSlider(container, question) {
     container.appendChild(rangeContainer);
 }
 
+// Navigation and state management functions
+function updateQuestion() {
+    const question = questions[currentQuestion];
+    const questionElement = document.querySelector('.quiz-question');
+    const container = document.querySelector('.quiz-answer-container');
+    
+    if (!questionElement || !container) {
+        console.error('Required elements not found');
+        return;
+    }
+
+    questionElement.innerHTML = question.question;
+    container.innerHTML = '';
+    
+    const nextBtn = document.getElementById('nextBtn');
+    nextBtn.disabled = true;
+
+    switch(question.type) {
+        case 'radio':
+            createRadioGroup(container, question);
+            break;
+        case 'checkbox':
+            createCheckboxGroup(container, question);
+            break;
+        case 'range':
+            createRangeSlider(container, question);
+            break;
+        case 'button':
+            createButtonGroup(container, question);
+            break;
+    }
+
+    const progressFill = document.querySelector('.quiz-progress-fill');
+    if (progressFill) {
+        progressFill.style.width = `${(currentQuestion / questions.length) * 100}%`;
+    }
+    
+    const prevBtn = document.getElementById('prevBtn');
+    if (prevBtn) {
+        prevBtn.disabled = currentQuestion === 0;
+    }
+    
+    if (answers[question.id]) {
+        loadSavedAnswer(question);
+    }
+}
+
 function loadSavedAnswer(question) {
     const savedAnswer = answers[question.id];
     if (!savedAnswer) return;
@@ -538,7 +651,6 @@ function loadSavedAnswer(question) {
                 if (checkboxIndex >= 0) {
                     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
                     checkboxes[checkboxIndex].checked = true;
-                    // Add this line to apply the class when loading saved answers
                     checkboxes[checkboxIndex].closest('.checkbox-option').classList.add('checked');
                 }
             });
@@ -576,47 +688,31 @@ function previousQuestion() {
     }
 }
 
-
-
-function calculateQuestionScore(question) {
-    const answer = answers[question.id];
-    if (!answer) return 0;
-
-    switch(question.type) {
-        case 'radio':
-            return answer.score;
-        case 'checkbox':
-            return question.calculateScore(answer);
-        case 'range':
-            return question.calculateScore(answer);
-        default:
-            return 0;
-    }
-}
-
-function calculateTotalScore() {
-    const totalScore = questions.reduce((sum, question) => {
-        return sum + calculateQuestionScore(question);
-    }, 0);
-    return Math.round((totalScore / (questions.length * 3)) * 100);
-}
-
 function showResults() {
     document.getElementById('quiz').style.display = 'none';
     document.getElementById('results').style.display = 'block';
 
     const progressFill = document.querySelector('.quiz-progress-fill');
     if (progressFill) {
-        progressFill.style.width = '100%'; // Manually set to 100%
+        progressFill.style.width = '100%';
     }
     
-    const score = calculateTotalScore();
-    document.querySelector('.score').textContent = `${score}%`;
+    console.log("\n--- Final Answers Summary ---");
+    Object.entries(answers).forEach(([questionId, answer]) => {
+        if (Array.isArray(answer)) {
+            console.log(`Question ${questionId}: Selected ${answer.length} options`);
+        } else {
+            console.log(`Question ${questionId}: Selected "${answer.text}" (score: ${answer.score})`);
+        }
+    });
+    
+    const riskScore = calculateTotalScore();
+    document.querySelector('.score').textContent = `${riskScore}%`;
     
     const recommendationsDiv = document.getElementById('recommendations');
     recommendationsDiv.innerHTML = `
         <h3>Ihre Ergebnisse im Detail:</h3>
-        <p>Sie haben ${score}% der möglichen Punkte erreicht.</p>
+        <p>Ihr Sicherheitsrisiko beträgt ${riskScore}%.</p>
     `;
 }
 
@@ -643,27 +739,23 @@ function loadProgress() {
     updateQuestion();
 }
 
-// Wichtig: Quiz initialisieren, wenn das DOM geladen ist
+// Add the event listeners at the end
 document.addEventListener('DOMContentLoaded', function() {
-    updateQuestion(); // Initial die erste Frage anzeigen
+    updateQuestion();
 });
 
-//arrow key control
 document.addEventListener('keydown', (e) => {
-    // Only handle arrow keys if we're in the quiz (not results)
     if (document.getElementById('quiz').style.display !== 'none') {
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
         
         switch(e.key) {
             case 'ArrowRight':
-                // Only trigger if button is enabled
                 if (!nextBtn.disabled) {
                     nextQuestion();
                 }
                 break;
             case 'ArrowLeft':
-                // Only trigger if button is enabled
                 if (!prevBtn.disabled) {
                     previousQuestion();
                 }
@@ -673,120 +765,10 @@ document.addEventListener('keydown', (e) => {
 });
 
 
+
+
+
+
 // #endregion
-
-
 //-------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-    // Define custom colors based on risk levels
-    const riskLevels = {
-        noRisk: '#7acf30',       // Niedriges Risiko
-        mediumRisk: '#ffa500',   // Mittleres Risiko
-        highRisk: '#ff4500',     // Hohes Risiko
-        extremeRisk: '#d0342c',  // Extrem hohes Risiko
-    };
-
-    // Helper function to get a specific cookie by name
-    function getCookie(name) {
-        const cookies = document.cookie.split(';');
-        for (let cookie of cookies) {
-            const [key, value] = cookie.trim().split('=');
-            if (key === name) {
-                return value;
-            }
-        }
-        return null;
-    }
-
-    // Immediately set the variable to avoid transitions
-    (function () {
-        const root = document.documentElement;
-
-        // Check for a cookie and apply the color before the page renders
-        const score = getCookie('cyberRiskScore');
-        if (score) {
-            setColorBasedOnScore(score);
-        }
-    })();
-
-    // On page load, set the CSS variable again for safety
-    window.onload = function () {
-        const score = getCookie('cyberRiskScore');
-        if (score) {
-            setColorBasedOnScore(score);
-        }
-    };
-
-    // Function to apply the color based on the score
-    function setColorBasedOnScore(score) {
-        const root = document.documentElement;
-
-        // Define the color based on the score
-        let color;
-        if (score <= 5) {
-            color = riskLevels.noRisk;
-        } else if (score <= 15) {
-            color = riskLevels.mediumRisk;
-        } else if (score <= 25) {
-            color = riskLevels.highRisk;
-        } else {
-            color = riskLevels.extremeRisk;
-        }
-
-        // Set the color variable in the CSS
-        root.style.setProperty('--cookiecolor', color);
-    }
-
-    // Handle form submission
-    document.getElementById("cyber-risk-form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Verhindert das Absenden des Formulars
-
-        let totalPoints = 0;
-
-        // Alle Radio-Buttons und Checkboxen abfragen
-        const radios = document.querySelectorAll('input[type="radio"]:checked');
-        const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-
-        // Punkte für ausgewählte Radio-Buttons addieren
-        radios.forEach(radio => {
-            totalPoints += parseInt(radio.getAttribute("data-points"));
-        });
-
-        // Punkte für ausgewählte Checkboxen addieren
-        checkboxes.forEach(checkbox => {
-            totalPoints += parseInt(checkbox.getAttribute("data-points"));
-        });
-
-        // Bewertung basierend auf den Punkten (umgekehrt, je höher der Score, desto unsicherer)
-        let resultMessage = "";
-        if (totalPoints <= 20) {
-            resultMessage = "Niedriges Risiko. Ihre Sicherheitspraktiken sind gut!";
-        } else if (totalPoints <= 40) {
-            resultMessage = "Mittleres Risiko. Einige Verbesserungen in Ihrer Sicherheit sind ratsam.";
-        } else {
-            resultMessage = "Hohes Risiko. Es gibt ernsthafte Sicherheitslücken in Ihren Praktiken.";
-        }
-
-        // Ergebnis anzeigen
-        document.getElementById("result").innerHTML = `<p>Ihre Risikoanalyse: ${resultMessage}</p><p>Gesamtpunkte: ${totalPoints}</p>`;
-
-        // Speichern des Ergebnisses in einem Cookie für 30 Tage
-        const expires = new Date();
-        expires.setTime(expires.getTime() + (30 * 24 * 60 * 60 * 1000)); // 30 Tage gültig
-        document.cookie = `cyberRiskScore=${totalPoints}; path=/; expires=${expires.toUTCString()}`;
-
-        // Wenden der Farbe basierend auf dem Score an
-        setColorBasedOnScore(totalPoints);
-    });
-
-
 
