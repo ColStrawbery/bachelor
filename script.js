@@ -348,7 +348,7 @@ const questions = [
     {
         id: 5,
         type: 'button',
-        question: "Verwenden Sie Zwei-Faktor-Authentifizierung <br>(2FA) für Ihre Konten?",
+        question: "Verwenden Sie Zwei-Faktor-Authentifizierung",
         options: [
             { text: "Ja, für alle wichtigen Konten", score: 0 },
             { text: "Ja, aber nur für einige", score: 2 },

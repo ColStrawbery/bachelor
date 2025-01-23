@@ -8,11 +8,13 @@ html::-webkit-scrollbar {
   --text: #453f3f;
   --border: #d7c8c7;
   --offWhite: #f6f6f6;
+  --offWhite: white;
   --cookiecolor: grey; /* Default background color */
   --svg_text: #600606;
   --footer: #242222;
   --header-height: clamp(30px, 7vw, 100px); /* Adjust this line */
   --yellow: #fff02a; /* Add this line */
+  --boldText: #191818; /* Add this line */
 }
 
 ::selection {
@@ -725,7 +727,7 @@ header.hidden {
   font-size: 5.75vw;
   line-height: 85%;
   margin: 0;
-  color: #191919;
+  color: var(--boldText);
   padding: 2.25vw 0;
   margin-top: 1.7vw; /* Adjusted to use vw */
 }
@@ -819,7 +821,7 @@ header.hidden {
   margin: 0 auto;
   width: 53vw;
   height: auto;
-  min-height: 35vw;
+  min-height: 30vw;
   background-color: #fff02a;
   margin-top: 120px;
   margin-bottom: 70px;
@@ -913,38 +915,52 @@ header.hidden {
     cursor: pointer;
 }
 
+.info-section--hilfe {
+  background-color: rgb(255, 240, 240);
+  border-color: rgb(209, 155, 155);
+  margin-top: 10vw;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.info-section--hilfe:hover {
+  border-color: var(--red);
+  transition: all 0.3s ease;
+  background-color: rgb(248, 212, 212);
+}
+
 .info-section--quiz:hover {
   border-color: var(--red);
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
   background-color: rgb(255, 253, 253);
 }
 
 
-.header-p--quiz { /*the quiz*/
-  transform: translateY(6vw);
+.header-p--quiz, .header-p--hilfe { /*the quiz*/
+  transform: translateY(4vw);
   transition: transform 0.3s ease;
 }
 
-.info-section--quiz:hover .header-p--quiz {
-  transform: translateY(3vw);
+.info-section--quiz:hover .header-p--quiz, .info-section--hilfe:hover .header-p--hilfe {
+  transform: translateY(1vw);
   transition: transform 0.3s ease;
 }
 
-.info-section--quiz:hover .cta-highlight {
+.info-section--quiz:hover .cta-highlight, .info-section--hilfe:hover .cta-highlight {
   font-weight: 200;
   transition: font-weight 0.3s ease;
 }
 
-.quiz-link {
+.quiz-link, .hilfe-link {
   color: var(--red);
   font-size: 1.1vw;
-  margin-top: 5vw;
+  margin-top: 3vw;
   font-weight: 600;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.info-section--quiz:hover .quiz-link {
+.info-section--quiz:hover .quiz-link, .info-section--hilfe:hover .hilfe-link {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
