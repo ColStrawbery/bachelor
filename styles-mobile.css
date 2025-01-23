@@ -50,7 +50,7 @@ header {
     display: flex;             /* Make the header a flex container */
     align-items: center;       /* Vertically center content */
     justify-content: space-between; /* Space title and nav evenly */
-    background-color: var(--white);
+    background-color: white;
     height: var(--header_height);
     width: 100vw;
     position: fixed;
@@ -65,7 +65,7 @@ header {
 
 
 .white-bg {
-    background-color: var(--white);
+    background-color: #f6f6f6;
     width: 100%; /* Fix overflow issue */
     height: auto;
     min-height: calc(100vh - var(--header_height));
@@ -113,7 +113,7 @@ header {
     right: -100%; /* Start off-screen */
     width: 100%;
     height: calc(100vh - 60px); /* Full height minus header height */
-    background-color: var(--white);
+    background-color: rgb(255, 255, 255);
     z-index: -1;
     transition: right 0.3s ease;
     /* background-color: green; */
@@ -428,114 +428,6 @@ header {
 
 
 
-/*QUIZ*/
-
-/* Base styles */
-.quiz-container {
-    top: 10px;
-    border: solid 1px var(--border);
-    width: 90%; /* Reduced from 55% for mobile */
-    height: auto; /* Changed from fixed height */
-    min-height: 530px;
-    position: relative;
-    margin: 70px auto; /* Center container */
-    background-color: white;
-    left: 0; /* Remove absolute positioning */
-    transform: none; /* Remove transform */
-    padding-bottom: 60px; /* Space for navigation */
-  }
-  
-  .quiz-title {
-    position: absolute;
-    right: 4%;
-    font-size: clamp(1.5rem, 4vw, 3rem); /* Adjusted font size */
-    top: auto;
-    bottom: 20px;
-    line-height: 100%;
-    opacity: 10%;
-    text-align: right;
-  }
-  
-  .quiz-question {
-    width: 90%; /* Increased from 75% */
-    margin: 40px auto; /* Centered and reduced top margin */
-    font-size: clamp(1rem, 2.5vw, 1.5rem); /* Adjusted font sizes */
-    font-weight: 600;
-    padding: 0 20px; /* Added padding */
-  }
-  
-  .quiz-answer-container {
-    width: 85%; /* Increased from 70% */
-    margin: 0 auto; /* Centered */
-    padding: 0 20px; /* Added padding */
-  }
-  
-  /* Button and Checkbox Groups */
-  .button-group,
-  .checkbox-group {
-    gap: 0.5rem; /* Reduced gap */
-    margin: 1rem 0; /* Adjusted margin */
-  }
-  
-  .answer-button,
-  .checkbox-option {
-    padding: 0.75rem 0.9rem; /* Slightly reduced padding */
-    font-size: 0.95rem; /* Slightly reduced font size */
-    width: 100%; /* Full width on mobile */
-    word-wrap: break-word; /* Handle long text */
-  }
-  
-  /* Navigation */
-  .quiz-nav {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-  }
-  
-  .btn {
-    padding: 8px 12px; /* Slightly reduced padding */
-    font-size: 0.9rem; /* Slightly reduced font size */
-  }
-  
-  /* Results Section */
-  .results {
-    width: 90%;
-    margin: 40px auto;
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    padding: 0 20px;
-  }
-  
-  .score {
-    height: auto;
-    width: 80%;
-    padding: 20px;
-    font-size: clamp(2.5rem, 8vw, 5rem);
-  }
-  
-  /* Progress Bar */
-  .quiz-progress-bar {
-    width: 100%;
-    height: 6px; /* Slightly reduced height */
-  }
-  
-
-
-
-/*QUIZ*/
-
-
-
-
-
-
-
-
-
-
-
-
 /*Footer*/
 
 .footer {
@@ -635,3 +527,136 @@ header {
     color: #565050;
 }
 
+
+.white-bg {
+    background-color: var(--white);
+    width: 100%;
+    height: auto;
+    min-height: calc(100vh - var(--header_height) -100);
+}
+
+.main-section {
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.center {
+    text-align: center;
+}
+
+.main-text {
+    user-select: none;
+    font-size: 1.75vw;
+    line-height: 120%;
+    font-weight: 300;
+    margin: 0;
+    color: #191919;
+}
+
+.main-text--right {
+    padding-top: 5vw;
+    text-align: right;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 3vw;
+}
+
+.threat-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 7vw;
+}
+
+.threat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+    width: 100%;
+    gap: 5px;
+}
+
+.threat-item {
+    background-color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(242, 236, 236);
+    width: calc(100% - 2.5px);
+    height: 25vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+    z-index: 1000000;
+}
+
+.threat-item-headline {
+    font-size: 1.5vw;
+    margin: 10px;
+}
+
+.threat-link {
+    font-size: 1.1vw;
+    color: var(--red);
+    font-weight: 300;
+    margin-top: auto;
+    margin-bottom: 0.1vw;
+    position: absolute;
+    bottom: 1.75vw;
+    left: 2vw;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.threat-item:hover .threat-link {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.topic-icon {
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 1vw;
+    width: 20vw;
+    left: 25vw;
+    height: auto;
+}
+
+.threat-item:hover .topic-icon {
+    opacity: 0.35;
+    transition: opacity 0.3s ease;
+}
+
+.threat-item h2 {
+    font-size: 3vw;
+    font-weight: 300;
+    margin-top: auto; /* Push the heading to the bottom */
+    margin-bottom: 1.5vw;
+    position: absolute;
+    bottom: 1.75vw;
+    left: 2vw; /* Position it on the left */
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    text-align: left;
+  }
+
+  .main-text {
+    user-select: none;
+    font-size: 4vw;
+    line-height: 120%;
+    font-weight: 300;
+    margin: 0;
+    color: #191919;
+    margin-top: 30vw;
+  }
+  
+  .main-text--right {
+      padding-top: 5vw;
+      text-align: right; /* Align text to the right */
+      width: 100%; /* Ensure it spans the full width of the .center div */
+      margin: 0; /* Reset any default margins */
+      padding-bottom: 10vw;
+      margin-top: 30vw;
+  }
