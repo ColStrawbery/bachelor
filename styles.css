@@ -207,9 +207,9 @@ header.hidden {
   transition: color 0.15s ease;
 }
 
-.nav-item a:hover {
+/* .nav-item a:hover {
 
-}
+} */
 
 /* Active page underline, visible */
 .nav-item.active a:hover {
@@ -1285,10 +1285,9 @@ header.hidden {
   /* background-color: red; */
 }
 
-.recommendations {
-  /* margin-left: 50px;
-  background-color: green; */
-}
+/* .recommendations {
+
+} */
 
 
 /*QUIZ*/
