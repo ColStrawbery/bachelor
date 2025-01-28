@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener('scroll', () => {
-    const infoContainer = document.querySelector('.info-container');
+    const infoContainer = document.querySelector('.info-section--info');
     const fadePoint = 800; // The point where fading starts (in pixels)
     const scrollTop = window.scrollY;
   
@@ -348,7 +348,7 @@ const questions = [
     {
         id: 5,
         type: 'button',
-        question: "Verwenden Sie Zwei-Faktor-Authentifizierung",
+        question: "Ich nutze Zwei-Faktor-Authentifizierung:",
         options: [
             { text: "Ja, für alle wichtigen Konten", score: 0 },
             { text: "Ja, aber nur für einige", score: 2 },
@@ -771,4 +771,75 @@ document.addEventListener('keydown', (e) => {
 
 // #endregion
 //-------------------------------------------------
+
+//#region Themen
+document.addEventListener("DOMContentLoaded", function () {
+    // All clickable headers and expandable content
+    const textSideHeaders = document.querySelectorAll(".topic-text-side");
+    const expandableTexts = document.querySelectorAll(".expandable");
+
+    // Function to toggle visibility of a specific section
+    function toggleSection(target) {
+        const content = document.getElementById(target);
+        const header = document.querySelector(`[data-target="${target}"]`);
+
+        // Toggle the 'expanded' class on the content
+        const isExpanded = content.classList.toggle("expanded");
+
+        // Update the arrow direction
+        if (isExpanded) {
+            header.classList.add("active");
+        } else {
+            header.classList.remove("active");
+        }
+    }
+
+    // Add click event to headers
+    textSideHeaders.forEach((header) => {
+        const target = header.dataset.target;
+
+        if (!header.classList.contains("always-expanded")) {
+            header.addEventListener("click", () => toggleSection(target));
+        }
+    });
+});
+
+
+//#endregion
+
+
+// Select all the accessibility options
+const accessibilityLinks = document.querySelectorAll('.accessibility');
+// Add click event listener to each link
+accessibilityLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default action of the link
+        // Toggle 'active' and 'inactive' classes
+        if (link.classList.contains('activated')) {
+            link.classList.remove('activated');
+            link.classList.add('inactivated');
+        } else {
+            link.classList.remove('inactivated');
+            link.classList.add('activated');
+        }
+    });
+});
+
+
+function scrollToQuiz() {
+    const quizCard = document.getElementById('quiz-card');
+    if (quizCard) {
+        const rect = quizCard.getBoundingClientRect();
+        const offset = window.innerHeight * 0.15; // 10vh
+        const scrollPosition = window.scrollY + rect.top - offset;
+
+        window.scrollTo({
+            top: scrollPosition,
+            behavior: 'smooth'
+        });
+    }
+}
+
+
+
 

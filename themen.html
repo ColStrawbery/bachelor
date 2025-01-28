@@ -34,19 +34,79 @@
                 </div>
             </section>
 
-            <section class="info-section info-section--threat">
-                <!-- <img src="/files/info.svg" alt="Information Icon" class="info-icon" /> -->
-                <div class="info-context">
-                    <h1 class="info-header info-header--threat">SOCIAL ENGINEERING</h1>
-                    <img src="files/new_malware.svg" alt="Malware Icon" class="threat-topic-icon">
-                    <p class="header-p">
-                        Der Cyber-Guide ist die zentrale Plattform der <strong>Bundesregierung</strong> um Informationen und Schutzmaßnahmen rund um das Thema Cyber-Sicherheit zu liefern. Ziel ist es, Bürger*innen, Unternehmen und Behörden dabei zu unterstützen, sich effektiv gegen digitale <br>Bedrohungen zu wappnen.
-                    </p>
-                    <p class="header-p">
-                        Diese Website bietet praxisnahe Tipps, interaktive Tools und aktuelle Warnmeldungen, <br>um Cybercrime vorzubeugen und digitale Sicherheit in den Alltag zu integrieren.
-                    </p>
+            <section class="topic-scroll" id="social-engineering"></section>
+            <section class="topic-background">
+                <img class="topic-section-icon" src="files/new_social_engineering.svg">
+                <div class="topic-section">
+                    <div class="topic-upper-region">
+                        <p class="topic-above-header">Schwachstelle Mensch</p>
+                        <h1 class="topic-header">Social Engineering</h1>
+                        
+                        <!-- Überblick -->
+                        <p class="topic-text-side active always-expanded" data-target="overview">
+                            Überblick
+                        </p>
+                        <p class="topic-text expandable always-expanded expanded" id="overview">
+                            Social Engineering ist eine Form der Manipulation, bei der Angreifer versuchen, Menschen dazu zu bringen, sensible Informationen preiszugeben oder schädliche Aktionen auszuführen. Dabei werden häufig psychologische Tricks und soziale Interaktionen genutzt, um das Vertrauen der Opfer zu gewinnen.
+                        </p>
+                        
+                        <!-- Warum es funktioniert -->
+                        <p class="topic-text-side" data-target="why-it-works">
+                            Warum es funktioniert <span class="topic-arrow">🡳</span>
+                        </p>
+                        <p class="topic-text expandable" id="why-it-works">
+                            Social Engineering basiert auf einer gezielten Manipulation menschlicher Psychologie. Cyberkriminelle nutzen tiefgreifende psychologische Mechanismen aus, um das Vertrauen und die Gutgläubigkeit ihrer Opfer auszunutzen. Sie erzeugen künstliche Drucksituationen, spielen mit Emotionen wie Angst, Hilfsbereitschaft oder Neugier und täuschen Vertrautheit oder Autorität vor. Menschen reagieren in solchen Situationen oft reflexartig und unterdrücken ihre kritische Wahrnehmung.
+                        </p>
+                        
+                        <!-- Schutzmaßnahmen -->
+                        <p class="topic-text-side" data-target="protection">
+                            Schutzmaßnahmen <span class="topic-arrow">🡳</span>
+                        </p>
+                        <p class="topic-text expandable" id="protection">
+                            Der Schutz vor Social-Engineering-Angriffen erfordert ein mehrstufiges Vorgehen. Organisationen und Einzelpersonen müssen kontinuierlich für die Methoden der Cyberkriminellen sensibilisiert werden. Dies umfasst regelmäßige Schulungen, die Entwicklung eines kritischen Bewusstseins für verdächtige Kommunikation und die Implementierung klarer Sicherheitsprotokolle. Wichtig ist die Etablierung einer Unternehmens- und Kommunikationskultur, die Mitarbeiter ermutigt, ungewöhnliche Anfragen zu hinterfragen und Verdachtsfälle umgehend zu melden.
+                        </p>
+                        
+                        <!-- Warnzeichen erkennen -->
+                        <p class="topic-text-side" data-target="recognizing-signs">
+                            Warnzeichen erkennen <span class="topic-arrow">🡳</span>
+                        </p>
+                        <p class="topic-text expandable" id="recognizing-signs">
+                            Die Identifikation potenzieller Social-Engineering-Angriffe erfordert Aufmerksamkeit und Wachsamkeit. Charakteristische Warnzeichen sind unaufgeforderte Kontaktaufnahmen, das Erzeugen künstlicher Dringlichkeit, anonyme Kommunikationsquellen und Aufforderungen, die Informationen außerhalb etablierter Kommunikationskanäle zu teilen. Verdächtig sind auch Nachrichten, die starke Emotionen auslösen sollen, sei es Angst, Mitgefühl oder überraschende Chancen. Die Devise lautet: Misstrauen ist besser als blinde Vertrauensseligkeit.
+                        </p>
+                        <p class="topic-source">Quellen</p>
+                    </div>
                 </div>
             </section>
+            
+            
+
+            
+            <section class="topic-scroll" id="malware"></section>
+            <section class="topic-background">
+                <img class="topic-section-icon" src="files/new_malware.svg">
+                <div class="topic-section">
+                    <div class="topic-upper-region">
+                        <p class="topic-above-header">Die schädliche Software</p>
+                        <h1 class="topic-header">Malware</h1>
+                        <p class="header-p">SSSSS Engineering ist eine Form der Manipulation, bei der Angreifer versuchen, <br>Menschen dazu zu bringen, sensible Informationen preiszugeben oder schädliche Aktionen auszuführen. Dabei werden häufig psychologische Tricks und soziale <br>Interaktionen genutzt, um das Vertrauen der Opfer zu gewinnen.</p>
+                    </div>
+            
+                    <div class="topic-lower-region">
+                        <div class="topic-container" id="topic-container">
+                            <p class="topic-container-text" id="topic-text">Fehler</p>
+                            <div class="topic-progress" id="topic-progress"></div>
+                        </div>
+            
+                        <button class="topic-text-side" id="overview-btn">Überblick</button>
+                        <button class="topic-text-side" id="methods-btn">Methoden</button>
+                        <button class="topic-text-side" id="dangers-btn">Gefahren</button>
+                        <button class="topic-text-side" id="protection-btn">Schutz</button>
+                        <button class="topic-text-side" id="recognition-btn">Erkennen</button>
+                    </div>
+                </div>  
+            </section>
+            
+            
 
             <section class="main-section">
                 <div class="center">
@@ -203,74 +263,37 @@
     
 
     <footer class="footer">
-        <div class="footer-div">
-            <h1>Über uns</h1>
-            <ul>
-                <li>
-                    <a>Impressum</a>
-                </li>
-                <li>
-                    <a>Datenschutz</a>
-                </li>
-                <li>
-                    <a>Kontakt</a>
-                </li>
-                <li>
-                    <a>FAQ</a>
-                </li>
-                <li>
-                    <a>Cookies</a>
-                </li>
-            </ul>
-            <p>Copyright © 2024 Lukas Schwarz</p>
-        </div>
+        <div class="footer-content">
+            <div class="footer-div">
+                <h1>Über uns</h1>
+                <ul>
+                    <li><a>Impressum</a></li>
+                    <li><a>Datenschutz</a></li>
+                    <li><a>Kontakt</a></li>
+                    <li><a>FAQ</a></li>
+                </ul>
+                <p>© 2025 Cyberguide</p>
+            </div>
 
-        <div class="footer-div">
-            <h1>Rechtliches</h1>
-            <ul>
-                <li>
-                    <a>Nutzungsbedingungen</a>
-                </li>
-                <li>
-                    <a>Urheberrechtshinweis</a>
-                </li>
-                <li>
-                    <a>Einstellungen</a>
-                </li>
-                <li>
-                    <a>Privacy Settings</a>
-                </li>
-                <li>
-                    <a>AdChoices</a>
-                </li>
-                <li>
-                    <a>Chip Coordination</a>
-                </li>
-            </ul>
-        </div>
+            <div class="footer-div">
+                <h1>Rechtliches</h1>
+                <ul>
+                    <li><a>Nutzungsbedingungen</a></li>
+                    <li><a>Urheberrechtshinweis</a></li>
+                    <li><a>Einstellungen</a></li>
+                    <li><a>Cookies</a></li>
+                </ul>
+            </div>
 
-        <div class="footer-div">
-            <h1>Themen</h1>
-            <ul>
-                <li>
-                    <a>Cybercrime</a>
-                </li>
-                <li>
-                    <a>Phishing</a>
-                </li>
-                <li>
-                    <a>Social-Engineering</a>
-                </li>
-                <li>
-                    <a>Viren</a>
-                </li>
-                <li>
-                    <a>Brute-Force</a>
-                </li>
-                <li>
-                    <a>Malware & Ransomware</a>
-                </li>
-            </ul>
+            <div class="footer-div">
+                <h1>Social-Media</h1>
+                <ul>
+                    <li><a>LinkedIn</a></li>
+                    <li><a>YouTube</a></li>
+                    <li><a>Twitter</a></li>
+                    <li><a>Instagram</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 

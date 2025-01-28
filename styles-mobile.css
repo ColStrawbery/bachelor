@@ -20,8 +20,8 @@
 }
 
 @font-face {
-    font-family: 'Noto Sans';
-    src: url('/files/NotoSans.ttf') format('truetype');
+    font-family: 'Inter';
+    src: url('/files/Inter.ttf') format('truetype');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -36,7 +36,7 @@ html, body {
 /* Hide scrollbar for IE, Edge and Firefox */
 html {
     font-size: 62.5%;
-    font-family: "Noto Sans", sans-serif;
+    font-family: "Inter", sans-serif;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
     scroll-behavior: smooth;
@@ -71,20 +71,36 @@ header {
     min-height: calc(100vh - var(--header_height));
 }
 
+.header-content {
+    margin-left: 30px;
+}
+
+.header-content a {
+    display: inline-block; /* Make the <a> shrink-wrap its content */
+    width: auto;           /* Ensure it takes the SVG's width */
+    height: auto;          /* Ensure it takes the SVG's height */
+    padding: 0;            /* Remove default padding */
+    margin: 0;             
+    text-decoration: none; 
+    overflow: hidden
+}
+
 .germany-logo {
     width: 40px;
-    margin: 20px;
+    height: auto;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(234, 216, 216, 0.241);
 }
 
 
-
-
-.nav {
-    display: none;
+.nav, .accessibility-options, .nav-hilfe {
+    display: none !important;
+    user-select: none;
 }
 
 .burger-menu {
-    margin-right: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -169,7 +185,6 @@ header {
 
 
 
-
 .cta-div {
     padding-top: calc(var(--header_height) + 50px);
     margin: 40px;
@@ -236,7 +251,6 @@ header {
 
 
 
-
 .explainer-section {
     width: 80%;
     margin: 0 auto;
@@ -291,7 +305,6 @@ header {
     color: var(--text);
     padding-bottom: 20px;
 }
-
 
 
 
@@ -427,7 +440,6 @@ header {
 
 
 
-
 /*Footer*/
 
 .footer {
@@ -552,6 +564,9 @@ header {
     font-weight: 300;
     margin: 0;
     color: #191919;
+    text-align: left;
+    padding-top: 500px;
+    padding-bottom: 400px;
 }
 
 .main-text--right {
@@ -620,7 +635,7 @@ header {
     position: absolute;
     top: 1vw;
     width: 20vw;
-    left: 25vw;
+    right: -3vw;
     height: auto;
 }
 
@@ -660,3 +675,111 @@ header {
       padding-bottom: 10vw;
       margin-top: 30vw;
   }
+
+  .info-section {
+    border-radius: 5px;
+    /* margin-top: 10vw; */
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+    background-color: #fff02a; /* Example background color for the yellow section */
+}
+
+.info-context {
+    margin: 0;
+    max-width: 70vw;
+    padding-bottom: 3vw;
+    color: #333;
+    text-align: left;
+}
+
+.info-header {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.info-highlight {
+    color: var(--red);
+}
+
+.info-eagle {
+    width: 50px;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.header-p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+}
+
+.arrow {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+
+
+
+
+
+
+.info-section {
+    border: 2px solid rgb(255, 227, 144);
+    width: 85%; /* Adjust width for mobile */
+    height: auto;
+    min-height: 30vh; /* Adjust height for mobile */
+    background-color: #fff02a;
+    margin: 20px auto; /* Adjust margin for mobile */
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+    margin-top: 30vw;
+}
+
+.info-header {
+    font-size: 10vw; /* Adjust font size for mobile */
+    line-height: 0.9;
+    font-weight: 800;
+    margin: 0;
+    color: var(--boldText);
+}
+
+
+.info-context {
+    margin: 0;
+    max-width: 100%; /* Adjust width for mobile */
+    padding-bottom: 10px; /* Adjust padding for mobile */
+    color: #333;
+    text-align: left;
+    padding-left: 5px; /* Adjust padding for mobile */
+}
+
+.info-eagle {
+    width: 30vw; /* Adjust width for mobile */
+    height: auto;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    opacity: 0.03;
+}
+
+.arrow {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    color: var(--footer);
+    font-size: 4vw; /* Adjust font size for mobile */
+    font-weight: 600;
+    user-select: none;
+    transform: translateY(0);
+    transition: all .3s ease;
+    opacity: 0;
+}
+
+.info-section--info:hover .arrow {
+    opacity: 1;
+    transition: all 0.3s ease;
+}
