@@ -875,6 +875,10 @@ header.hidden {
   transition: opacity 0.3s ease;
 }
 
+.mobile-arrow {
+  display: none;
+}
+
 .info-section--info:hover .info-hidden {
   opacity: 1;
   transition: opacity 0.3s ease;
@@ -944,6 +948,7 @@ header.hidden {
   border-color: rgb(209, 155, 155);
   transition: all 0.3s ease;
   cursor: pointer;
+  margin-bottom: 0;
 }
 
 .info-section--hilfe2 {
