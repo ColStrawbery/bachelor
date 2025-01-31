@@ -951,6 +951,12 @@ header.hidden {
   margin-bottom: 0;
 }
 
+.info-section--hilfe .info-header {
+  color: var(--red);
+}
+
+
+
 .info-section--hilfe2 {
   background-color: white;
   border-color: rgb(242, 236, 236);
@@ -1044,7 +1050,6 @@ header.hidden {
 .quiz-container {
   border: solid 2px var(--border2);
   width: 53vw;
-  height: auto;
   height: 530px;
   position: absolute;    
   margin-left: 20vw; /* Center horizontally */
@@ -1212,6 +1217,8 @@ header.hidden {
 
 .results {
   display: none;
+  height: auto;
+  width: 100%;
 }
 
 .results-demo {
@@ -1244,8 +1251,8 @@ header.hidden {
 }
 
 .skala-fill {
-  width: 89%;
-  opacity: 89%;
+  width: 5%;
+  opacity: 5%;
   background-color: var(--red);
   height: 100%;
 }
@@ -1261,38 +1268,18 @@ header.hidden {
 }
 
 .repeat-quiz-btn {
-  opacity: 0;
+  opacity: 1;
   position: absolute; /* Position relative to the parent container */
-  bottom: 30px;       /* Distance from the bottom of the parent */
-  left: 23.7vw;        /* Distance from the right of the parent */
+  bottom: -41px;       /* Distance from the bottom of the parent */
+  right: 0;        /* Distance from the right of the parent */
   cursor: default;
   border-radius: 5px;
 }
 
-.score {
-  height: 200px;
-  width: 50%;
-  font-size: 5rem;
-  font-weight: 900;
-  text-align: center;
-  color: var(--primary);
-  margin: auto;
-  /* background-color: rgb(242, 214, 214); */
+.recommendations {
+  height: 70px;
+  width: auto;
 }
-
-.results {
-  width: 75%;
-  margin-left: 100px;
-  margin-right: auto;
-  margin-top: 90px;
-  font-size: clamp(1.25rem, 3vw, 2rem); /* Responsive font size */
-  font-weight: 600;
-  /* background-color: red; */
-}
-
-/* .recommendations {
-
-} */
 
 
 /*QUIZ*/
@@ -1446,7 +1433,6 @@ header.hidden {
   transition: background-color 0.5s ease;
   color: var(--boldText);
   border-radius: 5px;
-  margin-bottom: 10px;
   padding-top: 22px;
 }
 
@@ -1468,37 +1454,49 @@ header.hidden {
 .faq-panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  background-color: rgb(237, 236, 235);
+  transition: all 0.3s ease-out;
+  background-color: rgb(242, 124, 5);
   /* background-color: var(--pink); */
   color: var(--footer);
+
+  border-radius: 0 0 5px 5px;
+  background-color: rgb(253, 253, 253);
+  color: var(--footer);
+  /* padding: 1.5vw 0.5vw;
+  padding-top: 1.1vw; */
+  line-height: 150%;
+  position: relative;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-out;
+  opacity: 0;
+  margin-bottom: 10px;
+
 }
-
-
 
 .panel-open {
   border: solid 1px var(--red);
   border-top: none;
   border-radius: 0 0 5px 5px;
   background-color: rgb(253, 253, 253);
-  /* background-color: rgb(243, 232, 232); */
   color: var(--footer);
-  padding: 1.5vw 0.5vw;
+  padding: 1.5vw 0;
   padding-top: 1.1vw;
   line-height: 150%;
   position: relative;
   margin-bottom: 10px;
+  opacity: 1;
+  transition: all 0.3s ease-out;
 }
 
 .faq-text {
   margin: 0;
   padding: 0;
-  margin-left: 1vw;
+  margin-left: 20px;
 
 }
 
 
-.faq-source {
+.panel-open .faq-source {
   padding: 0;
   margin: 0;
   color: rgb(108, 108, 108);
@@ -1580,31 +1578,31 @@ header.hidden {
 .topic-text-side {
   cursor: pointer;
   font-size: 1.2vw;
-  font-weight: 400;
-  padding: 0 15px;
+  font-weight: 500;
+  padding: 5px 15px;
   line-height: 95%;
   letter-spacing: 0.5px;
   transition: all 0.3s ease;
   color: var(--red); /* Farbe für aktive Buttons */
-  border-left: solid 2px var(--red);
-  /* margin-top: 60px; */
-  /* background-color: #0056b3; */
+  border-left: solid 3px var(--red);
   margin: 10px 0; /* Reset all margins */
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-
+.always-expanded {
+  cursor: text;
+}
 
 .topic-text-side:not(.active) {
-  color: var(--gray); /* Farbe für inaktive Buttons */
-  border-left: solid 2px var(--border2);
+  color: var(--footer); /* Farbe für inaktive Buttons */
+  border-left: solid 3px var(--border2);
 }
 
 .topic-text-side:hover {
   color: var(--red);
-  border-left: solid 2px var(--red);
+  border-left: solid 3px var(--red);
 }
 
 /* Stil für den Textcontainer */
@@ -1621,7 +1619,12 @@ header.hidden {
   max-height: 500px; /* Oder ein ausreichend hoher Wert */
   padding: 10px 15px; /* Padding hinzufügen, wenn ausgeklappt */
   margin-bottom: 40px;
+  line-height: 1.5;
   /* background-color: red; */
+}
+
+.expandable:last-of-type.expanded {
+  margin-bottom: 0;
 }
 
 .topic-text-side .topic-arrow {
@@ -1645,12 +1648,53 @@ header.hidden {
   margin: 0;
   color: rgb(128, 128, 128);
   font-size: 0.9vw;
-  margin-left: 1vw;
-  padding-top: 1vw;
+  margin-top: 1vw;
   position: absolute;
-  bottom: -1.75vw;
-  left: 0;
+  bottom: -2.2vw;
+  right: 0vw;
   /* background-color: red; */
+}
+
+.topic-source-active {
+  color: var(--red);
+  text-decoration: underline;
+  /* background-color: red; */
+}
+
+.topic-source-content {
+  width: 45vw;
+  height: 0;
+  opacity: 0;
+  padding-bottom: 20px;
+  user-select: none;
+  margin-left: 20vw;
+  color: rgb(128, 128, 128);
+  font-size: 0.9vw;
+  transition: all 0.5s ease;  
+}
+
+.topic-source-content span {
+  color: var(--red);
+}
+
+.topic-source-content a:visited, .topic-source-content a {
+  color: var(--footer);
+}
+
+.topic-source-content-active {
+  height: 50px;
+  opacity: 1;
+  padding-bottom: 20px;
+  user-select: text;
+  margin-left: 20vw;
+  color: rgb(128, 128, 128);
+  font-size: 0.9vw;
+  transition: all 0.5s ease;  
+}
+
+.topic-source:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 /*TOPIC*/
