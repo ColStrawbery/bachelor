@@ -814,20 +814,30 @@ header {
     width: 90%;
     margin: 0 auto;
     padding: 20px;
-    margin-top: 10vh;
+    margin-top: 23vh;
     background-color: white;
     border-radius: 5px;
+    margin-bottom: 30vh;
 }
+
+.topic-background-first {
+    margin-top: 28vh;
+}
+
+.topic-background-last {
+    margin-bottom: 8vh;
+}
+
 
 .topic-section {
     position: relative;
 }
 
 .topic-section-icon {
-    display: none;
-    overflow-x: none;
-    width: 220px;
-    transform: translateX(130px) translateY(-15px);
+    position: absolute;
+    /* background-color: red; */
+    width: 60vw;
+    transform: translateY(-42vw) translateX(10vw);
 }
 
 .topic-above-header {
@@ -841,7 +851,7 @@ header {
     color: var(--red);
     margin: 0;
     margin-top: 1.5vh;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
   
   .topic-text {
@@ -872,6 +882,11 @@ header {
     background-color: rgba(249, 248, 248, 0.547);  
   }
 
+  .topic-text-side:not(.active) {
+    color: var(--footer); /* Farbe für inaktive Buttons */
+    border-left: solid 3px var(--border2);
+  }
+
   /* Stil für den Textcontainer */
 .expandable {
     max-height: 0;
@@ -885,7 +900,7 @@ header {
   .expandable.expanded {
     max-height: 500px; /* Oder ein ausreichend hoher Wert */
     padding: 10px 15px; /* Padding hinzufügen, wenn ausgeklappt */
-    margin-bottom: 40px;
+    margin-bottom: 15px;
     /* background-color: red; */
   }
 
@@ -894,6 +909,66 @@ header {
     line-height: 1.5;
     margin: 1rem 0;
 }
+
+  
+  .topic-upper-region {
+    width: auto;
+    height: auto;
+    position: relative;
+    /* background-color: rebeccapurple; */
+  }
+
+  
+  .source-box {
+    width: 100%;
+    margin: auto 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+
+  }
+
+.topic-source {
+    padding: 0;
+    margin: 0;
+    color: rgb(128, 128, 128);
+    font-size: 13px;
+    bottom: -50px;
+    right: -20px;
+    background-color: white;
+    border: none;
+  }
+  
+  .topic-source-active {
+    color: var(--red);
+    text-decoration: underline;
+  }
+
+  .topic-source-content {
+    height: 0;
+    opacity: 0;
+    padding-bottom: 20px;
+    user-select: none;
+    color: rgb(128, 128, 128);
+    font-size: 13px;
+    transition: all 0.5s ease;  
+  }
+  
+  .topic-source-content span {
+    color: var(--red);
+  }
+  
+  .topic-source-content a:visited, .topic-source-content a {
+    color: var(--footer);
+  }
+  
+  .topic-source-content-active {
+    opacity: 1;
+    user-select: text;
+    color: rgb(128, 128, 128);
+    font-size: 13px;
+    transition: all 0.5s ease;  
+  }
 
 .hilfe-link-2 {
     margin-top: 2vh;
@@ -907,6 +982,7 @@ header {
 }
 
 .repeat-quiz-btn-mobile {
+    display: none;
     width: 90%;
     margin: 0 auto;
     margin-top: 2vh;
@@ -948,4 +1024,6 @@ header {
     background-color: var(--yellow);
     border-color: var(--yellowBorder);
   }
+
+
 

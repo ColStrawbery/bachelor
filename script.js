@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Skip intro and show quiz immediately
         if (window.innerWidth > 768) {
             quizContainer.style.height = `530px`;
-        }
+        } 
         quiz.style.display = "block";
         progressBar.style.display = "block";
         results.style.display = "none";
@@ -351,7 +351,7 @@ document.addEventListener("DOMContentLoaded", function () {
         quiz.style.pointerEvents = "auto";
         results.style.pointerEvents = "auto";
         loadProgress();
-    } else {
+    } else if (window.innerWidth > 768) {
         // Create the Intro HTML content if intro has not been seen
         const introScreen = document.createElement("div");
         introScreen.id = "quiz-intro";
@@ -682,6 +682,10 @@ function showResults() {
         quizContainer.style.backgroundColor = 'var(--pink)';
         quizContainer.style.borderColor = 'var(--red)';
     }
+
+    if (window.innerWidth <= 768) {
+        document.getElementById('repeat-quiz-btn-mobile').style.display = 'flex';
+    }
     
     const riskScore = calculateTotalScore();
 
@@ -796,6 +800,10 @@ function showResults() {
 
 // Modify restartQuiz to clear all saved progress
 function restartQuiz() {
+
+    if (window.innerWidth <= 768) {
+        document.getElementById('repeat-quiz-btn-mobile').style.display = 'none';
+    }
     // Clear all quiz-related cookies
     document.cookie = 'quizAnswers=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
     document.cookie = 'currentQuestion=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';

@@ -1553,6 +1553,14 @@ header.hidden {
   /* background-color: rebeccapurple; */
 }
 
+.source-box {
+  width: 53vw;
+  height: 50px;
+  margin-left: 20vw;
+  display: flex;
+  justify-content: space-between;
+}
+
 .topic-above-header {
   font-weight: 500;
   font-size: 1.2vw;
@@ -1651,14 +1659,11 @@ header.hidden {
 }
 
 .topic-source {
-  padding: 0;
-  margin: 0;
+  padding: 5px;
   color: rgb(128, 128, 128);
   font-size: 0.9vw;
-  margin-top: 1vw;
-  position: absolute;
-  bottom: -2.2vw;
-  right: 0vw;
+  border: none;
+  background-color: var(--offWhite);
   /* background-color: red; */
 }
 
@@ -1669,12 +1674,10 @@ header.hidden {
 }
 
 .topic-source-content {
-  width: 45vw;
+  width: auto;
   height: 0;
   opacity: 0;
-  padding-bottom: 20px;
   user-select: none;
-  margin-left: 20vw;
   color: rgb(128, 128, 128);
   font-size: 0.9vw;
   transition: all 0.5s ease;  
@@ -1689,11 +1692,9 @@ header.hidden {
 }
 
 .topic-source-content-active {
-  height: 20px;
+  height: 100%;
   opacity: 1;
-  padding-bottom: 20px;
   user-select: text;
-  margin-left: 20vw;
   color: rgb(128, 128, 128);
   font-size: 0.9vw;
   transition: all 0.5s ease;  

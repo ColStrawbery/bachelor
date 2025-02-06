@@ -11,12 +11,16 @@
     <link rel="stylesheet" href="styles-mobile.css" media="screen and (max-width: 768px)">
 
     <link rel="icon" type="image/x-icon" href="/files/germany-logo-wifi.svg">
-    <script> //needed in order to fix color flicker
-        document.write(!document.cookie.includes('introSeen=') ? 
-          '<style>.quiz-container { background-color: var(--yellow); }</style>' : 
-          '<style>.quiz-container { background-color: white; }</style>'
-        );
+    <script>
+        if (window.innerWidth > 768) { // Adjust 768px to the desired mobile breakpoint
+          // Needed to fix color flicker on non-mobile devices
+          document.write(!document.cookie.includes('introSeen=') ? 
+            '<style>.quiz-container { background-color: var(--yellow); }</style>' : 
+            '<style>.quiz-container { background-color: white; }</style>'
+          );
+        }
       </script>
+      
 </head>
 
 
@@ -63,7 +67,7 @@
             </div>
         </div>
 
-        <div class="repeat-quiz-btn-mobile">
+        <div id="repeat-quiz-btn-mobile" class="repeat-quiz-btn-mobile" style="display: none;">
             <button class="btn" onclick="restartQuiz()">Quiz wiederholen</button>
         </div>
 
