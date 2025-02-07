@@ -941,9 +941,9 @@ const securityTips = {
     passwords: {
         title: "Passwort-Sicherheit",
         tips: [
-            "Verwenden Sie einen Passwort-Manager wie LastPass oder 1Password",
+            "Nutzen Sie einen Passwort-Manager",
             "Erstellen Sie für jeden Account ein einzigartiges Passwort",
-            "Nutzen Sie Passwörter mit mindestens 12 Zeichen",
+            "Nutzen Sie zufällige Passwörter mit mindestens 12 Zeichen",
             "Kombinieren Sie Groß- und Kleinbuchstaben, Zahlen und Sonderzeichen"
         ]
     },
@@ -951,7 +951,7 @@ const securityTips = {
         title: "Software-Updates",
         tips: [
             "Aktivieren Sie automatische Updates für Ihr Betriebssystem",
-            "Halten Sie alle Programme und Apps stets aktuell",
+            "Halten Sie alle ihre Programme und Apps auf dem neuesten Stand",
             "Überprüfen Sie regelmäßig auf verfügbare Updates",
             "Deinstallieren Sie Software, die Sie nicht mehr nutzen"
         ]
@@ -959,19 +959,17 @@ const securityTips = {
     mfa: {
         title: "Zwei-Faktor-Authentifizierung",
         tips: [
-            "Aktivieren Sie 2FA für alle wichtigen Konten",
-            "Nutzen Sie eine Authenticator-App statt SMS wenn möglich",
-            "Bewahren Sie Backup-Codes sicher auf",
+            "Aktivieren Sie 2FA für alle Konten",
+            "Nutzen Sie eine Authenticator-App",
             "Vermeiden Sie die Verwendung von SMS als zweiten Faktor"
         ]
     },
     admin: {
         title: "Administratorrechte",
         tips: [
-            "Erstellen Sie einen separaten Benutzeraccount für den täglichen Gebrauch",
+            "Erstellen Sie einen separaten Account für ihren täglichen Gebrauch",
             "Nutzen Sie den Admin-Account nur für systemrelevante Änderungen",
-            "Vergeben Sie starke, unterschiedliche Passwörter für beide Accounts",
-            "Deaktivieren Sie den integrierten Administrator-Account wenn möglich"
+            "Vergeben Sie starke, unterschiedliche Passwörter für beide dieser Konten",
         ]
     },
     socialmedia: {
@@ -979,15 +977,14 @@ const securityTips = {
         tips: [
             "Überprüfen Sie Ihre Privatsphäre-Einstellungen regelmäßig",
             "Teilen Sie keine sensiblen persönlichen Informationen",
-            "Akzeptieren Sie nur Kontaktanfragen von bekannten Personen",
-            "Deaktivieren Sie die automatische Standortfreigabe"
+            "Seien Sie Kontaktanfragen von Unbekannten gegenüber misstrauisch",
         ]
     },
     publicwifi: {
         title: "Öffentliche WLAN-Netzwerke",
         tips: [
-            "Nutzen Sie ein VPN in öffentlichen Netzwerken",
-            "Vermeiden Sie sensible Aktivitäten wie Online-Banking",
+            "Benutzen Sie immer ein VPN",
+            "Vermeiden Sie sensible Aktivitäten wie Online-Banking oder E-Mails",
             "Deaktivieren Sie automatische WLAN-Verbindungen",
             "Stellen Sie sicher, dass Sie sich mit dem korrekten Netzwerk verbinden"
         ]

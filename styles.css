@@ -1892,6 +1892,7 @@ header.hidden {
 
 .risiko-check-tip {
   margin-bottom: 6vh;
+  line-height: 1.6;
 }
 
 .risiko-check-tip:last-of-type {
