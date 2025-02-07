@@ -1416,7 +1416,6 @@ header.hidden {
   font-weight: 650;
   border-bottom: solid 3px var(--red);
   border-left: solid 3px var(--red);
-
 }
 
 
@@ -1699,6 +1698,8 @@ header.hidden {
   font-size: 0.9vw;
   transition: all 0.5s ease;  
 }
+
+
 
 .topic-source:hover {
   cursor: pointer;

@@ -445,6 +445,10 @@ header {
     padding-top: 8vh;
 }
 
+.br-pc {
+    display: none;
+  }
+
 .accordion-header {
     padding-left: 10px;
     font-size: 1.55rem;
