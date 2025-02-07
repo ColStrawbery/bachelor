@@ -1024,7 +1024,9 @@ header.hidden {
 
 }
 
-
+.info-section--hilfe:hover {
+  cursor: pointer;
+}
 
 .info-section--threat {
   background-color: white;
