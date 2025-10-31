@@ -21,7 +21,7 @@ jobs:
         run: flutter build web --release --base-href "/"
 
       - name: Add CNAME file
-        run: echo "yourdomain.com" > build/web/CNAME
+        run: echo "luphtikus.de" > build/web/CNAME
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
