@@ -17,7 +17,7 @@ class DesignerBlogApp extends StatelessWidget {
     print('BlogHomeMobile building');
     print('Posts data length: ${postsData.length}');
     return MaterialApp(
-      title: 'Everything not saved will be lost.',
+      title: 'Lupht Archives',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0x22550aff),
