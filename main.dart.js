@@ -58979,7 +58979,7 @@ S(a){var s,r=null
 A.pp("BlogHomeMobile building")
 A.pp("Posts data length: 2")
 s=A.a8g(r,r,"Noto Sans",B.xK,r)
-return new A.rM(B.w2,A.as(["/eepytown",new A.N9()],t.N,t.hw),"Everything not saved will be lost.",s,!1,r)}}
+return new A.rM(B.w2,A.as(["/eepytown",new A.N9()],t.N,t.hw),"Lupht Archives",s,!1,r)}}
 A.N9.prototype={
 $1(a){return B.zc},
 $S:375}
