@@ -1,7 +1,17 @@
 file:///C:/Users/feket/AndroidStudioProjects/luphtikus/.dart_tool/flutter_build/768e86c3ca96d3892057169f07f04e98/app.dill
 file:///C:/Users/feket/AndroidStudioProjects/luphtikus/.dart_tool/flutter_build/768e86c3ca96d3892057169f07f04e98/main.dart
 file:///C:/Users/feket/AndroidStudioProjects/luphtikus/.dart_tool/flutter_build/768e86c3ca96d3892057169f07f04e98/web_plugin_registrant.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/components/featured_post.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/components/post_card.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/data/post_model.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/data/posts_data.dart
 file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/main.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/screens/home/home_desktop.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/screens/home/home_mobile.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/screens/home/home_tablet.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/screens/post_detail_screen.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/theme/app_theme.dart
+file:///C:/Users/feket/AndroidStudioProjects/luphtikus/lib/utils/responsive.dart
 file:///C:/Users/feket/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.4.0/lib/characters.dart
 file:///C:/Users/feket/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.4.0/lib/src/characters.dart
 file:///C:/Users/feket/AppData/Local/Pub/Cache/hosted/pub.dev/characters-1.4.0/lib/src/characters_impl.dart
