@@ -1,0 +1,26 @@
+# General
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IDE
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+
+# Build directories
+/build/
+/dist/
+node_modules/
+
+# Temp files
+*.tmp
+*~
