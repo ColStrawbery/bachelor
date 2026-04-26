@@ -95,22 +95,22 @@ section.visible{opacity:1;transform:translateY(0);}
 .tag::before{content:'';display:block;width:20px;height:1px;background:var(--accent);}
 
 /* ── SECTION 1 ── */
-#hook{background:var(--bg);overflow:hidden;}
+#hallo{background:var(--bg);overflow:hidden;}
 
-.hook-title{
+.hallo-title{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(3rem,6.5vw,5.8rem);
   font-weight:300;line-height:1.05;
   color:var(--text);letter-spacing:-.01em;
   margin-bottom:2.25rem;max-width:18ch;
 }
-.hook-title em{font-style:italic;color:var(--accent3);}
+.hallo-title em{font-style:italic;color:var(--accent3);}
 
-.hook-body{
+.hallo-body{
   font-size:.8rem;line-height:2.1;color:var(--text2);
   max-width:44ch;margin-bottom:3rem;letter-spacing:.02em;
 }
-.hook-body strong{color:var(--text);font-weight:400;}
+.hallo-body strong{color:var(--text);font-weight:400;}
 
 .cta-btn{
   display:inline-flex;align-items:center;gap:.9rem;
@@ -127,24 +127,24 @@ section.visible{opacity:1;transform:translateY(0);}
 .cta-btn .arr{transition:transform .2s;}
 .cta-btn:hover .arr{transform:translateX(4px);}
 
-.hook-img-wrap{
+.hallo-img-wrap{
   position:absolute;right:0%;top:50%;transform:translateY(-50%);
   width:52%;aspect-ratio:3/4;overflow:hidden;
   border:1px solid var(--border2);
 }
-.hook-img-mobile{display:none;}
-.hook-img-inner{
+.hallo-img-mobile{display:none;}
+.hallo-img-inner{
   width:100%;height:100%;
   background:var(--surface2);
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:.75rem;
 }
-.hook-img-inner svg{width:36px;height:36px;stroke:var(--text3);fill:none;stroke-width:1;}
-.hook-img-inner span{
+.hallo-img-inner svg{width:36px;height:36px;stroke:var(--text3);fill:none;stroke-width:1;}
+.hallo-img-inner span{
   font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
   color:var(--text3);
 }
-.hook-img-inner::before{
+.hallo-img-inner::before{
   content:'';position:absolute;inset:0;
   background:
     linear-gradient(135deg,rgba(124,111,255,.06) 0%,transparent 60%),
@@ -153,17 +153,17 @@ section.visible{opacity:1;transform:translateY(0);}
 }
 
 /* ── SECTION 2 ── */
-#kein{background:var(--bg2);}
+#frage{background:var(--bg2);}
 
-.kein-title{
+.frage-title{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(2.2rem,4.5vw,3.8rem);
   font-weight:300;line-height:1.1;color:var(--text);
   margin-bottom:1.25rem;
 }
-.kein-title em{font-style:italic;color:var(--accent3);}
+.frage-title em{font-style:italic;color:var(--accent3);}
 
-.kein-sub{
+.frage-sub{
   font-size:.78rem;color:var(--text2);letter-spacing:.04em;
   max-width:50ch;line-height:2;margin-bottom:3.5rem;
 }
@@ -208,54 +208,45 @@ section.visible{opacity:1;transform:translateY(0);}
 }
 
 /* ── SECTION 3 ── */
-#ja{background:var(--bg3);}
+#danke{background:var(--bg3);}
 
-.ja-title{
+.danke-title{
   font-family:'Cormorant Garamond',serif;
   font-size:clamp(2.2rem,4.5vw,3.8rem);
   font-weight:300;line-height:1.1;color:var(--text);
   margin-bottom:1.25rem;
 }
-.ja-title em{font-style:italic;color:var(--accent3);}
+.danke-title em{font-style:italic;color:var(--accent3);}
 
-.ja-sub{
+.danke-sub{
   font-size:.78rem;color:var(--text2);letter-spacing:.04em;
   max-width:48ch;line-height:2;margin-bottom:3.5rem;
 }
 
-.ja-box{
+.danke-box{
   border:1px solid var(--border2);padding:2.75rem;
   background:rgba(124,111,255,.04);max-width:580px;
   margin-bottom:2.5rem;
 }
-.ja-box-title{
+.danke-box-title{
   font-family:'Syne',sans-serif;font-size:.65rem;font-weight:500;
   letter-spacing:.2em;text-transform:uppercase;
   color:var(--accent);margin-bottom:1.5rem;
 }
-.ja-steps{display:flex;flex-direction:column;gap:1.25rem;}
-.ja-step{display:flex;gap:1.25rem;align-items:flex-start;}
-.ja-step-num{
+.danke-steps{display:flex;flex-direction:column;gap:1.25rem;}
+.danke-step{display:flex;gap:1.25rem;align-items:flex-start;}
+.danke-step-num{
   font-size:.58rem;color:var(--accent);letter-spacing:.1em;
   min-width:1.5rem;padding-top:.15rem;
 }
-.ja-step-text{font-size:.75rem;color:var(--text2);line-height:1.9;letter-spacing:.02em;}
-.ja-step-text strong{color:var(--text);font-weight:400;}
+.danke-step-text{font-size:.75rem;color:var(--text2);line-height:1.9;letter-spacing:.02em;}
+.danke-step-text strong{color:var(--text);font-weight:400;}
 
 /* ── DIVIDER ── */
 .section-divider{
-  display:flex;align-items:center;gap:1.5rem;
-  margin:3rem 0;max-width:580px;
-}
-.section-divider::before,
-.section-divider::after{
-  content:'';flex:1;height:1px;
+  width:100%;max-width:580px;
+  height:1px;margin:3rem 0;
   background:linear-gradient(90deg,transparent,var(--border2),transparent);
-}
-.section-divider-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--accent);opacity:.5;
-  box-shadow:0 0 8px var(--accent);
 }
 
 /* ── CTA AREA ── */
@@ -292,17 +283,17 @@ section.visible{opacity:1;transform:translateY(0);}
 
 /* anims */
 section.visible .tag      {animation:fup .5s ease .08s both;}
-section.visible .hook-title{animation:fup .6s ease .18s both;}
-section.visible .hook-body {animation:fup .6s ease .3s both;}
+section.visible .hallo-title{animation:fup .6s ease .18s both;}
+section.visible .hallo-body {animation:fup .6s ease .3s both;}
 section.visible .cta-btn  {animation:fup .6s ease .44s both;}
-section.visible .hook-img-wrap{animation:fin 1s ease .35s both;}
-section.visible .kein-title{animation:fup .6s ease .1s both;}
-section.visible .kein-sub  {animation:fup .6s ease .22s both;}
+section.visible .hallo-img-wrap{animation:fin 1s ease .35s both;}
+section.visible .frage-title{animation:fup .6s ease .1s both;}
+section.visible .frage-sub  {animation:fup .6s ease .22s both;}
 section.visible .promises  {animation:fup .6s ease .3s both;}
 section.visible .quote-block{animation:fup .6s ease .48s both;}
-section.visible .ja-title  {animation:fup .6s ease .1s both;}
-section.visible .ja-sub    {animation:fup .6s ease .22s both;}
-section.visible .ja-box    {animation:fup .6s ease .35s both;}
+section.visible .danke-title  {animation:fup .6s ease .1s both;}
+section.visible .danke-sub    {animation:fup .6s ease .22s both;}
+section.visible .danke-box    {animation:fup .6s ease .35s both;}
 section.visible .section-divider{animation:fup .6s ease .44s both;}
 section.visible .cta-area  {animation:fup .6s ease .5s both;}
 
@@ -316,11 +307,11 @@ section.visible .cta-area  {animation:fup .6s ease .5s both;}
 @media(max-width:860px){
   nav{display:none;}
   section{padding:4rem 2rem;}
-  .hook-deco{display:none;}
+  .hallo-deco{display:none;}
   .promises{grid-template-columns:1fr;}
   /* desktop image hidden, mobile image shown */
-  .hook-img-wrap{display:none;}
-  .hook-img-mobile{
+  .hallo-img-wrap{display:none;}
+  .hallo-img-mobile{
     display:block;
     width:calc(100% + 4rem);
     margin-left:-2rem;
@@ -330,8 +321,8 @@ section.visible .cta-area  {animation:fup .6s ease .5s both;}
     border-bottom:1px solid var(--border2);
     margin-bottom:2.5rem;
   }
-  .hook-img-mobile img{width:100%;height:100%;object-fit:cover;display:block;}
-  #hook{padding-top:0;justify-content:flex-start;}
+  .hallo-img-mobile img{width:100%;height:100%;object-fit:cover;display:block;}
+  #hallo{padding-top:0;justify-content:flex-start;}
 }
 </style>
 </head>
@@ -343,45 +334,45 @@ section.visible .cta-area  {animation:fup .6s ease .5s both;}
     <span>>> loading . . .</span>
   </div>
   <div class="nav-links">
-    <a href="#hook" class="nav-link active"><span class="num">01</span>hallo</a>
-    <a href="#kein" class="nav-link"><span class="num">02</span>kurze frage</a>
-    <a href="#ja"   class="nav-link"><span class="num">03</span>danke</a>
+    <a href="#hallo" class="nav-link active"><span class="num">01</span>hallo</a>
+    <a href="#frage" class="nav-link"><span class="num">02</span>kurze frage</a>
+    <a href="#danke"   class="nav-link"><span class="num">03</span>danke</a>
   </div>
   <div class="nav-foot">danke, dass du<br>hier bist :}</div>
 </nav>
 
 <main>
 
-<section id="hook">
+<section id="hallo">
   <!-- Mobile-only image, shown above text -->
-  <div class="hook-img-mobile">
+  <div class="hallo-img-mobile">
     <img src="eepy.png" alt="">
   </div>
   <div class="tag">grüß gottle</div>
-  <h1 class="hook-title">
+  <h1 class="hallo-title">
     Ich baue<br>ein Spiel.<br>
     <em>Mach mit.</em>
   </h1>
-  <p class="hook-body">
+  <p class="hallo-body">
     Ein Videospiel ist ist nicht nur Code.
     <br>Es ist Kunst, Gemeinschaft und eine Zukunft,
     die wir zusammen erschaffen könnten.
     <br><br>Und ich glaube, du gehörst da mit dazu.
   </p>
-  <a href="#kein" class="cta-btn">Was laberst du?</a>
-  <div class="hook-img-wrap">
+  <a href="#frage" class="cta-btn">Was laberst du?</a>
+  <div class="hallo-img-wrap">
       <img src="eepy.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
   </div>
 </section>
 
-<section id="kein">
+<section id="frage">
   <div class="tag">Ein paar Dinge</div>
-  <h2 class="kein-title">Keine Bewerbung.<br><em>Nur eine Frage an dich.</em></h2>
-  <p class="kein-sub">
+  <h2 class="frage-title">Keine Bewerbung.<br><em>Nur eine Frage an dich.</em></h2>
+  <p class="frage-sub">
     Wenn du bis hier noch dabei bist, nehme ich an, dass du Interesse hast.
     <br><br>
     Meine Frage an dich: <em>Kann ich mit dir rechnen?</em> Ich werde dich nur dieses eine Mal fragen.
-    Wenn das alles nichts für dich ist, ist das vollkommen okay. Ich hoffe du bist ehrlich und nicht höflich (ew).
+    Wenn das alles nichts für dich ist, ist das vollkommen okay. Ich hoffe du bist ehrlich und nicht höflich (ew) in deiner Antwort an mich.
     <br><br>
     Ich glaube, dass wir zusammen was machen können, das wirklich besonders ist und viele Menschen glücklich machen wird.
   </p>
@@ -418,9 +409,9 @@ section.visible .cta-area  {animation:fup .6s ease .5s both;}
       </div>
       <div class="promise-label">NO CRUNCH</div>
       <p class="promise-text">
-        Wir machen das in <strong>menschlichem Tempo</strong>.
-        Ja es wird Deadlines geben, aber die sind flexibel und werden entspannt angelegt.
-        Es gibt keinen Druck oder Stress. Das hier ist kein Vollzeitjob (für euch). Es sind ein paar Stunden im Monat mit einem Freund.
+        Wir machen das in einem <strong>menschlichem Tempo</strong>.
+        Ja es wird Deadlines geben, aber die werden entspannt angelegt.
+        Das hier ist kein Vollzeitjob (für dich). Es sind ein paar Stunden im Monat mit einem Freund.
       </p>
     </div>
 
@@ -443,40 +434,38 @@ section.visible .cta-area  {animation:fup .6s ease .5s both;}
   </blockquote>
 </section>
 
-<section id="ja">
+<section id="danke">
   <div class="tag">Danke</div>
-  <h2 class="ja-title">Wenn du möchtest,<br><em>reicht eine Nachricht.</em></h2>
-  <p class="ja-sub">
-    Ich brauche dich und deine Hilfe für dieses Projekt. Ich will erneut klar machen, dass ich zwar Hilfe für die nächsten Jahre brauche, 
-    aber du nicht mehr als ein paar Stunden im Monat investieren musst, um mir massiv zu helfen.
+  <h2 class="danke-title">Wenn du möchtest,<br><em>reicht eine Nachricht.</em></h2>
+  <p class="danke-sub">
+    Ich brauche dich und deine Unterstützung für dieses Projekt. Ich will erneut klar machen, dass ich zwar Hilfe für die nächsten Jahre brauche, 
+    aber du nicht mehr als ein paar Stunden im Monat investieren musst, um das fertige Spiel massiv zu bereichern.
   </p>
 
-  <div class="ja-box">
-    <div class="ja-box-title">wie's läuft</div>
-    <div class="ja-steps">
-      <div class="ja-step">
-        <span class="ja-step-num">01</span>
-        <p class="ja-step-text">Probiere dich an der <strong>Testaufgabe</strong> unten.</p>
+  <div class="danke-box">
+    <div class="danke-box-title">Und Jetzt?</div>
+    <div class="danke-steps">
+      <div class="danke-step">
+        <span class="danke-step-num">01</span>
+        <p class="danke-step-text">Probiere dich an der <strong>Testaufgabe</strong> unten.</p>
       </div>
-      <div class="ja-step">
-        <span class="ja-step-num">02</span>
-        <p class="ja-step-text">Du schreibst mir ehrlich ob du dir vorstellen kannst zu helfen. Mit einem <strong>Nein</strong> oder <strong>Ja</strong>.</p>
+      <div class="danke-step">
+        <span class="danke-step-num">02</span>
+        <p class="danke-step-text">Du schreibst mir ehrlich ob du dir vorstellen kannst zu helfen. Mit einem <strong>Nein</strong> oder <strong>Ja</strong>.</p>
       </div>
-      <div class="ja-step">
-        <span class="ja-step-num">03</span>
-        <p class="ja-step-text">Ich schicke dir <strong>deine erste Aufgabe.</strong></p>
+      <div class="danke-step">
+        <span class="danke-step-num">03</span>
+        <p class="danke-step-text">Ich schicke dir <strong>deine erste Aufgabe.</strong></p>
       </div>
-      <div class="ja-step">
-        <span class="ja-step-num">04</span>
-        <p class="ja-step-text">Du entscheidest fortlaufend wie lange du mitmachen willst.<strong> Ohne schlechtes Gewissen.</strong></p>
+      <div class="danke-step">
+        <span class="danke-step-num">04</span>
+        <p class="danke-step-text">Du entscheidest fortlaufend wie lange du mitmachen willst.<strong> Ohne schlechtes Gewissen.</strong></p>
       </div>
     </div>
   </div>
 
   <!-- Divider -->
-  <div class="section-divider">
-    <div class="section-divider-dot"></div>
-  </div>
+  <div class="section-divider"></div>
 
   <!-- CTA -->
   <div class="cta-area">
@@ -484,8 +473,8 @@ section.visible .cta-area  {animation:fup .6s ease .5s both;}
       <p class="mail-note">Registriere dich für die Aufgabe mit deiner E-Mail-Adresse.</p>
 
     <p class="cta-meta">
-      Dauert circa <strong>20–40 Minuten</strong> &nbsp;·&nbsp;
-      Wer mitmacht bekommt ein <strong>erstes Geschenk</strong> &nbsp;·&nbsp;
+      <br>Dauert circa <strong>20–40 Minuten</strong><br>
+      Wer mitmacht bekommt ein <strong>erstes Geschenk</strong><br>
       Deadline: <strong>Mo, 04.04.2026</strong>
     </p>
   </div>
